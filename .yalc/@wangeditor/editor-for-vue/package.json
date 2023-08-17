@@ -1,0 +1,44 @@
+{
+  "name": "@wangeditor/editor-for-vue",
+  "version": "5.1.12",
+  "description": "wangEditor component for vue@next",
+  "author": "liuqh0609 <liuqh0609@163.com>",
+  "homepage": "http://www.wangeditor.com/",
+  "main": "./dist/index.js",
+  "module": "./dist/index.esm.js",
+  "license": "MIT",
+  "types": "dist/src/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "wangEditor",
+    "富文本编辑器",
+    "富文本",
+    "vue3"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/src/index.d.ts",
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.js"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wangeditor-team/wangEditor-for-vue3.git"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "serve": "vite preview",
+    "release": "release-it",
+    "test": "jest"
+  },
+  "peerDependencies": {
+    "@wangeditor/editor": ">=5.1.0",
+    "vue": "^3.0.5"
+  },
+  "dependencies": {},
+  "yalcSig": "e58f5f56f960c95d8b57ea69e0334dc1"
+}

@@ -1,0 +1,42 @@
+{
+  "name": "ssml-editor",
+  "private": false,
+  "version": "0.0.1",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.umd.js",
+  "module": "./dist/index.es.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.umd.js"
+    },
+    "./dist/style.css": {
+      "import": "./dist/style.css",
+      "require": "./dist/style.css"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "run-p type-check build-only",
+    "preview": "vite preview",
+    "build-only": "vite build",
+    "type-check": "vue-tsc --noEmit --composite false",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "format": "prettier --write src/"
+  },
+  "peerDependencies": {
+    "@wangeditor/editor": "^5.1.23",
+    "dom7": "^3.0.0",
+    "snabbdom": "^3.5.1",
+    "vue": "^3.3.4"
+  },
+  "dependencies": {
+    "lodash.throttle": "^4.1.1"
+  },
+  "yalcSig": "52baa8041eccd36f0000b394b406110d"
+}
