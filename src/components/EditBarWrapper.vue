@@ -9,7 +9,7 @@ import {
   ChangespeedMenu,
   RhythmMenu,
   type IdText
-} from 'vue-vite-plugin-temp'
+} from 'ssml-editor'
 import { ElMessage, ElPopover } from 'element-plus'
 import EditInput from './EditInput.vue'
 
