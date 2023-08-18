@@ -6,12 +6,12 @@ import "@wangeditor/editor/dist/css/style.css"
 import "ssml-editor/dist/style.css"
 
 import { Boot } from "@wangeditor/editor"
-import { SSMLModule, EditorMenuPlugin } from "ssml-editor"
+import { default as SSMLEditor, EditorCoreModule } from "ssml-editor"
 
-Boot.registerModule(SSMLModule)
+Boot.registerModule(EditorCoreModule)
 
 const app = createApp(App)
 
-app.use(EditorMenuPlugin)
+app.use(SSMLEditor)
 
 app.mount("#app")

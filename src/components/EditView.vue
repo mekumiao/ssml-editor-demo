@@ -5,11 +5,14 @@ import EditBarWrapper from './EditBarWrapper.vue'
 import type { IDomEditor } from '@wangeditor/editor'
 import { ref, shallowRef, provide } from 'vue'
 
+type Options = { value: string; label: string }
+
 const emit = defineEmits<{ onCreated: [editor: IDomEditor]; onChange: [editor: IDomEditor] }>()
 
 const characterMax = ref(5000)
 const characterTotal = ref(0)
 const editorRef = shallowRef<IDomEditor>()
+const bgm = ref<Options | null>(null)
 
 provide('editor', editorRef)
 
@@ -17,6 +20,14 @@ const handleCreated = (editor: IDomEditor) => {
   editorRef.value = editor
   characterTotal.value = editor.getText().length
   emit('onCreated', editor)
+
+  editor.on('updateBgm', (value: Options) => {
+    bgm.value = value
+  })
+
+  editor.on('removeBgm', () => {
+    bgm.value = null
+  })
 }
 
 const handleChange = (editor: IDomEditor) => {
@@ -27,7 +38,11 @@ const handleChange = (editor: IDomEditor) => {
 
 <template>
   <div class="edit-view">
-    <EditTitle :character-total="characterTotal" :character-max="characterMax"></EditTitle>
+    <EditTitle
+      :bgm="bgm"
+      :character-total="characterTotal"
+      :character-max="characterMax"
+    ></EditTitle>
     <div class="edit-box">
       <EditBarWrapper></EditBarWrapper>
       <div class="h h-1"></div>
