@@ -13,7 +13,7 @@ declare const _sfc_main: import("vue").DefineComponent<{
         required: false;
         default: boolean;
     };
-}, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("click" | "update:visiblePopover")[], "click" | "update:visiblePopover", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, "click"[], "click", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     text: {
         type: __PropType<string>;
         required: true;
@@ -29,7 +29,6 @@ declare const _sfc_main: import("vue").DefineComponent<{
     };
 }>> & {
     onClick?: ((...args: any[]) => any) | undefined;
-    "onUpdate:visiblePopover"?: ((...args: any[]) => any) | undefined;
 }, {
     disabled: boolean | undefined;
 }, {}>;

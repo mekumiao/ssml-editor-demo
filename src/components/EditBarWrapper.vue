@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import {
+  BarButton,
   SpeakerMenu,
   ReadMenu,
   DigitalMenu,
@@ -8,13 +9,17 @@ import {
   EnglishMenu,
   ChangespeedMenu,
   RhythmMenu,
+  SpecialMenu,
+  MuteMenu,
   type IdText
 } from 'ssml-editor'
-import { ElMessage, ElPopover } from 'element-plus'
-import EditInput from './EditInput.vue'
+import { ElMessage } from 'element-plus'
 
 function handleError(error: string) {
-  ElMessage.warning(error)
+  ElMessage.warning({
+    message: error,
+    grouping: true
+  })
 }
 
 function fetchSpeaker(hanzi: string): Promise<IdText[]> {
@@ -45,42 +50,42 @@ function fetchEnglish(word: string): Promise<IdText[]> {
 <template>
   <div class="edit-bar-wrapper">
     <div class="tool-list">
-      <EditBarButton text="24K高清音质" icon="play" disabled></EditBarButton>
+      <BarButton text="24K高清音质" icon="play" disabled></BarButton>
     </div>
     <div class="divider divider-green"></div>
     <div class="tool-list">
-      <SpeakerMenu :popover="ElPopover" @error="handleError" :fetch="fetchSpeaker"></SpeakerMenu>
-      <ReadMenu :popover="ElPopover" @error="handleError"></ReadMenu>
-      <DigitalMenu :popover="ElPopover" @error="handleError"></DigitalMenu>
+      <SpeakerMenu @error="handleError" :fetch="fetchSpeaker"></SpeakerMenu>
+      <ReadMenu @error="handleError"></ReadMenu>
+      <DigitalMenu @error="handleError"></DigitalMenu>
       <ContinuousMenu @error="handleError"></ContinuousMenu>
-      <AliasMenu :popover="ElPopover" :input="EditInput"></AliasMenu>
-      <EnglishMenu :popover="ElPopover" :fetch="fetchEnglish"></EnglishMenu>
+      <AliasMenu @error="handleError"></AliasMenu>
+      <EnglishMenu :fetch="fetchEnglish" @error="handleError"></EnglishMenu>
     </div>
     <div class="divider divider-cyan"></div>
     <div class="tool-list">
-      <ChangespeedMenu :popover="ElPopover"></ChangespeedMenu>
-      <EditBarButton text="多人配音" icon="management" disabled></EditBarButton>
-      <EditBarButton text="局部变音" icon="conversion" disabled></EditBarButton>
+      <ChangespeedMenu @error="handleError"></ChangespeedMenu>
+      <BarButton text="多人配音" icon="management" disabled></BarButton>
+      <BarButton text="局部变音" icon="conversion" disabled></BarButton>
     </div>
     <div class="divider divider-orange"></div>
     <div class="tool-list">
-      <RhythmMenu :popover="ElPopover"></RhythmMenu>
-      <EditBarButton text="插入静音" icon="mute" disabled></EditBarButton>
-      <EditBarButton text="符号静音" icon="symbol" disabled></EditBarButton>
-      <!-- <EditBarButton text="段落静音" icon="icon-play" disabled></EditBarButton>
-      <EditBarButton text="解说模式" icon="icon-play" disabled></EditBarButton> -->
+      <RhythmMenu @error="handleError"></RhythmMenu>
+      <MuteMenu @error="handleError"></MuteMenu>
+      <!-- <BarButton text="符号静音" icon="symbol" disabled></BarButton> -->
+      <!-- <BarButton text="段落静音" icon="icon-play" disabled></BarButton>
+      <BarButton text="解说模式" icon="icon-play" disabled></BarButton> -->
     </div>
     <div class="divider divider-purple"></div>
     <div class="tool-list">
-      <EditBarButton text="音效" icon="special" disabled></EditBarButton>
-      <EditBarButton text="配乐" icon="bgm" disabled></EditBarButton>
+      <SpecialMenu @error="handleError"></SpecialMenu>
+      <BarButton text="配乐" icon="bgm" disabled></BarButton>
     </div>
     <!-- <div class="divider divider-yellow"></div>
     <div class="tool-list">
-      <EditBarButton text="批量替换" icon="icon-play"></EditBarButton>
-      <EditBarButton text="查看拼音" icon="icon-play"></EditBarButton>
-      <EditBarButton text="敏感词" icon="icon-play"></EditBarButton>
-      <EditBarButton text="评论" icon="icon-play"></EditBarButton>
+      <BarButton text="批量替换" icon="icon-play"></BarButton>
+      <BarButton text="查看拼音" icon="icon-play"></BarButton>
+      <BarButton text="敏感词" icon="icon-play"></BarButton>
+      <BarButton text="评论" icon="icon-play"></BarButton>
     </div> -->
   </div>
 </template>

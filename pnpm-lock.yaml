@@ -19,7 +19,7 @@ dependencies:
     version: 2.3.9(vue@3.3.4)
   ssml-editor:
     specifier: file:.yalc/ssml-editor
-    version: file:.yalc/ssml-editor(@wangeditor/editor@5.1.23)(dom7@3.0.0)(snabbdom@3.5.1)(vue@3.3.4)
+    version: file:.yalc/ssml-editor(@element-plus/icons-vue@2.1.0)(@wangeditor/editor@5.1.23)(dom7@3.0.0)(element-plus@2.3.9)(snabbdom@3.5.1)(vue@3.3.4)
   vue:
     specifier: ^3.3.4
     version: 3.3.4
@@ -1306,18 +1306,22 @@ packages:
       vue: 3.3.4
     dev: false
 
-  file:.yalc/ssml-editor(@wangeditor/editor@5.1.23)(dom7@3.0.0)(snabbdom@3.5.1)(vue@3.3.4):
+  file:.yalc/ssml-editor(@element-plus/icons-vue@2.1.0)(@wangeditor/editor@5.1.23)(dom7@3.0.0)(element-plus@2.3.9)(snabbdom@3.5.1)(vue@3.3.4):
     resolution: {directory: .yalc/ssml-editor, type: directory}
     id: file:.yalc/ssml-editor
     name: ssml-editor
     peerDependencies:
+      '@element-plus/icons-vue': ^2.1.0
       '@wangeditor/editor': ^5.1.23
       dom7: ^3.0.0
+      element-plus: ^2.3.9
       snabbdom: ^3.5.1
       vue: ^3.3.4
     dependencies:
+      '@element-plus/icons-vue': 2.1.0(vue@3.3.4)
       '@wangeditor/editor': 5.1.23
       dom7: 3.0.0
+      element-plus: 2.3.9(vue@3.3.4)
       lodash.throttle: 4.1.1
       snabbdom: 3.5.1
       vue: 3.3.4

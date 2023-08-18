@@ -30,13 +30,15 @@
     "format": "prettier --write src/"
   },
   "peerDependencies": {
+    "@element-plus/icons-vue": "^2.1.0",
     "@wangeditor/editor": "^5.1.23",
     "dom7": "^3.0.0",
+    "element-plus": "^2.3.9",
     "snabbdom": "^3.5.1",
     "vue": "^3.3.4"
   },
   "dependencies": {
     "lodash.throttle": "^4.1.1"
   },
-  "yalcSig": "e9a8981ebec1dc7b22375249055d42aa"
+  "yalcSig": "c5ee214982684816e422f2fcb53841ba"
 }

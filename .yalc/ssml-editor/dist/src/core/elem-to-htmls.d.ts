@@ -1,7 +1,7 @@
 import type { SlateElement } from '@wangeditor/editor';
-declare function paragraph(elem: SlateElement, childrenHtml: string): string;
+import type { SSMLElementType } from './custom-types';
 export declare const elemToHtmls: {
-    type: string;
-    elemToHtml: typeof paragraph;
+    type: SSMLElementType;
+    elemToHtml: (elem: SlateElement, childrenHtml: string) => string;
 }[];
 export {};

@@ -1,8 +1,8 @@
 import { type VNode } from 'snabbdom';
-import { SlateElement } from '@wangeditor/editor';
-declare function renderW(elem: SlateElement, children: VNode[] | null): VNode;
+import { SlateElement, type IDomEditor } from '@wangeditor/editor';
+import type { SSMLElementType } from './custom-types';
 export declare const renderElems: {
-    type: string;
-    renderElem: typeof renderW;
+    type: SSMLElementType;
+    renderElem: (elem: SlateElement, children: VNode[] | null, editor: IDomEditor) => VNode;
 }[];
 export {};
