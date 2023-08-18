@@ -3,6 +3,7 @@
   "private": false,
   "version": "0.0.1",
   "type": "module",
+  "license": "Apache-2.0",
   "files": [
     "dist"
   ],
@@ -31,6 +32,8 @@
   },
   "peerDependencies": {
     "@element-plus/icons-vue": "^2.1.0",
+    "@vueuse/components": "^10.3.0",
+    "@vueuse/core": "^10.3.0",
     "@wangeditor/editor": "^5.1.23",
     "dom7": "^3.0.0",
     "element-plus": "^2.3.9",
@@ -40,5 +43,5 @@
   "dependencies": {
     "lodash.throttle": "^4.1.1"
   },
-  "yalcSig": "c5ee214982684816e422f2fcb53841ba"
+  "yalcSig": "bc4c5fc289f722826565f8431600ef52"
 }

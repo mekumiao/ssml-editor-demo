@@ -10,7 +10,7 @@ export type IdText = {
 type UnionTypesMap<T extends {
     type: string;
 }> = T extends any ? T['type'] : never;
-export type SSMLElementType = UnionTypesMap<SayAs | Break | W | P | Sub | Prosody> | 'paragraph';
+export type SSMLElementType = UnionTypesMap<SayAs | Break | W | P | Sub | Prosody | Audio> | 'paragraph';
 export interface SSMLBaseElement extends SlateElement {
     type: SSMLElementType;
     domId: string;
@@ -47,5 +47,9 @@ export interface Sub extends SSMLBaseElement {
 export interface Prosody extends SSMLBaseElement {
     type: 'ssml-prosody';
     rate: string;
+}
+export interface Audio extends SSMLBaseElement {
+    type: 'ssml-audio';
+    src: string;
 }
 export {};

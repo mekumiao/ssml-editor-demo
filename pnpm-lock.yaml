@@ -19,7 +19,7 @@ dependencies:
     version: 2.3.9(vue@3.3.4)
   ssml-editor:
     specifier: file:.yalc/ssml-editor
-    version: file:.yalc/ssml-editor(@element-plus/icons-vue@2.1.0)(@wangeditor/editor@5.1.23)(dom7@3.0.0)(element-plus@2.3.9)(snabbdom@3.5.1)(vue@3.3.4)
+    version: file:.yalc/ssml-editor(@element-plus/icons-vue@2.1.0)(@vueuse/components@10.3.0)(@vueuse/core@10.3.0)(@wangeditor/editor@5.1.23)(dom7@3.0.0)(element-plus@2.3.9)(snabbdom@3.5.1)(vue@3.3.4)
   vue:
     specifier: ^3.3.4
     version: 3.3.4
@@ -333,6 +333,10 @@ packages:
     resolution: {integrity: sha512-oh8q2Zc32S6gd/j50GowEjKLoOVOwHP/bWVjKJInBwQqdOYMdPrf1oVlelTlyfFK3CKxL1uahMDAr+vy8T7yMQ==}
     dev: false
 
+  /@types/web-bluetooth@0.0.17:
+    resolution: {integrity: sha512-4p9vcSmxAayx72yn70joFoL44c9MO/0+iVEBIQXe3v2h2SiAsEIo/G5v6ObFWvNKRFjbrVadNf9LqEEZeQPzdA==}
+    dev: false
+
   /@uppy/companion-client@2.2.2:
     resolution: {integrity: sha512-5mTp2iq97/mYSisMaBtFRry6PTgZA6SIL7LePteOV5x0/DxKfrZW3DEiQERJmYpHzy7k8johpm2gHnEKto56Og==}
     dependencies:
@@ -504,6 +508,29 @@ packages:
       - typescript
     dev: true
 
+  /@vueuse/components@10.3.0(vue@3.3.4):
+    resolution: {integrity: sha512-EeZz3kjmJI7bH7JSxxMlLyk21LGl6GQjXfpl2n/GiI9QSJi+BVzIra5kEty5eM8McwAanx3e/HnK4drYTgFOWw==}
+    dependencies:
+      '@vueuse/core': 10.3.0(vue@3.3.4)
+      '@vueuse/shared': 10.3.0(vue@3.3.4)
+      vue-demi: 0.14.5(vue@3.3.4)
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - vue
+    dev: false
+
+  /@vueuse/core@10.3.0(vue@3.3.4):
+    resolution: {integrity: sha512-BEM5yxcFKb5btFjTSAFjTu5jmwoW66fyV9uJIP4wUXXU8aR5Hl44gndaaXp7dC5HSObmgbnR2RN+Un1p68Mf5Q==}
+    dependencies:
+      '@types/web-bluetooth': 0.0.17
+      '@vueuse/metadata': 10.3.0
+      '@vueuse/shared': 10.3.0(vue@3.3.4)
+      vue-demi: 0.14.5(vue@3.3.4)
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - vue
+    dev: false
+
   /@vueuse/core@9.13.0(vue@3.3.4):
     resolution: {integrity: sha512-pujnclbeHWxxPRqXWmdkKV5OX4Wk4YeK7wusHqRwU0Q7EFusHoqNA/aPhB6KCh9hEqJkLAJo7bb0Lh9b+OIVzw==}
     dependencies:
@@ -516,8 +543,21 @@ packages:
       - vue
     dev: false
 
+  /@vueuse/metadata@10.3.0:
+    resolution: {integrity: sha512-Ema3YhNOa4swDsV0V7CEY5JXvK19JI/o1szFO1iWxdFg3vhdFtCtSTP26PCvbUpnUtNHBY2wx5y3WDXND5Pvnw==}
+    dev: false
+
   /@vueuse/metadata@9.13.0:
     resolution: {integrity: sha512-gdU7TKNAUVlXXLbaF+ZCfte8BjRJQWPCa2J55+7/h+yDtzw3vOoGQDRXzI6pyKyo6bXFT5/QoPE4hAknExjRLQ==}
+    dev: false
+
+  /@vueuse/shared@10.3.0(vue@3.3.4):
+    resolution: {integrity: sha512-kGqCTEuFPMK4+fNWy6dUOiYmxGcUbtznMwBZLC1PubidF4VZY05B+Oht7Jh7/6x4VOWGpvu3R37WHi81cKpiqg==}
+    dependencies:
+      vue-demi: 0.14.5(vue@3.3.4)
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - vue
     dev: false
 
   /@vueuse/shared@9.13.0(vue@3.3.4):
@@ -1306,12 +1346,14 @@ packages:
       vue: 3.3.4
     dev: false
 
-  file:.yalc/ssml-editor(@element-plus/icons-vue@2.1.0)(@wangeditor/editor@5.1.23)(dom7@3.0.0)(element-plus@2.3.9)(snabbdom@3.5.1)(vue@3.3.4):
+  file:.yalc/ssml-editor(@element-plus/icons-vue@2.1.0)(@vueuse/components@10.3.0)(@vueuse/core@10.3.0)(@wangeditor/editor@5.1.23)(dom7@3.0.0)(element-plus@2.3.9)(snabbdom@3.5.1)(vue@3.3.4):
     resolution: {directory: .yalc/ssml-editor, type: directory}
     id: file:.yalc/ssml-editor
     name: ssml-editor
     peerDependencies:
       '@element-plus/icons-vue': ^2.1.0
+      '@vueuse/components': ^10.3.0
+      '@vueuse/core': ^10.3.0
       '@wangeditor/editor': ^5.1.23
       dom7: ^3.0.0
       element-plus: ^2.3.9
@@ -1319,6 +1361,8 @@ packages:
       vue: ^3.3.4
     dependencies:
       '@element-plus/icons-vue': 2.1.0(vue@3.3.4)
+      '@vueuse/components': 10.3.0(vue@3.3.4)
+      '@vueuse/core': 10.3.0(vue@3.3.4)
       '@wangeditor/editor': 5.1.23
       dom7: 3.0.0
       element-plus: 2.3.9(vue@3.3.4)

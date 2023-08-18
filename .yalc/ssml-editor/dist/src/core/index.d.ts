@@ -1,4 +1,4 @@
 import { type IModuleConf } from '@wangeditor/editor';
-declare const module: Partial<IModuleConf>;
-export default module;
+declare const _default: Partial<IModuleConf>;
+export default _default;
 export * from './custom-types';

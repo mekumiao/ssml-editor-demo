@@ -2,7 +2,7 @@
   "version": "v1",
   "packages": {
     "ssml-editor": {
-      "signature": "c5ee214982684816e422f2fcb53841ba",
+      "signature": "bc4c5fc289f722826565f8431600ef52",
       "file": true
     },
     "@wangeditor/editor-for-vue": {
