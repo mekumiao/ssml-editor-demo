@@ -41,7 +41,8 @@
     "vue": "^3.3.4"
   },
   "dependencies": {
+    "bootstrap": "^5.3.1",
     "lodash.throttle": "^4.1.1"
   },
-  "yalcSig": "bc4c5fc289f722826565f8431600ef52"
+  "yalcSig": "5b32c043acfc931234e2e5cdcae3dc85"
 }
