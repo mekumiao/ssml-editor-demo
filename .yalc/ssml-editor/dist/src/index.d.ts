@@ -3,6 +3,7 @@ export * from './components';
 export * from './menu';
 export * from './core';
 export * from './utils';
+export * from './view';
 export { default as EditorCoreModule } from './core';
 declare const _default: Plugin;
 export default _default;

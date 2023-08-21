@@ -11,15 +11,12 @@
   "dependencies": {
     "@element-plus/icons-vue": "^2.1.0",
     "@wangeditor/editor": "^5.1.23",
-    "@wangeditor/editor-for-vue": "file:.yalc/@wangeditor/editor-for-vue",
     "element-plus": "^2.3.9",
     "ssml-editor": "file:.yalc/ssml-editor",
-    "vue": "^3.3.4",
-    "xml-formatter": "^3.5.0"
+    "vue": "^3.3.4"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.2.3",
-    "sass": "^1.65.1",
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
     "vue-tsc": "^1.8.5"
