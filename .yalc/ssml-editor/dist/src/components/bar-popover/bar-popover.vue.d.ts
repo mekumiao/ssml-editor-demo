@@ -5,7 +5,7 @@ declare const _sfc_main: import("vue").DefineComponent<{
         required: false;
     };
     trigger: {
-        type: __PropType<"click" | "hover" | "focus" | "contextmenu">;
+        type: __PropType<"click" | "contextmenu" | "focus" | "hover">;
         required: true;
     };
     hideAfter: {
@@ -22,7 +22,7 @@ declare const _sfc_main: import("vue").DefineComponent<{
         required: false;
     };
     trigger: {
-        type: __PropType<"click" | "hover" | "focus" | "contextmenu">;
+        type: __PropType<"click" | "contextmenu" | "focus" | "hover">;
         required: true;
     };
     hideAfter: {
