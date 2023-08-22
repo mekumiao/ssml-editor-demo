@@ -2,11 +2,6 @@ import { type SlateElement } from '@wangeditor/editor';
 type EmptyText = {
     text: '';
 };
-export type IdText = {
-    id: string;
-    text: string;
-    remark: string;
-};
 type UnionTypesMap<T extends {
     type: string;
 }> = T extends any ? T['type'] : never;

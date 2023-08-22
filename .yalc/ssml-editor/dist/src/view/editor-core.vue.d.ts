@@ -19,7 +19,7 @@ declare const _sfc_main: import("vue").DefineComponent<{
         required: true;
     };
 }>> & {
-    onChange?: ((...args: any[]) => any) | undefined;
     onCreated?: ((...args: any[]) => any) | undefined;
+    onChange?: ((...args: any[]) => any) | undefined;
 }, {}, {}>;
 export default _sfc_main;

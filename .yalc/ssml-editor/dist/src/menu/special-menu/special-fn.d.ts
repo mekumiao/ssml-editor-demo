@@ -1,11 +1,9 @@
 import { type IDomEditor } from '@wangeditor/editor';
-export default class SpecialFn {
-    private readonly editor;
-    private oldSelection?;
+import BaseFn from '../base-fn';
+import type { LabelValue } from '../../model';
+export declare class SpecialFn extends BaseFn {
+    protected key: string;
     constructor(editor: IDomEditor);
-    recordSelection(): void;
-    private getSelection;
-    getValue(): string | null;
     isDisabled(): boolean;
     exec(opt: LabelValue): void;
 }

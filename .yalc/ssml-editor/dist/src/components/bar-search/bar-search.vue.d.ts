@@ -1,4 +1,5 @@
 import type { PropType as __PropType } from 'vue';
+import type { LabelValue } from '../../model';
 type MenuKey = 'first' | 'second' | 'last';
 type MenuItemLabel = {
     [k in MenuKey]: string;
