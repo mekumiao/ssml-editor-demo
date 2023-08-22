@@ -2,7 +2,7 @@
   "version": "v1",
   "packages": {
     "ssml-editor": {
-      "signature": "ec9fb79f05b9c3d5a508191019328559",
+      "signature": "ba9dcd69d75a688e54578c3dc13f702a",
       "file": true
     }
   }

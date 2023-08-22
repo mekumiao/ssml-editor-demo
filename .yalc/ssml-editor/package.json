@@ -1,7 +1,7 @@
 {
   "name": "ssml-editor",
   "private": false,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "license": "Apache-2.0",
   "files": [
@@ -41,5 +41,5 @@
     "snabbdom": "^3.5.1",
     "vue": "^3.3.4"
   },
-  "yalcSig": "ec9fb79f05b9c3d5a508191019328559"
+  "yalcSig": "ba9dcd69d75a688e54578c3dc13f702a"
 }
