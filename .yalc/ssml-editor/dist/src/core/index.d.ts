@@ -9,5 +9,6 @@ export { default as RhythmModule } from './rhythm';
 export { default as SpeakerModule } from './speaker';
 export { default as SpecialModule } from './special';
 export { default as SpeakModule } from './speak';
+export { default as GlobalPlugin } from './plugin';
 export * from './bind';
 export * from './custom-types';

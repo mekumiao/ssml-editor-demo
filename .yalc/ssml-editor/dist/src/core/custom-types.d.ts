@@ -11,5 +11,5 @@ import type { Special } from './special';
 type UnionTypesMap<T extends {
     type: string;
 }> = T extends any ? T['type'] : never;
-export type SSMLElementType = UnionTypesMap<Alias> | UnionTypesMap<Changespeed> | UnionTypesMap<Continuous> | UnionTypesMap<Digital> | UnionTypesMap<English> | UnionTypesMap<Mute> | UnionTypesMap<Read> | UnionTypesMap<Rhythm> | UnionTypesMap<Speaker> | UnionTypesMap<Special> | 'paragraph';
+export type SSMLElementType = UnionTypesMap<Alias> | UnionTypesMap<Changespeed> | UnionTypesMap<Continuous> | UnionTypesMap<Digital> | UnionTypesMap<English> | UnionTypesMap<Mute> | UnionTypesMap<Read> | UnionTypesMap<Rhythm> | UnionTypesMap<Speaker> | UnionTypesMap<Special>;
 export {};
