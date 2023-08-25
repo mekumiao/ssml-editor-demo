@@ -4,7 +4,5 @@ export type EmptyText = {
 };
 export interface SSMLBaseElement extends SlateElement {
     type: string;
-    domId: string;
     remark: string;
-    bgColor: string;
 }

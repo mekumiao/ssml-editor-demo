@@ -28,7 +28,7 @@
     "build-only": "vite build",
     "type-check": "vue-tsc --noEmit --composite false",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
-    "format": "prettier --write src/"
+    "format": "prettier --write src/ example/"
   },
   "peerDependencies": {
     "@element-plus/icons-vue": "^2.1.0",
@@ -41,5 +41,5 @@
     "snabbdom": "^3.5.1",
     "vue": "^3.3.4"
   },
-  "yalcSig": "bf84fe77801476da39c66d76ee4e6289"
+  "yalcSig": "6f3b27db763acccfa3d7002405e41539"
 }
