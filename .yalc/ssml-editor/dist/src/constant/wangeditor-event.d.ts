@@ -1,6 +1,4 @@
 declare const _default: {
-    UPDATE_BGM: string;
-    REMOVE_BGM: string;
-    UPDATE_SPEAK: string;
+    ERROR: string;
 };
 export default _default;

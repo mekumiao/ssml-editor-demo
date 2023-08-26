@@ -1,8 +1,10 @@
 import type { Filter, LabelValue } from '../model';
+import type { IEditorConfig } from '@wangeditor/editor';
 type FetahFunction = (word: string) => Promise<LabelValue[]>;
 type FilterFetahFunction = (filter: Filter) => Promise<LabelValue[]>;
 export type GlobalEditorConfig = ReturnType<typeof createGlobalEditorConfig>;
 export interface SSMLEditorConfig {
+    editorConfig?: IEditorConfig;
     handleError: (error: string) => void;
     fetchSpeaker: FetahFunction;
     fetchEnglish: FetahFunction;
@@ -10,109 +12,7 @@ export interface SSMLEditorConfig {
     fetchSpecial: FilterFetahFunction;
 }
 export declare function createGlobalEditorConfig(config?: SSMLEditorConfig): {
-    handleError: (error: string) => void;
-    fetchSpeaker: FetahFunction;
-    fetchEnglish: FetahFunction;
-    fetchBgm: FilterFetahFunction;
-    fetchSpecial: FilterFetahFunction;
-    speed: () => {
-        0: string;
-        0.1: string;
-        0.2: string;
-        0.3: string;
-        0.4: string;
-        0.5: string;
-        0.6: string;
-        0.7: string;
-        0.8: string;
-        0.9: string;
-        1: string;
-        1.1: string;
-        1.2: string;
-        1.4: string;
-        1.5: string;
-        1.75: string;
-        2: string;
-    };
-    pitch: () => {
-        0: string;
-        1: string;
-        2: string;
-        3: string;
-        4: string;
-        5: string;
-        6: string;
-        7: string;
-        8: string;
-        9: string;
-        10: string;
-        '-1': string;
-        '-2': string;
-        '-3': string;
-        '-4': string;
-        '-5': string;
-        '-6': string;
-        '-7': string;
-        '-8': string;
-        '-9': string;
-        '-10': string;
-    };
-    demoAvatar: () => string;
-};
-export declare function provideGlobalConfig(provide: (key: string, config: GlobalEditorConfig) => void, config?: SSMLEditorConfig): {
-    handleError: (error: string) => void;
-    fetchSpeaker: FetahFunction;
-    fetchEnglish: FetahFunction;
-    fetchBgm: FilterFetahFunction;
-    fetchSpecial: FilterFetahFunction;
-    speed: () => {
-        0: string;
-        0.1: string;
-        0.2: string;
-        0.3: string;
-        0.4: string;
-        0.5: string;
-        0.6: string;
-        0.7: string;
-        0.8: string;
-        0.9: string;
-        1: string;
-        1.1: string;
-        1.2: string;
-        1.4: string;
-        1.5: string;
-        1.75: string;
-        2: string;
-    };
-    pitch: () => {
-        0: string;
-        1: string;
-        2: string;
-        3: string;
-        4: string;
-        5: string;
-        6: string;
-        7: string;
-        8: string;
-        9: string;
-        10: string;
-        '-1': string;
-        '-2': string;
-        '-3': string;
-        '-4': string;
-        '-5': string;
-        '-6': string;
-        '-7': string;
-        '-8': string;
-        '-9': string;
-        '-10': string;
-    };
-    demoAvatar: () => string;
-};
-/**
- * 必须在setup函数中调用
- */
-export declare function injectGlobalConfig(): {
+    editorConfig: IEditorConfig;
     handleError: (error: string) => void;
     fetchSpeaker: FetahFunction;
     fetchEnglish: FetahFunction;

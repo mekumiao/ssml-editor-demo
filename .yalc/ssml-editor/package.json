@@ -1,7 +1,7 @@
 {
   "name": "ssml-editor",
   "private": false,
-  "version": "0.0.2",
+  "version": "1.0.1",
   "type": "module",
   "license": "Apache-2.0",
   "files": [
@@ -22,7 +22,7 @@
     }
   },
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --port 5793",
     "build": "run-p type-check build-only",
     "preview": "vite preview",
     "build-only": "vite build",
@@ -38,8 +38,9 @@
     "bootstrap": "^5.3.1",
     "dom7": "^3.0.0",
     "element-plus": "^2.3.9",
+    "pinia": "^2.1.6",
     "snabbdom": "^3.5.1",
     "vue": "^3.3.4"
   },
-  "yalcSig": "6f3b27db763acccfa3d7002405e41539"
+  "yalcSig": "5d07e5a0ef53e6b93e8c9f2ce5be5163"
 }

@@ -1,9 +1,9 @@
 import { type IDomEditor } from '@wangeditor/editor';
 import BaseFn from '../base-fn';
-import type { LabelValue } from '../../model';
+import type { ReadLabelValue } from './data';
 export declare class ReadFn extends BaseFn {
     protected readonly key: string;
     constructor(editor: IDomEditor);
     isDisabled(): boolean;
-    exec(opt: LabelValue): void;
+    exec(opt: ReadLabelValue): void;
 }

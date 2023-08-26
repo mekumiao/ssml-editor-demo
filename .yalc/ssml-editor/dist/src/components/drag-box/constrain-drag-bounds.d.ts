@@ -1,5 +1,5 @@
 import { type Ref } from 'vue';
-export declare function withLimitView(box: Ref<HTMLElement | undefined>, position: Ref<{
+export declare function constrainDragBounds(box: Ref<HTMLElement | undefined>, position: Ref<{
     x: number;
     y: number;
 }>): {

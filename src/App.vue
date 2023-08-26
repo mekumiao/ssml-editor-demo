@@ -2,6 +2,7 @@
 
 <template>
   <EditorView></EditorView>
+  <div></div>
 </template>
 
 <style scoped></style>
