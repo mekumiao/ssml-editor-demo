@@ -6,7 +6,7 @@ export type GlobalEditorConfig = ReturnType<typeof createGlobalEditorConfig>;
 export interface SSMLEditorConfig {
     editorConfig?: IEditorConfig;
     handleError: (error: string) => void;
-    fetchSpeaker: FetahFunction;
+    fetchPinyin: FetahFunction;
     fetchEnglish: FetahFunction;
     fetchBgm: FilterFetahFunction;
     fetchSpecial: FilterFetahFunction;
@@ -14,7 +14,7 @@ export interface SSMLEditorConfig {
 export declare function createGlobalEditorConfig(config?: SSMLEditorConfig): {
     editorConfig: IEditorConfig;
     handleError: (error: string) => void;
-    fetchSpeaker: FetahFunction;
+    fetchPinyin: FetahFunction;
     fetchEnglish: FetahFunction;
     fetchBgm: FilterFetahFunction;
     fetchSpecial: FilterFetahFunction;

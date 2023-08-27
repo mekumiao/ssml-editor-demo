@@ -1,9 +1,9 @@
 import axios from "axios"
 import "./mock-server"
-import { Filter, LabelValue } from "ssml-editor"
+import type { LabelValue, Filter } from "ssml-editor"
 
-export async function speaker(word: string): Promise<LabelValue[]> {
-  const resp = await axios.get("/speaker", { params: { word } })
+export async function pinyin(word: string): Promise<LabelValue[]> {
+  const resp = await axios.get("/pinyin", { params: { word } })
   return resp.data
 }
 

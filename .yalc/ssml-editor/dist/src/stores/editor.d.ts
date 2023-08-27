@@ -5,7 +5,7 @@ export declare const useEditorStore: import("pinia").StoreDefinition<"--editor-c
     globalEditConfig: import("vue").ComputedRef<{
         editorConfig: import("@wangeditor/editor").IEditorConfig;
         handleError: (error: string) => void;
-        fetchSpeaker: (word: string) => Promise<import("..").LabelValue[]>;
+        fetchPinyin: (word: string) => Promise<import("..").LabelValue[]>;
         fetchEnglish: (word: string) => Promise<import("..").LabelValue[]>;
         fetchBgm: (filter: import("..").Filter) => Promise<import("..").LabelValue[]>;
         fetchSpecial: (filter: import("..").Filter) => Promise<import("..").LabelValue[]>;
@@ -60,7 +60,7 @@ export declare const useEditorStore: import("pinia").StoreDefinition<"--editor-c
     globalEditConfig: import("vue").ComputedRef<{
         editorConfig: import("@wangeditor/editor").IEditorConfig;
         handleError: (error: string) => void;
-        fetchSpeaker: (word: string) => Promise<import("..").LabelValue[]>;
+        fetchPinyin: (word: string) => Promise<import("..").LabelValue[]>;
         fetchEnglish: (word: string) => Promise<import("..").LabelValue[]>;
         fetchBgm: (filter: import("..").Filter) => Promise<import("..").LabelValue[]>;
         fetchSpecial: (filter: import("..").Filter) => Promise<import("..").LabelValue[]>;
@@ -115,7 +115,7 @@ export declare const useEditorStore: import("pinia").StoreDefinition<"--editor-c
     globalEditConfig: import("vue").ComputedRef<{
         editorConfig: import("@wangeditor/editor").IEditorConfig;
         handleError: (error: string) => void;
-        fetchSpeaker: (word: string) => Promise<import("..").LabelValue[]>;
+        fetchPinyin: (word: string) => Promise<import("..").LabelValue[]>;
         fetchEnglish: (word: string) => Promise<import("..").LabelValue[]>;
         fetchBgm: (filter: import("..").Filter) => Promise<import("..").LabelValue[]>;
         fetchSpecial: (filter: import("..").Filter) => Promise<import("..").LabelValue[]>;

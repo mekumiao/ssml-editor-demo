@@ -1,11 +1,11 @@
-import type { SSMLEditorConfig } from 'ssml-editor'
-import { speaker, english, bgm, special } from './api'
-import { ElMessage } from 'element-plus'
+import type { SSMLEditorConfig } from "ssml-editor"
+import { pinyin, english, bgm, special } from "./api"
+import { ElMessage } from "element-plus"
 
 export default {
   handleError: (error) => ElMessage.warning({ message: error, grouping: true }),
-  fetchSpeaker: speaker,
+  fetchPinyin: pinyin,
   fetchEnglish: english,
   fetchBgm: bgm,
-  fetchSpecial: special
+  fetchSpecial: special,
 } as SSMLEditorConfig

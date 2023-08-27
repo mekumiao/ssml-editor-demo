@@ -1,5 +1,5 @@
 import type { Plugin } from 'vue';
-import { SpeakerMenu } from './speaker-menu';
+import { PinyinMenu } from './pinyin-menu';
 import { ContinuousMenu } from './continuous-menu';
 import { ReadMenu } from './read-menu';
 import { DigitalMenu } from './digital-menu';
@@ -16,4 +16,4 @@ import { ConversionMenu } from './conversion-menu';
 import { TryPlay } from './try-play';
 declare const _default: Plugin;
 export default _default;
-export { SpeakerMenu, ContinuousMenu, ReadMenu, DigitalMenu, AliasMenu, EnglishMenu, ChangespeedMenu, RhythmMenu, SpecialMenu, MuteMenu, BgmMenu, SensitiveMenu, ManagementMenu, ConversionMenu, TryPlay };
+export { PinyinMenu, ContinuousMenu, ReadMenu, DigitalMenu, AliasMenu, EnglishMenu, ChangespeedMenu, RhythmMenu, SpecialMenu, MuteMenu, BgmMenu, SensitiveMenu, ManagementMenu, ConversionMenu, TryPlay };
