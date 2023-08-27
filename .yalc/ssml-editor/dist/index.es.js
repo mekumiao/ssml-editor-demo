@@ -2481,32 +2481,35 @@ function na(e) {
   const t = e.volume ? ` volume="${e.volume}"` : "", n = e.fadein ? ` fadein="${e.fadein}"` : "", s = e.fadeout ? ` fadeout="${e.fadeout}"` : "";
   return `<mstts:backgroundaudio src="${e.src}"${t}${n}${s}/>`;
 }
-function sa(e, t) {
-  return `<p>${t}</p>`;
+function sa(e) {
+  return !e.attrType || !e.value ? "" : `<mstts:silence type="${e.attrType}" value="${e.value}"/>`;
 }
 function ra(e, t) {
+  return `<p>${t}</p>`;
+}
+function oa(e, t) {
   const n = e.alphabet ? `alphabet="${e.alphabet}"` : "";
   return `<phoneme ph="${e.ph}"${n}>${t}</phoneme>`;
 }
-function oa(e, t) {
+function aa(e, t) {
   const n = e.contour ? ` contour="${e.contour}"` : "", s = e.pitch ? ` pitch="${e.pitch}"` : "", r = e.range ? ` range="${e.range}"` : "", o = e.volume ? ` volume="${e.volume}"` : "", a = e.rate ? ` rate="${e.rate}"` : "";
   return `<prosody${n}${s}${r}${o}${a}>${t}</prosody>`;
 }
-function aa(e, t) {
+function la(e, t) {
   const n = e.interpretAs ? ` interpret-as="${e.interpretAs}"` : "", s = e.format ? ` format="${e.format}"` : "", r = e.detail ? ` detail="${e.detail}"` : "";
   return `<say-as${n}${s}${r}>${t}</say-as>`;
 }
-function la(e, t) {
+function ia(e, t) {
   return `<s>${t}</s>`;
 }
-function ia(e, t) {
+function ua(e, t) {
   return `<sub alias=${e.alias}>${t}</sub>`;
 }
-function ua(e, t) {
+function ca(e, t) {
   const n = e.effect ? ` effect="${e.effect}"` : "";
   return `<voice name="${e.name}${n}">${t}</voice>`;
 }
-function ca(e, t) {
+function da(e, t) {
   return `<speak
   version="${e.version}"
   xml:lang="${e.xmlLang}"
@@ -2524,7 +2527,7 @@ function os(e) {
       case "paragraph":
         return `<p>${t}</p>`;
       case "ssml-speak":
-        return ca(e, t);
+        return da(e, t);
       case "ssml-mstts:backgroundaudio":
         return na(e);
       case "ssml-audio":
@@ -2536,33 +2539,57 @@ function os(e) {
       case "ssml-mstts:express-as":
         return ta(e, t);
       case "ssml-p":
-        return sa(e, t);
-      case "ssml-phoneme":
         return ra(e, t);
-      case "ssml-prosody":
+      case "ssml-phoneme":
         return oa(e, t);
-      case "ssml-s":
-        return la(e, t);
-      case "ssml-say-as":
+      case "ssml-prosody":
         return aa(e, t);
-      case "ssml-sub":
+      case "ssml-s":
         return ia(e, t);
-      case "ssml-voice":
+      case "ssml-say-as":
+        return la(e, t);
+      case "ssml-sub":
         return ua(e, t);
+      case "ssml-voice":
+        return ca(e, t);
+      case "ssml-mstts:silence":
+        return sa(e);
       default:
         return t;
     }
   }
   return "";
 }
-function da() {
+function fa() {
   const { editor: e } = ge();
   if (!e)
     throw Error("没有找到 editor 对象");
-  const { rootSpeak: t, rootVoice: n, rootExpressAs: s, rootBackgroundaudio: r } = zt(), o = { ...t, children: [] }, a = { ...r }, l = { ...n, children: [] }, u = { ...s, children: [] };
-  return o.children.push(a), o.children.push(l), l.children.push(u), u.children = e.children, os(o);
+  const { rootSpeak: t, rootVoice: n, rootExpressAs: s, rootBackgroundaudio: r } = zt(), o = { ...t, children: [] }, a = { ...r }, l = { ...n, children: [] }, u = { ...s, children: [] }, p = [
+    {
+      type: "ssml-mstts:silence",
+      attrType: "comma-exact",
+      value: "50ms",
+      remark: "逗号静音",
+      children: []
+    },
+    {
+      type: "ssml-mstts:silence",
+      attrType: "semicolon-exact",
+      value: "100ms",
+      remark: "分号静音",
+      children: []
+    },
+    {
+      type: "ssml-mstts:silence",
+      attrType: "enumerationcomma-exact",
+      value: "150ms",
+      remark: "顿号静音",
+      children: []
+    }
+  ];
+  return o.children.push(a), o.children.push(l), l.children.push(...p), l.children.push(u), u.children = e.children, os(o);
 }
-const fa = {
+const pa = {
   install() {
     re.registerModule(Kr), re.registerModule(so), re.registerModule(io), re.registerModule(mo), re.registerModule(go), re.registerModule($o), re.registerModule(Po), re.registerModule(Ro), re.registerModule(jo), re.registerModule(zo), re.registerModule(qo), re.registerPlugin(Jo);
   }
@@ -2595,10 +2622,10 @@ const fa = {
     children: []
   });
   return { rootSpeak: e, rootVoice: t, rootBackgroundaudio: n, rootExpressAs: s };
-}), pa = { class: "bar-button-icon" }, ma = {
+}), ma = { class: "bar-button-icon" }, va = {
   class: "fw-normal",
   style: { "font-size": "0.85rem" }
-}, va = /* @__PURE__ */ R({
+}, ha = /* @__PURE__ */ R({
   __name: "bar-button",
   props: {
     text: {},
@@ -2619,12 +2646,12 @@ const fa = {
       onMousedown: o[0] || (o[0] = te(() => {
       }, ["prevent"]))
     }, [
-      f("div", pa, [
+      f("div", ma, [
         f("span", {
           class: Ce(["fs-3 iconfont-moyin", [`moyin-icon_${r.icon}`]])
         }, null, 2)
       ]),
-      f("div", ma, Q(r.text), 1)
+      f("div", va, Q(r.text), 1)
     ], 34));
   }
 });
@@ -2633,7 +2660,7 @@ const Z = (e, t) => {
   for (const [s, r] of t)
     n[s] = r;
   return n;
-}, J = /* @__PURE__ */ Z(va, [["__scopeId", "data-v-7f1d5309"]]);
+}, J = /* @__PURE__ */ Z(ha, [["__scopeId", "data-v-7f1d5309"]]);
 const Wt = /* @__PURE__ */ R({
   __name: "bar-input",
   props: {
@@ -2666,7 +2693,7 @@ const Wt = /* @__PURE__ */ R({
     }, 8, ["onSubmit"]));
   }
 });
-const ha = /* @__PURE__ */ R({
+const _a = /* @__PURE__ */ R({
   __name: "bar-popover",
   props: {
     visible: { type: Boolean },
@@ -2699,17 +2726,17 @@ function mt(e) {
 function ue(e) {
   return typeof e == "function" ? e() : b(e);
 }
-const as = typeof window < "u", _a = (e) => e != null, at = () => {
+const as = typeof window < "u", ya = (e) => e != null, at = () => {
 };
-var ya = Object.defineProperty, ga = Object.defineProperties, ba = Object.getOwnPropertyDescriptors, Sn = Object.getOwnPropertySymbols, wa = Object.prototype.hasOwnProperty, xa = Object.prototype.propertyIsEnumerable, kn = (e, t, n) => t in e ? ya(e, t, { enumerable: !0, configurable: !0, writable: !0, value: n }) : e[t] = n, Ea = (e, t) => {
+var ga = Object.defineProperty, ba = Object.defineProperties, wa = Object.getOwnPropertyDescriptors, Sn = Object.getOwnPropertySymbols, xa = Object.prototype.hasOwnProperty, Ea = Object.prototype.propertyIsEnumerable, kn = (e, t, n) => t in e ? ga(e, t, { enumerable: !0, configurable: !0, writable: !0, value: n }) : e[t] = n, $a = (e, t) => {
   for (var n in t || (t = {}))
-    wa.call(t, n) && kn(e, n, t[n]);
+    xa.call(t, n) && kn(e, n, t[n]);
   if (Sn)
     for (var n of Sn(t))
-      xa.call(t, n) && kn(e, n, t[n]);
+      Ea.call(t, n) && kn(e, n, t[n]);
   return e;
-}, $a = (e, t) => ga(e, ba(t));
-function Sa(e, t = {}) {
+}, Sa = (e, t) => ba(e, wa(t));
+function ka(e, t = {}) {
   if (!Me(e))
     return $t(e);
   const n = Array.isArray(e.value) ? Array.from({ length: e.value.length }) : {};
@@ -2725,7 +2752,7 @@ function Sa(e, t = {}) {
             const l = [...e.value];
             l[s] = r, e.value = l;
           } else {
-            const l = $a(Ea({}, e.value), { [s]: r });
+            const l = Sa($a({}, e.value), { [s]: r });
             Object.setPrototypeOf(l, Object.getPrototypeOf(e.value)), e.value = l;
           }
         else
@@ -2763,17 +2790,17 @@ function Le(...e) {
   };
   return mt(p), p;
 }
-function ka() {
+function Oa() {
   const e = y(!1);
   return Nt() && He(() => {
     e.value = !0;
   }), e;
 }
 function Gt(e) {
-  const t = ka();
+  const t = Oa();
   return K(() => (t.value, !!e()));
 }
-function Oa(e, t = {}) {
+function Ca(e, t = {}) {
   const { window: n = $e } = t, s = Gt(() => n && "matchMedia" in n && typeof n.matchMedia == "function");
   let r;
   const o = y(!1), a = (p) => {
@@ -2787,14 +2814,14 @@ function Oa(e, t = {}) {
     u(), l(), r = void 0;
   }), o;
 }
-var Ca = Object.defineProperty, Pa = Object.defineProperties, Ta = Object.getOwnPropertyDescriptors, On = Object.getOwnPropertySymbols, Ia = Object.prototype.hasOwnProperty, Va = Object.prototype.propertyIsEnumerable, Cn = (e, t, n) => t in e ? Ca(e, t, { enumerable: !0, configurable: !0, writable: !0, value: n }) : e[t] = n, Aa = (e, t) => {
+var Pa = Object.defineProperty, Ta = Object.defineProperties, Ia = Object.getOwnPropertyDescriptors, On = Object.getOwnPropertySymbols, Va = Object.prototype.hasOwnProperty, Aa = Object.prototype.propertyIsEnumerable, Cn = (e, t, n) => t in e ? Pa(e, t, { enumerable: !0, configurable: !0, writable: !0, value: n }) : e[t] = n, Ra = (e, t) => {
   for (var n in t || (t = {}))
-    Ia.call(t, n) && Cn(e, n, t[n]);
+    Va.call(t, n) && Cn(e, n, t[n]);
   if (On)
     for (var n of On(t))
-      Va.call(t, n) && Cn(e, n, t[n]);
+      Aa.call(t, n) && Cn(e, n, t[n]);
   return e;
-}, Ra = (e, t) => Pa(e, Ta(t));
+}, Na = (e, t) => Ta(e, Ia(t));
 function Xt(e, t = {}) {
   var n, s;
   const {
@@ -2836,7 +2863,7 @@ function Xt(e, t = {}) {
     const S = { capture: (s = t.capture) != null ? s : !0 };
     Le(d, "pointerdown", P, S), Le(g, "pointermove", I, S), Le(g, "pointerup", A, S);
   }
-  return Ra(Aa({}, Sa(c)), {
+  return Na(Ra({}, ka(c)), {
     position: c,
     isDragging: K(() => !!$.value),
     style: K(
@@ -2844,17 +2871,17 @@ function Xt(e, t = {}) {
     )
   });
 }
-var Pn = Object.getOwnPropertySymbols, Na = Object.prototype.hasOwnProperty, Da = Object.prototype.propertyIsEnumerable, La = (e, t) => {
+var Pn = Object.getOwnPropertySymbols, Da = Object.prototype.hasOwnProperty, La = Object.prototype.propertyIsEnumerable, Ma = (e, t) => {
   var n = {};
   for (var s in e)
-    Na.call(e, s) && t.indexOf(s) < 0 && (n[s] = e[s]);
+    Da.call(e, s) && t.indexOf(s) < 0 && (n[s] = e[s]);
   if (e != null && Pn)
     for (var s of Pn(e))
-      t.indexOf(s) < 0 && Da.call(e, s) && (n[s] = e[s]);
+      t.indexOf(s) < 0 && La.call(e, s) && (n[s] = e[s]);
   return n;
 };
 function is(e, t, n = {}) {
-  const s = n, { window: r = $e } = s, o = La(s, ["window"]);
+  const s = n, { window: r = $e } = s, o = Ma(s, ["window"]);
   let a;
   const l = Gt(() => r && "ResizeObserver" in r), u = () => {
     a && (a.disconnect(), a = void 0);
@@ -2908,7 +2935,7 @@ function Je(e, t = {}) {
     update: d
   };
 }
-function Ma(e, t = { width: 0, height: 0 }, n = {}) {
+function ja(e, t = { width: 0, height: 0 }, n = {}) {
   const { window: s = $e, box: r = "content-box" } = n, o = K(() => {
     var u, p;
     return (p = (u = ce(e)) == null ? void 0 : u.namespaceURI) == null ? void 0 : p.includes("svg");
@@ -2940,7 +2967,7 @@ function Ma(e, t = { width: 0, height: 0 }, n = {}) {
     height: l
   };
 }
-function ja(e, t, n = {}) {
+function Ha(e, t, n = {}) {
   const {
     root: s,
     rootMargin: r = "0px",
@@ -2949,7 +2976,7 @@ function ja(e, t, n = {}) {
     immediate: l = !0
   } = n, u = Gt(() => a && "IntersectionObserver" in a), p = K(() => {
     const d = ue(e);
-    return (Array.isArray(d) ? d : [d]).map(ce).filter(_a);
+    return (Array.isArray(d) ? d : [d]).map(ce).filter(ya);
   });
   let m = at;
   const v = y(l), h = u.value ? me(
@@ -2985,9 +3012,9 @@ function ja(e, t, n = {}) {
     stop: g
   };
 }
-function Ha(e, { window: t = $e, scrollTarget: n } = {}) {
+function Fa(e, { window: t = $e, scrollTarget: n } = {}) {
   const s = y(!1);
-  return ja(
+  return Ha(
     e,
     ([{ isIntersecting: r }]) => {
       s.value = r;
@@ -2998,7 +3025,7 @@ function Ha(e, { window: t = $e, scrollTarget: n } = {}) {
     }
   ), s;
 }
-function Fa(e = {}) {
+function Ba(e = {}) {
   const {
     window: t = $e,
     initialWidth: n = Number.POSITIVE_INFINITY,
@@ -3009,15 +3036,15 @@ function Fa(e = {}) {
     t && (o ? (a.value = t.innerWidth, l.value = t.innerHeight) : (a.value = t.document.documentElement.clientWidth, l.value = t.document.documentElement.clientHeight));
   };
   if (u(), ls(u), Le("resize", u, { passive: !0 }), r) {
-    const p = Oa("(orientation: portrait)");
+    const p = Ca("(orientation: portrait)");
     me(p, () => u());
   }
   return { width: a, height: l };
 }
-const Ba = { class: "search-content w-100" }, Ua = { class: "ps-2 w-75" }, za = { class: "menu ps-2" }, Wa = { class: "flex flex-row pt-1" }, Ga = {
+const Ua = { class: "search-content w-100" }, za = { class: "ps-2 w-75" }, Wa = { class: "menu ps-2" }, Ga = { class: "flex flex-row pt-1" }, Xa = {
   class: "content-list overflow-x-hidden overflow-y-auto py-2",
   style: { height: "250px" }
-}, Xa = ["onClick"], Ya = /* @__PURE__ */ f("span", { class: "iconfont icon-play" }, null, -1), qa = { class: "ps-2" }, Yt = /* @__PURE__ */ R({
+}, Ya = ["onClick"], qa = /* @__PURE__ */ f("span", { class: "iconfont icon-play" }, null, -1), Ja = { class: "ps-2" }, Yt = /* @__PURE__ */ R({
   __name: "bar-search",
   props: {
     menuItemLabel: {},
@@ -3028,7 +3055,7 @@ const Ba = { class: "search-content w-100" }, Ua = { class: "ps-2 w-75" }, za = 
   },
   emits: ["submit"],
   setup(e, { emit: t }) {
-    const n = e, s = y(), r = y(""), o = y(""), a = y(""), l = y(n.dataList || []), u = y("first"), p = Ha(s);
+    const n = e, s = y(), r = y(""), o = y(""), a = y(""), l = y(n.dataList || []), u = y("first"), p = Fa(s);
     me(p, (g) => {
       g && setTimeout(() => {
         var d;
@@ -3051,8 +3078,8 @@ const Ba = { class: "search-content w-100" }, Ua = { class: "ps-2 w-75" }, za = 
     function h(g) {
       t("submit", g);
     }
-    return (g, d) => (V(), L("div", Ba, [
-      f("div", Ua, [
+    return (g, d) => (V(), L("div", Ua, [
+      f("div", za, [
         i(b(dt), {
           onSubmit: te(m, ["prevent"])
         }, {
@@ -3069,7 +3096,7 @@ const Ba = { class: "search-content w-100" }, Ua = { class: "ps-2 w-75" }, za = 
           _: 1
         }, 8, ["onSubmit"])
       ]),
-      f("div", za, [
+      f("div", Wa, [
         i(b(Ns), {
           mode: "horizontal",
           "default-active": "first",
@@ -3098,7 +3125,7 @@ const Ba = { class: "search-content w-100" }, Ua = { class: "ps-2 w-75" }, za = 
           _: 1
         })
       ]),
-      f("div", Wa, [
+      f("div", Ga, [
         i(b(St), {
           modelValue: o.value,
           "onUpdate:modelValue": d[2] || (d[2] = (c) => o.value = c),
@@ -3132,39 +3159,39 @@ const Ba = { class: "search-content w-100" }, Ua = { class: "ps-2 w-75" }, za = 
           _: 1
         }, 8, ["modelValue"])
       ]),
-      f("ul", Ga, [
+      f("ul", Xa, [
         (V(!0), L(fe, null, De(l.value, (c, $) => (V(), L("li", {
           onClick: (T) => h(Te(c)),
           class: "content-list-item clickable ps-2 py-2",
           key: $
         }, [
-          Ya,
-          f("span", qa, Q(c.label), 1)
-        ], 8, Xa))), 128))
+          qa,
+          f("span", Ja, Q(c.label), 1)
+        ], 8, Ya))), 128))
       ])
     ]));
   }
 });
-const Ja = {}, Qa = { class: "content" };
-function Ka(e, t) {
-  return V(), L("div", Qa, [
+const Qa = {}, Ka = { class: "content" };
+function Za(e, t) {
+  return V(), L("div", Ka, [
     _e(e.$slots, "default", {}, void 0, !0)
   ]);
 }
-const us = /* @__PURE__ */ Z(Ja, [["render", Ka], ["__scopeId", "data-v-7beae5b9"]]), Za = {}, el = { class: "bar-wrapper-item" };
-function tl(e, t) {
-  return V(), L("div", el, [
+const us = /* @__PURE__ */ Z(Qa, [["render", Za], ["__scopeId", "data-v-7beae5b9"]]), el = {}, tl = { class: "bar-wrapper-item" };
+function nl(e, t) {
+  return V(), L("div", tl, [
     _e(e.$slots, "default")
   ]);
 }
-const nl = /* @__PURE__ */ Z(Za, [["render", tl]]), sl = { class: "bar-wrapper-group" }, rl = { class: "group-items" }, ol = /* @__PURE__ */ R({
+const sl = /* @__PURE__ */ Z(el, [["render", nl]]), rl = { class: "bar-wrapper-group" }, ol = { class: "group-items" }, al = /* @__PURE__ */ R({
   __name: "bar-wrapper-group",
   props: {
     divider: {}
   },
   setup(e) {
-    return (t, n) => (V(), L("div", sl, [
-      f("div", rl, [
+    return (t, n) => (V(), L("div", rl, [
+      f("div", ol, [
         _e(t.$slots, "default", {}, void 0, !0)
       ]),
       f("div", {
@@ -3173,21 +3200,21 @@ const nl = /* @__PURE__ */ Z(Za, [["render", tl]]), sl = { class: "bar-wrapper-g
     ]));
   }
 });
-const Ae = /* @__PURE__ */ Z(ol, [["__scopeId", "data-v-3a7abad9"]]);
-function al(e, t) {
+const Ae = /* @__PURE__ */ Z(al, [["__scopeId", "data-v-3a7abad9"]]);
+function ll(e, t) {
   return `left:${e}px;top:${t}px`;
 }
 function qt(e, t) {
-  const { width: n, height: s } = Ma(e), { width: r, height: o } = Fa(), a = K(() => ({
+  const { width: n, height: s } = ja(e), { width: r, height: o } = Ba(), a = K(() => ({
     x: r.value - n.value,
     y: o.value - s.value
   }));
   return { style: K(() => {
     const u = t.value.x, p = t.value.y, m = u < 5 ? 5 : u > a.value.x ? a.value.x - 5 : u, v = p < 5 ? 5 : p > a.value.y ? a.value.y - 5 : p;
-    return al(m, v);
+    return ll(m, v);
   }) };
 }
-const ll = { class: "w-100 d-flex flex-row align-items-center" }, il = /* @__PURE__ */ R({
+const il = { class: "w-100 d-flex flex-row align-items-center" }, ul = /* @__PURE__ */ R({
   __name: "drag-box",
   props: {
     visible: { type: Boolean },
@@ -3235,7 +3262,7 @@ const ll = { class: "w-100 d-flex flex-row align-items-center" }, il = /* @__PUR
           class: "demotestname card shadow brag-box user-select-none",
           style: Mt([{ position: "fixed" }, b(u)])
         }, [
-          f("div", ll, [
+          f("div", il, [
             f("div", {
               ref_key: "dragRef",
               ref: o,
@@ -3255,12 +3282,12 @@ const ll = { class: "w-100 d-flex flex-row align-items-center" }, il = /* @__PUR
     ], 64));
   }
 });
-const Fe = /* @__PURE__ */ Z(il, [["__scopeId", "data-v-15ec952a"]]), ul = {
+const Fe = /* @__PURE__ */ Z(ul, [["__scopeId", "data-v-15ec952a"]]), cl = {
   install(e) {
-    e.component("BarButton", J), e.component("BarInput", Wt), e.component("BarPopover", ha), e.component("BarSearch", Yt), e.component("BarWrapper", us), e.component("BarWrapperItem", nl), e.component("BarWrapperGroup", Ae), e.component("DragBox", Fe);
+    e.component("BarButton", J), e.component("BarInput", Wt), e.component("BarPopover", _a), e.component("BarSearch", Yt), e.component("BarWrapper", us), e.component("BarWrapperItem", sl), e.component("BarWrapperGroup", Ae), e.component("DragBox", Fe);
   }
-}, cl = "wangeditor-error", Y = {
-  ERROR: cl
+}, dl = "wangeditor-error", Y = {
+  ERROR: dl
 };
 class ve {
   constructor(t) {
@@ -3276,7 +3303,7 @@ class ve {
     return t == null ? (this.editor.emit(Y.ERROR, "未选中编辑器"), !0) : !1;
   }
 }
-class dl extends ve {
+class fl extends ve {
   constructor(t) {
     super(t);
   }
@@ -3302,6 +3329,7 @@ class dl extends ve {
       return;
     const s = {
       type: "ssml-phoneme",
+      alphabet: "sapi",
       ph: t.value,
       remark: t.label,
       children: [{ text: n }]
@@ -3322,7 +3350,7 @@ const cs = /* @__PURE__ */ R({
     }
     async function a(l) {
       var p;
-      if (t.value ?? (t.value = new dl(l)), (p = t.value) != null && p.isDisabled())
+      if (t.value ?? (t.value = new fl(l)), (p = t.value) != null && p.isDisabled())
         return;
       const u = t.value.getValue();
       if (u ? n.value = await e.fetchPinyin(u) : n.value = [], n.value.length == 0)
@@ -3360,7 +3388,7 @@ const cs = /* @__PURE__ */ R({
     });
   }
 });
-class fl extends ve {
+class pl extends ve {
   constructor(t) {
     super(t);
   }
@@ -3389,7 +3417,7 @@ const ds = /* @__PURE__ */ R({
   setup() {
     const e = X();
     function t(n) {
-      e.value ?? (e.value = new fl(n)), !e.value.isDisabled() && e.value.exec();
+      e.value ?? (e.value = new pl(n)), !e.value.isDisabled() && e.value.exec();
     }
     return () => i(J, {
       text: "连读",
@@ -3398,7 +3426,7 @@ const ds = /* @__PURE__ */ R({
     }, null);
   }
 });
-class pl extends ve {
+class ml extends ve {
   constructor(t) {
     super(t);
   }
@@ -3433,7 +3461,7 @@ class pl extends ve {
     B.insertNodes(this.editor, s);
   }
 }
-const ml = [
+const vl = [
   { label: "重音", value: "z" },
   { label: "拖音", value: "t" },
   { label: "重音+拖音", value: "z+t" }
@@ -3447,7 +3475,7 @@ const ml = [
       t.value && (t.value = !1);
     }
     function r(o) {
-      e.value ?? (e.value = new pl(o)), !e.value.isDisabled() && n();
+      e.value ?? (e.value = new ml(o)), !e.value.isDisabled() && n();
     }
     return () => i(ye, {
       visible: t.value,
@@ -3464,7 +3492,7 @@ const ml = [
         class: "d-flex flex-column",
         onMousedown: te(() => {
         }, ["stop", "prevent"])
-      }, [ml.map(({
+      }, [vl.map(({
         label: o,
         value: a
       }) => i("div", {
@@ -3482,7 +3510,7 @@ const ml = [
     });
   }
 });
-class vl extends ve {
+class hl extends ve {
   constructor(t) {
     super(t);
   }
@@ -3512,7 +3540,7 @@ class vl extends ve {
     B.delete(this.editor), B.insertNodes(this.editor, s);
   }
 }
-const hl = [{
+const _l = [{
   value: "cardinal",
   label: "读数值"
 }, {
@@ -3528,7 +3556,7 @@ const hl = [{
       t.value = !t.value;
     }
     function s(r) {
-      e.value ?? (e.value = new vl(r)), !e.value.isDisabled() && n();
+      e.value ?? (e.value = new hl(r)), !e.value.isDisabled() && n();
     }
     return () => i(ye, {
       visible: t.value,
@@ -3543,7 +3571,7 @@ const hl = [{
       }, null),
       default: () => i("div", {
         class: "d-flex flex-column"
-      }, [hl.map(({
+      }, [_l.map(({
         label: r,
         value: o
       }) => i("div", {
@@ -3561,7 +3589,7 @@ const hl = [{
     });
   }
 });
-class _l extends ve {
+class yl extends ve {
   constructor(t) {
     super(t);
   }
@@ -3596,7 +3624,7 @@ const ms = /* @__PURE__ */ R({
       n.value && (n.value = !1);
     }
     async function o(l) {
-      e.value ?? (e.value = new _l(l)), !e.value.isDisabled() && (s(), t.value.focus());
+      e.value ?? (e.value = new yl(l)), !e.value.isDisabled() && (s(), t.value.focus());
     }
     function a(l) {
       var u;
@@ -3625,7 +3653,7 @@ const ms = /* @__PURE__ */ R({
     });
   }
 });
-function yl(e) {
+function gl(e) {
   const { selection: t } = e;
   if (t) {
     const [n, s] = de.edges(t), r = je.range(e, n, s), o = je.string(e, r), a = o.trimEnd();
@@ -3635,7 +3663,7 @@ function yl(e) {
     }
   }
 }
-class gl extends ve {
+class bl extends ve {
   constructor(t) {
     super(t);
   }
@@ -3661,6 +3689,7 @@ class gl extends ve {
       return;
     const s = {
       type: "ssml-phoneme",
+      alphabet: "ipa",
       ph: t.value,
       remark: t.label,
       children: [{ text: n }]
@@ -3680,7 +3709,7 @@ const vs = /* @__PURE__ */ R({
       s.value && (s.value = !1);
     }
     async function a(l) {
-      if (t.value ?? (t.value = new gl(l)), yl(l), t.value.isDisabled())
+      if (t.value ?? (t.value = new bl(l)), gl(l), t.value.isDisabled())
         return;
       const u = t.value.getValue();
       if (u) {
@@ -3719,7 +3748,7 @@ const vs = /* @__PURE__ */ R({
     });
   }
 });
-class bl extends ve {
+class wl extends ve {
   constructor(t) {
     super(t);
   }
@@ -3744,7 +3773,7 @@ class bl extends ve {
     B.insertNodes(this.editor, s);
   }
 }
-const wl = [
+const xl = [
   { value: "0.5", label: "0.5x" },
   { value: "0.55", label: "0.55x" },
   { value: "0.6", label: "0.6x" },
@@ -3786,7 +3815,7 @@ const wl = [
       t.value && (t.value = !1);
     }
     async function r(o) {
-      e.value ?? (e.value = new bl(o)), !e.value.isDisabled() && n();
+      e.value ?? (e.value = new wl(o)), !e.value.isDisabled() && n();
     }
     return () => i(ye, {
       style: {
@@ -3805,7 +3834,7 @@ const wl = [
       default: () => i("div", {
         class: "d-flex flex-column overflow-x-hidden overflow-y-scroll",
         style: "height:15rem"
-      }, [wl.map(({
+      }, [xl.map(({
         label: o,
         value: a
       }) => i("div", {
@@ -3824,7 +3853,7 @@ const wl = [
     });
   }
 });
-class xl extends ve {
+class El extends ve {
   constructor(t) {
     super(t);
   }
@@ -3846,7 +3875,7 @@ class xl extends ve {
     B.insertNodes(this.editor, n);
   }
 }
-const El = [{
+const $l = [{
   value: "weak",
   label: "短"
 }, {
@@ -3865,7 +3894,7 @@ const El = [{
       t.value && (t.value = !1);
     }
     function r(o) {
-      e.value ?? (e.value = new xl(o)), !e.value.isDisabled() && n();
+      e.value ?? (e.value = new El(o)), !e.value.isDisabled() && n();
     }
     return () => i(ye, {
       visible: t.value,
@@ -3880,7 +3909,7 @@ const El = [{
       }, null),
       default: () => i("div", {
         class: "d-flex flex-column"
-      }, [El.map(({
+      }, [$l.map(({
         label: o,
         value: a
       }) => i("div", {
@@ -3898,7 +3927,7 @@ const El = [{
     });
   }
 });
-class $l extends ve {
+class Sl extends ve {
   constructor(t) {
     super(t);
   }
@@ -3935,7 +3964,7 @@ const ys = /* @__PURE__ */ R({
       { value: "2", label: "风格2" },
       { value: "3", label: "风格3" }
     ], { x: p, y: m, height: v } = Je(n), h = (d) => {
-      s.value ?? (s.value = new $l(d)), !s.value.isDisabled() && (t.value.setPosition({
+      s.value ?? (s.value = new Sl(d)), !s.value.isDisabled() && (t.value.setPosition({
         x: p.value - 200,
         y: m.value + v.value
       }), o.value = !0);
@@ -3972,7 +4001,7 @@ const ys = /* @__PURE__ */ R({
     }, 8, ["visible"]));
   }
 });
-class Sl extends ve {
+class kl extends ve {
   constructor(t) {
     super(t);
   }
@@ -3994,7 +4023,7 @@ class Sl extends ve {
     B.insertNodes(this.editor, n);
   }
 }
-const kl = [{
+const Ol = [{
   value: "150ms",
   label: "150ms"
 }, {
@@ -4022,7 +4051,7 @@ const kl = [{
       t.value && (t.value = !1);
     }
     function o(l) {
-      e.value ?? (e.value = new Sl(l)), !e.value.isDisabled() && (s(), n.value.focus());
+      e.value ?? (e.value = new kl(l)), !e.value.isDisabled() && (s(), n.value.focus());
     }
     function a(l) {
       var u;
@@ -4045,7 +4074,7 @@ const kl = [{
       }, null),
       default: () => i("div", {
         class: "d-flex flex-column"
-      }, [kl.map(({
+      }, [Ol.map(({
         value: l,
         label: u
       }) => i("div", {
@@ -4141,13 +4170,13 @@ const kl = [{
     }, 8, ["visible"]));
   }
 });
-const Ol = {
+const Cl = {
   class: "select-list",
   style: { width: "120px" }
-}, Cl = {
+}, Pl = {
   class: "text-center d-flex flex-column justify-content-center fs-6",
   style: { height: "60px" }
-}, Pl = ["onClick"], Tl = /* @__PURE__ */ R({
+}, Tl = ["onClick"], Il = /* @__PURE__ */ R({
   __name: "select-list",
   props: {
     modelValue: {},
@@ -4171,8 +4200,8 @@ const Ol = {
     }
     return t({
       scrollIntoViewTheItem: a
-    }), (l, u) => (V(), L("div", Ol, [
-      f("div", Cl, [
+    }), (l, u) => (V(), L("div", Cl, [
+      f("div", Pl, [
         _e(l.$slots, "default", {}, void 0, !0)
       ]),
       f("ul", {
@@ -4185,32 +4214,32 @@ const Ol = {
           class: Ce(["clickable select-item py-1", { activate: p.value === l.modelValue }]),
           key: m,
           onClick: (v) => o(Te(p))
-        }, Q(p.label), 11, Pl))), 128))
+        }, Q(p.label), 11, Tl))), 128))
       ], 512)
     ]));
   }
 });
-const ze = /* @__PURE__ */ Z(Tl, [["__scopeId", "data-v-efb1399e"]]), Il = () => {
+const ze = /* @__PURE__ */ Z(Il, [["__scopeId", "data-v-efb1399e"]]), Vl = () => {
   const e = [];
   for (let t = 2; t <= 40; t++) {
     const n = (t * 0.05).toFixed(2);
     e.push({ value: n, label: `${n}x` });
   }
   return e;
-}, Vl = () => {
+}, Al = () => {
   const e = [];
   for (let t = -10; t <= 10; t++)
     e.push({ value: t.toString(), label: t.toString() });
   return e;
-}, Al = {
+}, Rl = {
   style: { width: "600px", height: "360px" },
   class: "position-relative px-2 pb-2"
-}, Rl = { class: "position-relative" }, Nl = { class: "position-absolute top-0 end-0" }, Dl = /* @__PURE__ */ f("li", null, [
+}, Nl = { class: "position-relative" }, Dl = { class: "position-absolute top-0 end-0" }, Ll = /* @__PURE__ */ f("li", null, [
   /* @__PURE__ */ f("span", { class: "text-nowrap" }, "近期使用:")
-], -1), Ll = /* @__PURE__ */ f("span", { class: "my-3" }, "角色", -1), Ml = /* @__PURE__ */ f("span", { class: "my-3" }, "风格", -1), jl = /* @__PURE__ */ f("span", { class: "my-3" }, "语速", -1), Hl = /* @__PURE__ */ f("span", { class: "my-3" }, "语调", -1), Fl = { class: "position-absolute bottom-0 end-0 d-flex flex-row justify-content-end me-4 mb-3" }, Bl = /* @__PURE__ */ R({
+], -1), Ml = /* @__PURE__ */ f("span", { class: "my-3" }, "角色", -1), jl = /* @__PURE__ */ f("span", { class: "my-3" }, "风格", -1), Hl = /* @__PURE__ */ f("span", { class: "my-3" }, "语速", -1), Fl = /* @__PURE__ */ f("span", { class: "my-3" }, "语调", -1), Bl = { class: "position-absolute bottom-0 end-0 d-flex flex-row justify-content-end me-4 mb-3" }, Ul = /* @__PURE__ */ R({
   __name: "management-content",
   setup(e) {
-    const t = y(!1), n = y(""), s = y(), r = y(), o = y(), a = y(), l = y(), u = y(""), p = y(""), m = y(""), v = y(""), h = y(""), g = y(""), d = y([]), c = y([]), $ = y([]), T = y([]), j = y(Il()), P = y(Vl());
+    const t = y(!1), n = y(""), s = y(), r = y(), o = y(), a = y(), l = y(), u = y(""), p = y(""), m = y(""), v = y(""), h = y(""), g = y(""), d = y([]), c = y([]), $ = y([]), T = y([]), j = y(Vl()), P = y(Al());
     d.value = [
       { label: "全部类型", value: "" },
       { label: "常规", value: "2" },
@@ -4240,7 +4269,7 @@ const ze = /* @__PURE__ */ Z(Tl, [["__scopeId", "data-v-efb1399e"]]), Il = () =>
     async function k(F) {
       console.log(F);
     }
-    return (F, D) => (V(), L("div", Al, [
+    return (F, D) => (V(), L("div", Rl, [
       i(b(dt), {
         onSubmit: te(I, ["prevent"])
       }, {
@@ -4253,8 +4282,8 @@ const ze = /* @__PURE__ */ Z(Tl, [["__scopeId", "data-v-efb1399e"]]), Il = () =>
         ]),
         _: 1
       }, 8, ["onSubmit"]),
-      f("div", Rl, [
-        f("div", Nl, [
+      f("div", Nl, [
+        f("div", Dl, [
           i(b(ie), {
             size: "small",
             icon: b(Ms),
@@ -4264,7 +4293,7 @@ const ze = /* @__PURE__ */ Z(Tl, [["__scopeId", "data-v-efb1399e"]]), Il = () =>
         f("ul", {
           class: Ce(["d-flex flex-row row-gap-1 column-gap-2 overflow-x-hidden", { "flex-wrap": t.value }])
         }, [
-          Dl,
+          Ll,
           f("li", null, [
             i(b(be), {
               type: "info",
@@ -4385,7 +4414,7 @@ const ze = /* @__PURE__ */ Z(Tl, [["__scopeId", "data-v-efb1399e"]]), Il = () =>
             dataList: $.value
           }, {
             default: _(() => [
-              Ll
+              Ml
             ]),
             _: 1
           }, 8, ["modelValue", "dataList"]),
@@ -4400,7 +4429,7 @@ const ze = /* @__PURE__ */ Z(Tl, [["__scopeId", "data-v-efb1399e"]]), Il = () =>
             dataList: T.value
           }, {
             default: _(() => [
-              Ml
+              jl
             ]),
             _: 1
           }, 8, ["modelValue", "dataList"]),
@@ -4415,7 +4444,7 @@ const ze = /* @__PURE__ */ Z(Tl, [["__scopeId", "data-v-efb1399e"]]), Il = () =>
             dataList: j.value
           }, {
             default: _(() => [
-              jl
+              Hl
             ]),
             _: 1
           }, 8, ["modelValue", "dataList"]),
@@ -4430,7 +4459,7 @@ const ze = /* @__PURE__ */ Z(Tl, [["__scopeId", "data-v-efb1399e"]]), Il = () =>
             dataList: P.value
           }, {
             default: _(() => [
-              Hl
+              Fl
             ]),
             _: 1
           }, 8, ["modelValue", "dataList"])
@@ -4438,7 +4467,7 @@ const ze = /* @__PURE__ */ Z(Tl, [["__scopeId", "data-v-efb1399e"]]), Il = () =>
           [Ee, !t.value]
         ])
       ]),
-      f("div", Fl, [
+      f("div", Bl, [
         xe(i(b(ie), { type: "primary" }, {
           default: _(() => [
             w("确定")
@@ -4487,55 +4516,55 @@ const ze = /* @__PURE__ */ Z(Tl, [["__scopeId", "data-v-efb1399e"]]), Il = () =>
         }, null, 512)
       ]),
       default: _(() => [
-        i(Bl, { onSubmit: p })
+        i(Ul, { onSubmit: p })
       ]),
       _: 1
     }, 8, ["visible"]));
   }
-}), Ul = { class: "speaker-item" }, zl = { class: "speaker-head" }, Wl = ["src"], Gl = { class: "speaker-name" }, Xl = /* @__PURE__ */ R({
+}), zl = { class: "speaker-item" }, Wl = { class: "speaker-head" }, Gl = ["src"], Xl = { class: "speaker-name" }, Yl = /* @__PURE__ */ R({
   __name: "speaker-item",
   props: {
     name: {},
     img: { default: "https://img.sdaxia.top/upload/4314c841777e4d20901cd5d04a28e91a.png" }
   },
   setup(e) {
-    return (t, n) => (V(), L("div", Ul, [
-      f("div", zl, [
+    return (t, n) => (V(), L("div", zl, [
+      f("div", Wl, [
         f("img", {
           src: t.img,
           class: "rounded-circle",
           style: { height: "40px" }
-        }, null, 8, Wl)
+        }, null, 8, Gl)
       ]),
-      f("div", Gl, Q(t.name), 1)
+      f("div", Xl, Q(t.name), 1)
     ]));
   }
 });
-const z = /* @__PURE__ */ Z(Xl, [["__scopeId", "data-v-c961717f"]]), Yl = {
+const z = /* @__PURE__ */ Z(Yl, [["__scopeId", "data-v-c961717f"]]), ql = {
   class: "px-2 py-1",
   style: { width: "410px" }
-}, ql = /* @__PURE__ */ f("p", { class: "text-start text-danger" }, "请在安静的环境中进行录音，以需要转换的风格，读出以下文案", -1), Jl = {
+}, Jl = /* @__PURE__ */ f("p", { class: "text-start text-danger" }, "请在安静的环境中进行录音，以需要转换的风格，读出以下文案", -1), Ql = {
   class: "border border-secondary rounded w-100",
   style: { height: "100px" }
-}, Ql = { class: "mt-2" }, Kl = { class: "w-100 d-flex flex-column row-gap-1" }, Zl = /* @__PURE__ */ f("button", { class: "btn btn-success" }, "实时录音", -1), ei = /* @__PURE__ */ f("p", {
+}, Kl = { class: "mt-2" }, Zl = { class: "w-100 d-flex flex-column row-gap-1" }, ei = /* @__PURE__ */ f("button", { class: "btn btn-success" }, "实时录音", -1), ti = /* @__PURE__ */ f("p", {
   class: "mt-2 text-secondary",
   style: { "font-size": "0.5rem" }
-}, " 录音内容需要和滑选一致，音频限制60秒，滑选文案限制60个字 ", -1), ti = { class: "audio-upload" }, ni = { class: "border rounded-pill border-secondary d-flex flex-row justify-content-between" }, si = { class: "d-flex flex-row align-items-center" }, ri = /* @__PURE__ */ f("div", null, "图标", -1), oi = /* @__PURE__ */ f("div", null, [
+}, " 录音内容需要和滑选一致，音频限制60秒，滑选文案限制60个字 ", -1), ni = { class: "audio-upload" }, si = { class: "border rounded-pill border-secondary d-flex flex-row justify-content-between" }, ri = { class: "d-flex flex-row align-items-center" }, oi = /* @__PURE__ */ f("div", null, "图标", -1), ai = /* @__PURE__ */ f("div", null, [
   /* @__PURE__ */ f("div", null, "删除"),
   /* @__PURE__ */ f("button", null, "上传音频")
-], -1), ai = /* @__PURE__ */ f("template", null, [
+], -1), li = /* @__PURE__ */ f("template", null, [
   /* @__PURE__ */ f("span", {
     class: "text-secondary",
     style: { "font-size": "0.5rem" }
   }, "点击选择文件"),
   /* @__PURE__ */ f("button", { class: "btn btn-primary" })
-], -1), li = /* @__PURE__ */ f("span", {
+], -1), ii = /* @__PURE__ */ f("span", {
   class: "text-secondary",
   style: { "font-size": "0.5rem" }
-}, "点击开始录音", -1), ii = /* @__PURE__ */ f("p", null, "选择需要转换的配音师", -1), ui = { class: "speakers-container d-flex flex-row flex-wrap row-gap-1 column-gap-2" }, ci = /* @__PURE__ */ f("button", {
+}, "点击开始录音", -1), ui = /* @__PURE__ */ f("p", null, "选择需要转换的配音师", -1), ci = { class: "speakers-container d-flex flex-row flex-wrap row-gap-1 column-gap-2" }, di = /* @__PURE__ */ f("button", {
   class: "btn btn-primary",
   disabled: ""
-}, "完成录音并上传完成后，可选择配音师转换", -1), di = /* @__PURE__ */ R({
+}, "完成录音并上传完成后，可选择配音师转换", -1), fi = /* @__PURE__ */ R({
   __name: "conversion-content",
   props: {
     text: {}
@@ -4559,13 +4588,13 @@ const z = /* @__PURE__ */ Z(Xl, [["__scopeId", "data-v-c961717f"]]), Yl = {
     }
     return (m, v) => {
       var h;
-      return V(), L("div", Yl, [
+      return V(), L("div", ql, [
         f("section", null, [
-          ql,
-          f("div", Jl, Q(m.text), 1)
+          Jl,
+          f("div", Ql, Q(m.text), 1)
         ]),
-        xe(f("section", Ql, [
-          f("div", Kl, [
+        xe(f("section", Kl, [
+          f("div", Zl, [
             f("input", {
               accept: "audio/*",
               ref_key: "inputFileRef",
@@ -4574,29 +4603,29 @@ const z = /* @__PURE__ */ Z(Xl, [["__scopeId", "data-v-c961717f"]]), Yl = {
               type: "file",
               hidden: ""
             }, null, 544),
-            Zl,
+            ei,
             f("button", {
               onClick: l,
               class: "btn btn-primary"
             }, "上传录音")
           ]),
-          ei
+          ti
         ], 512), [
           [Ee, !s.value]
         ]),
         xe(f("section", null, [
-          f("div", ti, [
-            f("div", ni, [
+          f("div", ni, [
+            f("div", si, [
               r.value ? (V(), L(fe, { key: 0 }, [
-                f("div", si, [
-                  ri,
+                f("div", ri, [
+                  oi,
                   f("div", null, Q((h = n.value) == null ? void 0 : h.name), 1)
                 ]),
-                oi
+                ai
               ], 64)) : Rn("", !0),
-              ai,
+              li,
               f("template", null, [
-                li,
+                ii,
                 f("button", {
                   onClick: u,
                   class: "btn btn-primary"
@@ -4608,8 +4637,8 @@ const z = /* @__PURE__ */ Z(Xl, [["__scopeId", "data-v-c961717f"]]), Yl = {
               ])
             ]),
             f("div", null, [
-              ii,
-              f("div", ui, [
+              ui,
+              f("div", ci, [
                 i(z, { name: "莫厚渊" }),
                 i(z, { name: "莫厚渊" }),
                 i(z, { name: "莫厚渊" }),
@@ -4630,7 +4659,7 @@ const z = /* @__PURE__ */ Z(Xl, [["__scopeId", "data-v-c961717f"]]), Yl = {
                 i(z, { name: "莫厚渊" })
               ])
             ]),
-            ci
+            di
           ])
         ], 512), [
           [Ee, s.value]
@@ -4667,7 +4696,7 @@ const z = /* @__PURE__ */ Z(Xl, [["__scopeId", "data-v-c961717f"]]), Yl = {
         }, null, 512)
       ]),
       default: _(() => [
-        i(di, {
+        i(fi, {
           text: o.value,
           onSubmit: m
         }, null, 8, ["text"])
@@ -4675,7 +4704,7 @@ const z = /* @__PURE__ */ Z(Xl, [["__scopeId", "data-v-c961717f"]]), Yl = {
       _: 1
     }, 8, ["visible"]));
   }
-}), fi = (e) => (Ye("data-v-d94c0954"), e = e(), qe(), e), pi = { class: "anchor-avatar d-flex flex-column justify-content-center align-items-center" }, mi = ["src"], vi = /* @__PURE__ */ fi(() => /* @__PURE__ */ f("div", { class: "anchor-avatar-name text-white" }, "莫厚渊", -1)), hi = /* @__PURE__ */ R({
+}), pi = (e) => (Ye("data-v-d94c0954"), e = e(), qe(), e), mi = { class: "anchor-avatar d-flex flex-column justify-content-center align-items-center" }, vi = ["src"], hi = /* @__PURE__ */ pi(() => /* @__PURE__ */ f("div", { class: "anchor-avatar-name text-white" }, "莫厚渊", -1)), _i = /* @__PURE__ */ R({
   __name: "try-play-circle",
   props: {
     visible: { type: Boolean }
@@ -4703,39 +4732,39 @@ const z = /* @__PURE__ */ Z(Xl, [["__scopeId", "data-v-c961717f"]]), Yl = {
       onMousedown: p,
       onMouseup: u
     }, [
-      f("div", pi, [
+      f("div", mi, [
         f("img", {
           src: n.value,
           class: "rounded-circle"
-        }, null, 8, mi),
-        vi
+        }, null, 8, vi),
+        hi
       ])
     ], 36)), [
       [Ee, v.visible]
     ]);
   }
 });
-const _i = /* @__PURE__ */ Z(hi, [["__scopeId", "data-v-d94c0954"]]), yi = (e) => (Ye("data-v-e8c67559"), e = e(), qe(), e), gi = { class: "anchor-avatar d-flex flex-column align-items-center text-center justify-content-center" }, bi = ["src"], wi = /* @__PURE__ */ yi(() => /* @__PURE__ */ f("div", { class: "anchor-avatar-name text-white" }, "莫厚渊", -1)), xi = /* @__PURE__ */ R({
+const yi = /* @__PURE__ */ Z(_i, [["__scopeId", "data-v-d94c0954"]]), gi = (e) => (Ye("data-v-e8c67559"), e = e(), qe(), e), bi = { class: "anchor-avatar d-flex flex-column align-items-center text-center justify-content-center" }, wi = ["src"], xi = /* @__PURE__ */ gi(() => /* @__PURE__ */ f("div", { class: "anchor-avatar-name text-white" }, "莫厚渊", -1)), Ei = /* @__PURE__ */ R({
   __name: "anchor-avatar",
   setup(e) {
     const t = y("https://img.sdaxia.top/upload/4314c841777e4d20901cd5d04a28e91a.png");
-    return (n, s) => (V(), L("div", gi, [
+    return (n, s) => (V(), L("div", bi, [
       f("img", {
         src: t.value,
         class: "rounded-circle",
         style: { height: "40px" }
-      }, null, 8, bi),
-      wi
+      }, null, 8, wi),
+      xi
     ]));
   }
 });
-const G = /* @__PURE__ */ Z(xi, [["__scopeId", "data-v-e8c67559"]]), Ei = {
+const G = /* @__PURE__ */ Z(Ei, [["__scopeId", "data-v-e8c67559"]]), $i = {
   style: { height: "170px" },
   class: "w-100 d-flex flex-row flex-wrap justify-content-start overflow-x-hidden overflow-y-auto scrollbar-none"
-}, $i = /* @__PURE__ */ R({
+}, Si = /* @__PURE__ */ R({
   __name: "anchor-list",
   setup(e) {
-    return (t, n) => (V(), L("div", Ei, [
+    return (t, n) => (V(), L("div", $i, [
       (V(), L(fe, null, De(100, (s, r) => f("div", {
         class: "m-2",
         key: r
@@ -4744,7 +4773,7 @@ const G = /* @__PURE__ */ Z(xi, [["__scopeId", "data-v-e8c67559"]]), Ei = {
       ])), 64))
     ]));
   }
-}), Si = /* @__PURE__ */ R({
+}), ki = /* @__PURE__ */ R({
   __name: "tag-item",
   props: {
     isActivate: { type: Boolean }
@@ -4757,17 +4786,17 @@ const G = /* @__PURE__ */ Z(xi, [["__scopeId", "data-v-e8c67559"]]), Ei = {
     ], 2));
   }
 });
-const O = /* @__PURE__ */ Z(Si, [["__scopeId", "data-v-80dc8a64"]]), ki = { class: "tag-list w-100" }, Oi = {
+const O = /* @__PURE__ */ Z(ki, [["__scopeId", "data-v-80dc8a64"]]), Oi = { class: "tag-list w-100" }, Ci = {
   class: "w-100 d-flex flex-row border-bottom border-secondary align-items-center",
   style: { height: "40px" }
-}, Ci = {
+}, Pi = {
   style: { height: "100px" },
   class: "w-100 d-flex flex-row flex-wrap align-items-start overflow-y-auto overflow-x-hidden scrollbar-none"
-}, Pi = /* @__PURE__ */ R({
+}, Ti = /* @__PURE__ */ R({
   __name: "tag-list",
   setup(e) {
-    return (t, n) => (V(), L("div", ki, [
-      f("div", Oi, [
+    return (t, n) => (V(), L("div", Oi, [
+      f("div", Ci, [
         i(O, null, {
           default: _(() => [
             w("全部")
@@ -4787,7 +4816,7 @@ const O = /* @__PURE__ */ Z(Si, [["__scopeId", "data-v-80dc8a64"]]), ki = { clas
           _: 1
         })
       ]),
-      f("div", Ci, [
+      f("div", Pi, [
         i(O, null, {
           default: _(() => [
             w("全部")
@@ -5080,47 +5109,47 @@ const O = /* @__PURE__ */ Z(Si, [["__scopeId", "data-v-80dc8a64"]]), ki = { clas
     ]));
   }
 });
-const Qe = (e) => (Ye("data-v-1b5a3a37"), e = e(), qe(), e), Ti = {
+const Qe = (e) => (Ye("data-v-1b5a3a37"), e = e(), qe(), e), Ii = {
   class: "slider-panle w-100 px-3 text-white",
   style: { "font-size": "0.5rem" }
-}, Ii = { class: "mt-2 row text-center justify-content-between align-items-center" }, Vi = { class: "col-auto me-auto d-flex flex-row align-items-center" }, Ai = ["src"], Ri = {
+}, Vi = { class: "mt-2 row text-center justify-content-between align-items-center" }, Ai = { class: "col-auto me-auto d-flex flex-row align-items-center" }, Ri = ["src"], Ni = {
   class: "ms-2 d-flex flex-column justify-content-between",
   style: { height: "50px" }
-}, Ni = /* @__PURE__ */ Qe(() => /* @__PURE__ */ f("div", { class: "d-flex dlex-row column-gap-2 align-items-end" }, [
+}, Di = /* @__PURE__ */ Qe(() => /* @__PURE__ */ f("div", { class: "d-flex dlex-row column-gap-2 align-items-end" }, [
   /* @__PURE__ */ f("span", { class: "fs-6" }, "魔云猫"),
   /* @__PURE__ */ f("span", { style: { "font-size": "0.5rem" } }, "0.55x")
-], -1)), Di = { class: "d-flex flex-row column-gap-2 align-items-center" }, Li = /* @__PURE__ */ Qe(() => /* @__PURE__ */ f("span", { class: "badge text-bg-primary px-2" }, "24K", -1)), Mi = { class: "col-7 d-flex flex-column align-items-end" }, ji = /* @__PURE__ */ Qe(() => /* @__PURE__ */ f("div", null, "音频时长，请以生成后的为准", -1)), Hi = { class: "mt-1" }, Fi = /* @__PURE__ */ Qe(() => /* @__PURE__ */ f("span", null, "/", -1)), Bi = /* @__PURE__ */ Nn('<div class="role-list mt-2 d-flex flex-row flex-wrap justify-content-start align-items-center row-gap-2 column-gap-3" data-v-1b5a3a37><div class="rounded-pill px-1 border" data-v-1b5a3a37>女青年(默认)</div><div class="rounded-pill px-1" data-v-1b5a3a37>男孩儿</div><div class="rounded-pill px-1" data-v-1b5a3a37>男青少年</div><div class="rounded-pill px-1" data-v-1b5a3a37>男中年</div><div class="rounded-pill px-1" data-v-1b5a3a37>男孩儿</div><div class="rounded-pill px-1" data-v-1b5a3a37>男青少年</div><div class="rounded-pill px-1" data-v-1b5a3a37>男中年</div><div class="rounded-pill px-1" data-v-1b5a3a37>男孩儿</div><div class="rounded-pill px-1" data-v-1b5a3a37>男孩儿</div><div class="rounded-pill px-1" data-v-1b5a3a37>男中年</div><div class="rounded-pill px-1" data-v-1b5a3a37>男青少年</div><div class="rounded-pill px-1" data-v-1b5a3a37>男青少年</div><div class="rounded-pill px-1" data-v-1b5a3a37>男中年</div></div>', 1), Ui = { class: "audio-mood mt-2 d-flex flex-row flex-wrap justify-content-start align-items-center row-gap-1 column-gap-2" }, zi = /* @__PURE__ */ Qe(() => /* @__PURE__ */ f("div", { class: "my-3" }, [
+], -1)), Li = { class: "d-flex flex-row column-gap-2 align-items-center" }, Mi = /* @__PURE__ */ Qe(() => /* @__PURE__ */ f("span", { class: "badge text-bg-primary px-2" }, "24K", -1)), ji = { class: "col-7 d-flex flex-column align-items-end" }, Hi = /* @__PURE__ */ Qe(() => /* @__PURE__ */ f("div", null, "音频时长，请以生成后的为准", -1)), Fi = { class: "mt-1" }, Bi = /* @__PURE__ */ Qe(() => /* @__PURE__ */ f("span", null, "/", -1)), Ui = /* @__PURE__ */ Nn('<div class="role-list mt-2 d-flex flex-row flex-wrap justify-content-start align-items-center row-gap-2 column-gap-3" data-v-1b5a3a37><div class="rounded-pill px-1 border" data-v-1b5a3a37>女青年(默认)</div><div class="rounded-pill px-1" data-v-1b5a3a37>男孩儿</div><div class="rounded-pill px-1" data-v-1b5a3a37>男青少年</div><div class="rounded-pill px-1" data-v-1b5a3a37>男中年</div><div class="rounded-pill px-1" data-v-1b5a3a37>男孩儿</div><div class="rounded-pill px-1" data-v-1b5a3a37>男青少年</div><div class="rounded-pill px-1" data-v-1b5a3a37>男中年</div><div class="rounded-pill px-1" data-v-1b5a3a37>男孩儿</div><div class="rounded-pill px-1" data-v-1b5a3a37>男孩儿</div><div class="rounded-pill px-1" data-v-1b5a3a37>男中年</div><div class="rounded-pill px-1" data-v-1b5a3a37>男青少年</div><div class="rounded-pill px-1" data-v-1b5a3a37>男青少年</div><div class="rounded-pill px-1" data-v-1b5a3a37>男中年</div></div>', 1), zi = { class: "audio-mood mt-2 d-flex flex-row flex-wrap justify-content-start align-items-center row-gap-1 column-gap-2" }, Wi = /* @__PURE__ */ Qe(() => /* @__PURE__ */ f("div", { class: "my-3" }, [
   /* @__PURE__ */ f("span", { class: "border rounded-pill p-1" }, "配音师详情")
-], -1)), Wi = { class: "slider-box" }, Gi = { class: "slider-box" }, Xi = /* @__PURE__ */ Nn('<ul class="d-flex flex-row gap-3 my-3" data-v-1b5a3a37><li class="rounded-pill px-1 border" data-v-1b5a3a37>常用</li><li class="rounded-pill px-1" data-v-1b5a3a37>已购</li><li class="rounded-pill px-1" data-v-1b5a3a37>收藏</li><li class="rounded-pill px-1" data-v-1b5a3a37>我的</li></ul>', 1), Yi = { class: "d-flex flex-row flex-wrap row-gap-2 column-gap-3 mb-3" }, qi = /* @__PURE__ */ R({
+], -1)), Gi = { class: "slider-box" }, Xi = { class: "slider-box" }, Yi = /* @__PURE__ */ Nn('<ul class="d-flex flex-row gap-3 my-3" data-v-1b5a3a37><li class="rounded-pill px-1 border" data-v-1b5a3a37>常用</li><li class="rounded-pill px-1" data-v-1b5a3a37>已购</li><li class="rounded-pill px-1" data-v-1b5a3a37>收藏</li><li class="rounded-pill px-1" data-v-1b5a3a37>我的</li></ul>', 1), qi = { class: "d-flex flex-row flex-wrap row-gap-2 column-gap-3 mb-3" }, Ji = /* @__PURE__ */ R({
   __name: "slider-panle",
   setup(e) {
     const { globalEditConfig: t } = ge(), n = y(10), s = y(0), r = y([0, 2]), o = y(0), a = y([-10, 10]), l = y(0), u = K(() => $n(n.value)), p = K(() => $n(s.value)), m = xt(t.speed()), v = xt(t.pitch());
-    return (h, g) => (V(), L("div", Ti, [
-      f("div", Ii, [
-        f("div", Vi, [
+    return (h, g) => (V(), L("div", Ii, [
+      f("div", Vi, [
+        f("div", Ai, [
           f("img", {
             src: b(t).demoAvatar(),
             class: "rounded-circle",
             style: { height: "50px" }
-          }, null, 8, Ai),
-          f("div", Ri, [
-            Ni,
-            f("div", Di, [
+          }, null, 8, Ri),
+          f("div", Ni, [
+            Di,
+            f("div", Li, [
               i(b(Dn), { class: "fs-6" }, {
                 default: _(() => [
                   i(b(js))
                 ]),
                 _: 1
               }),
-              Li
+              Mi
             ])
           ])
         ]),
-        f("div", Mi, [
-          ji,
-          f("div", Hi, [
+        f("div", ji, [
+          Hi,
+          f("div", Fi, [
             f("span", null, Q(p.value), 1),
-            Fi,
+            Bi,
             f("span", null, Q(u.value), 1)
           ]),
           i(b(yt), {
@@ -5131,8 +5160,8 @@ const Qe = (e) => (Ye("data-v-1b5a3a37"), e = e(), qe(), e), Ti = {
           }, null, 8, ["max", "modelValue"])
         ])
       ]),
-      Bi,
-      f("ul", Ui, [
+      Ui,
+      f("ul", zi, [
         f("li", null, [
           i(G)
         ]),
@@ -5152,8 +5181,8 @@ const Qe = (e) => (Ye("data-v-1b5a3a37"), e = e(), qe(), e), Ti = {
           i(G)
         ])
       ]),
-      zi,
-      f("div", Wi, [
+      Wi,
+      f("div", Gi, [
         f("div", null, [
           f("span", null, "语速：" + Q(o.value) + "x", 1)
         ]),
@@ -5166,7 +5195,7 @@ const Qe = (e) => (Ye("data-v-1b5a3a37"), e = e(), qe(), e), Ti = {
           marks: m
         }, null, 8, ["modelValue", "min", "max", "marks"])
       ]),
-      f("div", Gi, [
+      f("div", Xi, [
         f("div", null, [
           f("span", null, "语调：" + Q(l.value), 1)
         ]),
@@ -5180,8 +5209,8 @@ const Qe = (e) => (Ye("data-v-1b5a3a37"), e = e(), qe(), e), Ti = {
         }, null, 8, ["modelValue", "min", "max", "marks"])
       ]),
       f("div", null, [
-        Xi,
-        f("ul", Yi, [
+        Yi,
+        f("ul", qi, [
           f("li", null, [
             i(G)
           ]),
@@ -5217,7 +5246,7 @@ const Qe = (e) => (Ye("data-v-1b5a3a37"), e = e(), qe(), e), Ti = {
     ]));
   }
 });
-const Ji = /* @__PURE__ */ Z(qi, [["__scopeId", "data-v-1b5a3a37"]]), Qi = (e) => (Ye("data-v-9db29a03"), e = e(), qe(), e), Ki = { class: "box ms-2" }, Zi = { class: "try-play-header text-center d-flex flex-row justify-content-between" }, eu = { class: "try-play-body d-flex flex-row" }, tu = { class: "try-play-left w-50 border-right border-secondary" }, nu = { class: "pe-1" }, su = { class: "type-list d-flex flex-row border-bottom border-secondary" }, ru = /* @__PURE__ */ Qi(() => /* @__PURE__ */ f("div", { class: "py-1 border-top border-secondary" }, null, -1)), ou = { class: "try-play-right w-50 border-start rounded border-top border-secondary overflow-x-hidden overflow-y-auto scrollbar-none" }, au = /* @__PURE__ */ R({
+const Qi = /* @__PURE__ */ Z(Ji, [["__scopeId", "data-v-1b5a3a37"]]), Ki = (e) => (Ye("data-v-9db29a03"), e = e(), qe(), e), Zi = { class: "box ms-2" }, eu = { class: "try-play-header text-center d-flex flex-row justify-content-between" }, tu = { class: "try-play-body d-flex flex-row" }, nu = { class: "try-play-left w-50 border-right border-secondary" }, su = { class: "pe-1" }, ru = { class: "type-list d-flex flex-row border-bottom border-secondary" }, ou = /* @__PURE__ */ Ki(() => /* @__PURE__ */ f("div", { class: "py-1 border-top border-secondary" }, null, -1)), au = { class: "try-play-right w-50 border-start rounded border-top border-secondary overflow-x-hidden overflow-y-auto scrollbar-none" }, lu = /* @__PURE__ */ R({
   __name: "try-play-panle",
   props: {
     visible: { type: Boolean }
@@ -5256,8 +5285,8 @@ const Ji = /* @__PURE__ */ Z(qi, [["__scopeId", "data-v-1b5a3a37"]]), Qi = (e) =
       style: Mt([b(p), { position: "fixed" }]),
       class: "try-play user-select-none card z-3 shadow"
     }, [
-      f("div", Ki, [
-        f("div", Zi, [
+      f("div", Zi, [
+        f("div", eu, [
           f("div", {
             ref_key: "handleRef",
             ref: a,
@@ -5275,9 +5304,9 @@ const Ji = /* @__PURE__ */ Z(qi, [["__scopeId", "data-v-1b5a3a37"]]), Qi = (e) =
             })
           ])
         ]),
-        f("div", eu, [
-          f("div", tu, [
-            f("div", nu, [
+        f("div", tu, [
+          f("div", nu, [
+            f("div", su, [
               i(b(dt), {
                 onSubmit: g[1] || (g[1] = te(() => {
                 }, ["prevent"]))
@@ -5295,7 +5324,7 @@ const Ji = /* @__PURE__ */ Z(qi, [["__scopeId", "data-v-1b5a3a37"]]), Qi = (e) =
                 _: 1
               })
             ]),
-            f("div", su, [
+            f("div", ru, [
               i(O, null, {
                 default: _(() => [
                   w("热榜")
@@ -5315,12 +5344,12 @@ const Ji = /* @__PURE__ */ Z(qi, [["__scopeId", "data-v-1b5a3a37"]]), Qi = (e) =
                 _: 1
               })
             ]),
-            i(Pi),
-            ru,
-            i($i)
+            i(Ti),
+            ou,
+            i(Si)
           ]),
-          f("div", ou, [
-            i(Ji)
+          f("div", au, [
+            i(Qi)
           ])
         ])
       ])
@@ -5329,7 +5358,7 @@ const Ji = /* @__PURE__ */ Z(qi, [["__scopeId", "data-v-1b5a3a37"]]), Qi = (e) =
     ]);
   }
 });
-const lu = /* @__PURE__ */ Z(au, [["__scopeId", "data-v-9db29a03"]]), $s = /* @__PURE__ */ R({
+const iu = /* @__PURE__ */ Z(lu, [["__scopeId", "data-v-9db29a03"]]), $s = /* @__PURE__ */ R({
   __name: "try-play",
   setup(e) {
     const t = y(!0);
@@ -5337,18 +5366,18 @@ const lu = /* @__PURE__ */ Z(au, [["__scopeId", "data-v-9db29a03"]]), $s = /* @_
       s || (t.value = !0);
     }
     return (s, r) => (V(), ne(An, { to: "body" }, [
-      i(_i, {
+      i(yi, {
         visible: t.value,
         "onUpdate:visible": r[0] || (r[0] = (o) => t.value = o)
       }, null, 8, ["visible"]),
-      i(lu, {
+      i(iu, {
         visible: !t.value,
         "onUpdate:visible": n
       }, null, 8, ["visible"])
     ]));
   }
 });
-const iu = {
+const uu = {
   install: (e) => {
     e.component("PinyinMenu", cs), e.component("ContinuousMenu", ds), e.component("ReadMenu", fs), e.component("DigitalMenu", ps), e.component("AliasMenu", ms), e.component("EnglishMenu", vs), e.component("ChangespeedMenu", hs), e.component("RhythmMenu", _s), e.component("SpecialMenu", ys), e.component("MuteMenu", gs), e.component("BgmMenu", bs), e.component("SensitiveMenu", ws), e.component("ManagementMenu", xs), e.component("ConversionMenu", Es), e.component("TryPlay", $s);
   }
@@ -5536,13 +5565,13 @@ var At = { exports: {} }, Rt = { exports: {} };
   }
   e.exports = j, t.default = j;
 })(Rt, Rt.exports);
-var uu = Rt.exports;
+var cu = Rt.exports;
 (function(e, t) {
   var n = Ne && Ne.__importDefault || function(d) {
     return d && d.__esModule ? d : { default: d };
   };
   Object.defineProperty(t, "__esModule", { value: !0 });
-  const s = n(uu);
+  const s = n(cu);
   function r(d) {
     if (!d.options.indentation && !d.options.lineSeparator)
       return;
@@ -5630,21 +5659,21 @@ var uu = Rt.exports;
   }
   g.minify = (d, c = {}) => g(d, Object.assign(Object.assign({}, c), { indentation: "", lineSeparator: "" })), e.exports = g, t.default = g;
 })(At, At.exports);
-var cu = At.exports;
-const du = /* @__PURE__ */ es(cu), Be = (e) => (Ye("data-v-27607a6d"), e = e(), qe(), e), fu = { class: "editor-title d-flex flex-row align-item-center justify-content-between" }, pu = { class: "title-wrapper d-flex flex-column justify-content-center ps-3" }, mu = /* @__PURE__ */ Be(() => /* @__PURE__ */ f("div", { class: "title-author pb-1" }, "SSML编辑器", -1)), vu = { class: "author d-flex flex-row align-items-center justify-content-start" }, hu = /* @__PURE__ */ Be(() => /* @__PURE__ */ f("div", null, "未保存", -1)), _u = /* @__PURE__ */ Be(() => /* @__PURE__ */ f("span", { class: "iconfont icon-play font-size-12 p-1" }, null, -1)), yu = /* @__PURE__ */ Be(() => /* @__PURE__ */ f("div", { class: "d-inline-block" }, null, -1)), gu = { class: "operation-wrapper d-flex flex-row justify-content-center align-items-center" }, bu = /* @__PURE__ */ Be(() => /* @__PURE__ */ f("div", { class: "menu-divider" }, null, -1)), wu = /* @__PURE__ */ Be(() => /* @__PURE__ */ f("div", { class: "px-1" }, null, -1)), xu = {
+var du = At.exports;
+const fu = /* @__PURE__ */ es(du), Be = (e) => (Ye("data-v-27607a6d"), e = e(), qe(), e), pu = { class: "editor-title d-flex flex-row align-item-center justify-content-between" }, mu = { class: "title-wrapper d-flex flex-column justify-content-center ps-3" }, vu = /* @__PURE__ */ Be(() => /* @__PURE__ */ f("div", { class: "title-author pb-1" }, "SSML编辑器", -1)), hu = { class: "author d-flex flex-row align-items-center justify-content-start" }, _u = /* @__PURE__ */ Be(() => /* @__PURE__ */ f("div", null, "未保存", -1)), yu = /* @__PURE__ */ Be(() => /* @__PURE__ */ f("span", { class: "iconfont icon-play font-size-12 p-1" }, null, -1)), gu = /* @__PURE__ */ Be(() => /* @__PURE__ */ f("div", { class: "d-inline-block" }, null, -1)), bu = { class: "operation-wrapper d-flex flex-row justify-content-center align-items-center" }, wu = /* @__PURE__ */ Be(() => /* @__PURE__ */ f("div", { class: "menu-divider" }, null, -1)), xu = /* @__PURE__ */ Be(() => /* @__PURE__ */ f("div", { class: "px-1" }, null, -1)), Eu = {
   class: "ssml-code border border-secondary-subtle rounded-2 px-2",
   style: { "white-space": "pre-wrap", "max-height": "50vh" }
-}, Eu = { class: "dialog-footer" }, $u = /* @__PURE__ */ R({
+}, $u = { class: "dialog-footer" }, Su = /* @__PURE__ */ R({
   __name: "editor-title",
   setup(e) {
-    const t = y(!1), n = y(""), { rootBackgroundaudio: s } = zt(), r = K(() => du(n.value, {
+    const t = y(!1), n = y(""), { rootBackgroundaudio: s } = zt(), r = K(() => fu(n.value, {
       indentation: "    ",
       filter: (p) => p.type !== "Comment",
       collapseContent: !1,
       lineSeparator: `
 `
     })), o = () => {
-      n.value = da(), t.value = !0;
+      n.value = fa(), t.value = !0;
     }, a = () => {
       s.src && ct.play(s.src);
     }, l = () => {
@@ -5654,11 +5683,11 @@ const du = /* @__PURE__ */ es(cu), Be = (e) => (Ye("data-v-27607a6d"), e = e(), 
       await navigator.clipboard.writeText(r.value), t.value = !1;
     }
     return (p, m) => (V(), L(fe, null, [
-      f("div", fu, [
-        f("div", pu, [
-          mu,
-          f("div", vu, [
-            hu,
+      f("div", pu, [
+        f("div", mu, [
+          vu,
+          f("div", hu, [
+            _u,
             b(s).src ? (V(), ne(b(be), {
               key: 0,
               class: "bgm-txt ms-2",
@@ -5668,15 +5697,15 @@ const du = /* @__PURE__ */ es(cu), Be = (e) => (Ye("data-v-27607a6d"), e = e(), 
               onClose: l
             }, {
               default: _(() => [
-                _u,
                 yu,
+                gu,
                 f("span", null, Q(b(s).remark), 1)
               ]),
               _: 1
             })) : Rn("", !0)
           ])
         ]),
-        f("div", gu, [
+        f("div", bu, [
           i(b(ie), {
             type: "primary",
             icon: b(Fs),
@@ -5687,7 +5716,7 @@ const du = /* @__PURE__ */ es(cu), Be = (e) => (Ye("data-v-27607a6d"), e = e(), 
             ]),
             _: 1
           }, 8, ["icon"]),
-          bu,
+          wu,
           i(b(ie), {
             type: "primary",
             onClick: o
@@ -5721,7 +5750,7 @@ const du = /* @__PURE__ */ es(cu), Be = (e) => (Ye("data-v-27607a6d"), e = e(), 
             ]),
             _: 1
           }),
-          wu
+          xu
         ])
       ]),
       i(b(Ds), {
@@ -5742,7 +5771,7 @@ const du = /* @__PURE__ */ es(cu), Be = (e) => (Ye("data-v-27607a6d"), e = e(), 
           })
         ]),
         footer: _(() => [
-          f("span", Eu, [
+          f("span", $u, [
             i(b(ie), {
               type: "primary",
               onClick: u
@@ -5755,14 +5784,14 @@ const du = /* @__PURE__ */ es(cu), Be = (e) => (Ye("data-v-27607a6d"), e = e(), 
           ])
         ]),
         default: _(() => [
-          f("pre", xu, Q(r.value), 1)
+          f("pre", Eu, Q(r.value), 1)
         ]),
         _: 1
       }, 8, ["modelValue"])
     ], 64));
   }
 });
-const Su = /* @__PURE__ */ Z($u, [["__scopeId", "data-v-27607a6d"]]), ku = /* @__PURE__ */ R({
+const ku = /* @__PURE__ */ Z(Su, [["__scopeId", "data-v-27607a6d"]]), Ou = /* @__PURE__ */ R({
   __name: "editor-core",
   emits: ["created", "change"],
   setup(e, { emit: t }) {
@@ -5799,11 +5828,11 @@ const Su = /* @__PURE__ */ Z($u, [["__scopeId", "data-v-27607a6d"]]), ku = /* @_
       style: { height: "70vh", "overflow-y": "hidden" }
     }, null, 512));
   }
-}), Ou = { class: "bar-view border-bottom border-1" }, Cu = /* @__PURE__ */ R({
+}), Cu = { class: "bar-view border-bottom border-1" }, Pu = /* @__PURE__ */ R({
   __name: "bar-view",
   setup(e) {
     return (t, n) => (V(), L(fe, null, [
-      f("div", Ou, [
+      f("div", Cu, [
         i(b(us), null, {
           default: _(() => [
             i(b(Ae), { divider: "green" }, {
@@ -5856,7 +5885,7 @@ const Su = /* @__PURE__ */ Z($u, [["__scopeId", "data-v-27607a6d"]]), ku = /* @_
       i(b($s))
     ], 64));
   }
-}), Pu = { class: "editor-view" }, Tu = { class: "editor-box" }, Iu = { class: "editor-core-container shadow pt-1" }, Vu = /* @__PURE__ */ R({
+}), Tu = { class: "editor-view" }, Iu = { class: "editor-box" }, Vu = { class: "editor-core-container shadow pt-1" }, Au = /* @__PURE__ */ R({
   __name: "editor-view",
   emits: ["onCreated", "onChange"],
   setup(e, { emit: t }) {
@@ -5865,12 +5894,12 @@ const Su = /* @__PURE__ */ Z($u, [["__scopeId", "data-v-27607a6d"]]), ku = /* @_
     }, s = (r) => {
       t("onChange", r);
     };
-    return (r, o) => (V(), L("div", Pu, [
-      i(Su),
-      f("div", Tu, [
-        i(Cu),
-        f("div", Iu, [
-          i(ku, {
+    return (r, o) => (V(), L("div", Tu, [
+      i(ku),
+      f("div", Iu, [
+        i(Pu),
+        f("div", Vu, [
+          i(Ou, {
             onChange: s,
             onCreated: n
           })
@@ -5879,20 +5908,20 @@ const Su = /* @__PURE__ */ Z($u, [["__scopeId", "data-v-27607a6d"]]), ku = /* @_
     ]));
   }
 });
-const Au = /* @__PURE__ */ Z(Vu, [["__scopeId", "data-v-15ef0dbd"]]), Ru = {
+const Ru = /* @__PURE__ */ Z(Au, [["__scopeId", "data-v-15ef0dbd"]]), Nu = {
   install(e) {
-    e.component("EditorView", Au);
+    e.component("EditorView", Ru);
   }
-}, Hu = {
+}, Fu = {
   install(e, t) {
     e.use(fr()), e.use(() => {
       const { setGlobalEditConfig: n } = ge();
       n(Kn(t));
-    }), e.use(fa), e.use(ul), e.use(iu), e.use(Ru);
+    }), e.use(pa), e.use(cl), e.use(uu), e.use(Nu);
   }
 };
 export {
   Y as WANGEDITOR_EVENT,
   Kn as createGlobalEditorConfig,
-  Hu as default
+  Fu as default
 };
