@@ -40,7 +40,8 @@
     "element-plus": "^2.3.9",
     "pinia": "^2.1.6",
     "snabbdom": "^3.5.1",
-    "vue": "^3.3.4"
+    "vue": "^3.3.4",
+    "xml2js": "^0.6.2"
   },
-  "yalcSig": "b68da2da688ab33391e293ebc34df9f2"
+  "yalcSig": "3448cbd766333145d199674ab05b8f91"
 }

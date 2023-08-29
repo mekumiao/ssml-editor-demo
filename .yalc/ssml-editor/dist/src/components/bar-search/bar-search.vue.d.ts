@@ -1,66 +1,63 @@
 import type { PropType as __PropType } from 'vue';
 import type { LabelValue } from '../../model';
-type MenuKey = 'first' | 'second' | 'last';
-type MenuItemLabel = {
-    [k in MenuKey]: string;
-};
+import type { FilterBarSearch } from './data';
 declare const _sfc_main: import("vue").DefineComponent<{
-    menuItemLabel: {
-        type: __PropType<MenuItemLabel>;
-        required: true;
-    };
-    scenes: {
+    menus: {
         type: __PropType<LabelValue[]>;
         required: true;
     };
-    styles: {
-        type: __PropType<LabelValue[]>;
+    fetchScene: {
+        type: __PropType<() => Promise<LabelValue[]>>;
         required: true;
+    };
+    fetchStyle: {
+        type: __PropType<() => Promise<LabelValue[]>>;
+        required: true;
+    };
+    fetchData: {
+        type: __PropType<(filter: FilterBarSearch) => Promise<LabelValue[]>>;
+        required: true;
+    };
+    sceneList: {
+        type: __PropType<LabelValue[] | undefined>;
+        required: false;
+    };
+    styleList: {
+        type: __PropType<LabelValue[] | undefined>;
+        required: false;
     };
     dataList: {
         type: __PropType<LabelValue[] | undefined>;
         required: false;
-    };
-    fetch: {
-        type: __PropType<(filter: {
-            search: string;
-            menuKey: MenuKey;
-            scene: string;
-            style: string;
-        }) => Promise<{
-            value: string;
-            label: string;
-        }[]>>;
-        required: true;
     };
 }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, "submit"[], "submit", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
-    menuItemLabel: {
-        type: __PropType<MenuItemLabel>;
-        required: true;
-    };
-    scenes: {
+    menus: {
         type: __PropType<LabelValue[]>;
         required: true;
     };
-    styles: {
-        type: __PropType<LabelValue[]>;
+    fetchScene: {
+        type: __PropType<() => Promise<LabelValue[]>>;
         required: true;
+    };
+    fetchStyle: {
+        type: __PropType<() => Promise<LabelValue[]>>;
+        required: true;
+    };
+    fetchData: {
+        type: __PropType<(filter: FilterBarSearch) => Promise<LabelValue[]>>;
+        required: true;
+    };
+    sceneList: {
+        type: __PropType<LabelValue[] | undefined>;
+        required: false;
+    };
+    styleList: {
+        type: __PropType<LabelValue[] | undefined>;
+        required: false;
     };
     dataList: {
         type: __PropType<LabelValue[] | undefined>;
         required: false;
-    };
-    fetch: {
-        type: __PropType<(filter: {
-            search: string;
-            menuKey: MenuKey;
-            scene: string;
-            style: string;
-        }) => Promise<{
-            value: string;
-            label: string;
-        }[]>>;
-        required: true;
     };
 }>> & {
     onSubmit?: ((...args: any[]) => any) | undefined;

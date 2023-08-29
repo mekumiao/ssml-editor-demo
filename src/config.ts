@@ -1,11 +1,12 @@
-import type { SSMLEditorConfig } from "ssml-editor"
-import { pinyin, english, bgm, special } from "./api"
-import { ElMessage } from "element-plus"
+import type { SSMLEditorConfig } from 'ssml-editor'
+import { pinyin, english, bgm, special, scene, style, tag, speaker, star, flag } from './api'
+import { ElMessage } from 'element-plus'
 
-export default {
+export default <SSMLEditorConfig>{
   handleError: (error) => ElMessage.warning({ message: error, grouping: true }),
-  fetchPinyin: pinyin,
-  fetchEnglish: english,
-  fetchBgm: bgm,
-  fetchSpecial: special,
-} as SSMLEditorConfig
+  pinyin: { fetchData: pinyin },
+  english: { fetchData: english },
+  bgm: { fetchData: bgm, fetchScene: scene, fetchStyle: style },
+  special: { fetchData: special, fetchScene: scene, fetchStyle: style },
+  tryPlay: { featchTag: tag, fetchData: speaker, fetchStar: star, fetchFlag: flag },
+}

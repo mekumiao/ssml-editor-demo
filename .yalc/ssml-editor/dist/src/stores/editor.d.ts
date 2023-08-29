@@ -3,165 +3,114 @@ import { type GlobalEditorConfig } from '../config';
 export declare const useEditorStore: import("pinia").StoreDefinition<"--editor-config", import("pinia")._UnwrapAll<Pick<{
     editor: import("vue").ComputedRef<IDomEditor | undefined>;
     globalEditConfig: import("vue").ComputedRef<{
-        editorConfig: import("@wangeditor/editor").IEditorConfig;
+        editorConfig: import("@wangeditor/editor").IEditorConfig | {
+            maxLength: number;
+            placeholder: string;
+        };
         handleError: (error: string) => void;
-        fetchPinyin: (word: string) => Promise<import("..").LabelValue[]>;
-        fetchEnglish: (word: string) => Promise<import("..").LabelValue[]>;
-        fetchBgm: (filter: import("..").Filter) => Promise<import("..").LabelValue[]>;
-        fetchSpecial: (filter: import("..").Filter) => Promise<import("..").LabelValue[]>;
-        speed: () => {
-            0: string;
-            0.1: string;
-            0.2: string;
-            0.3: string;
-            0.4: string;
-            0.5: string;
-            0.6: string;
-            0.7: string;
-            0.8: string;
-            0.9: string;
-            1: string;
-            1.1: string;
-            1.2: string;
-            1.4: string;
-            1.5: string;
-            1.75: string;
-            2: string;
+        pinyin: {
+            fetchData: (word: string) => Promise<import("..").LabelValue[]>;
         };
-        pitch: () => {
-            0: string;
-            1: string;
-            2: string;
-            3: string;
-            4: string;
-            5: string;
-            6: string;
-            7: string;
-            8: string;
-            9: string;
-            10: string;
-            '-1': string;
-            '-2': string;
-            '-3': string;
-            '-4': string;
-            '-5': string;
-            '-6': string;
-            '-7': string;
-            '-8': string;
-            '-9': string;
-            '-10': string;
+        english: {
+            fetchData: (word: string) => Promise<import("..").LabelValue[]>;
         };
-        demoAvatar: () => string;
+        bgm: Required<{
+            menus?: import("..").LabelValue[] | undefined;
+            fetchScene: () => Promise<import("..").LabelValue[]>;
+            fetchStyle: () => Promise<import("..").LabelValue[]>;
+            fetchData: (filter: import("..").FilterBarSearch) => Promise<import("..").LabelValue[]>;
+        }>;
+        special: Required<{
+            menus?: import("..").LabelValue[] | undefined;
+            fetchScene: () => Promise<import("..").LabelValue[]>;
+            fetchStyle: () => Promise<import("..").LabelValue[]>;
+            fetchData: (filter: import("..").FilterBarSearch) => Promise<import("..").LabelValue[]>;
+        }>;
+        tryPlay: Required<{
+            gender?: import("..").LabelValue[] | undefined;
+            category?: import("..").LabelValue[] | undefined;
+            flags?: import("..").LabelValue[] | undefined;
+            fetchData: (filter: import("..").FilterSpeaker) => Promise<import("..").Speaker[]>;
+            featchTag: () => Promise<import("..").LabelValue[]>;
+            fetchFlag: (flag: string) => Promise<import("..").Speaker[]>;
+            fetchStar: (speaker: string, star: boolean) => Promise<boolean>;
+        }>;
     }>;
     setEditor: (editor: IDomEditor) => void;
     setGlobalEditConfig: (globalConfig?: GlobalEditorConfig) => void;
 }, never>>, Pick<{
     editor: import("vue").ComputedRef<IDomEditor | undefined>;
     globalEditConfig: import("vue").ComputedRef<{
-        editorConfig: import("@wangeditor/editor").IEditorConfig;
+        editorConfig: import("@wangeditor/editor").IEditorConfig | {
+            maxLength: number;
+            placeholder: string;
+        };
         handleError: (error: string) => void;
-        fetchPinyin: (word: string) => Promise<import("..").LabelValue[]>;
-        fetchEnglish: (word: string) => Promise<import("..").LabelValue[]>;
-        fetchBgm: (filter: import("..").Filter) => Promise<import("..").LabelValue[]>;
-        fetchSpecial: (filter: import("..").Filter) => Promise<import("..").LabelValue[]>;
-        speed: () => {
-            0: string;
-            0.1: string;
-            0.2: string;
-            0.3: string;
-            0.4: string;
-            0.5: string;
-            0.6: string;
-            0.7: string;
-            0.8: string;
-            0.9: string;
-            1: string;
-            1.1: string;
-            1.2: string;
-            1.4: string;
-            1.5: string;
-            1.75: string;
-            2: string;
+        pinyin: {
+            fetchData: (word: string) => Promise<import("..").LabelValue[]>;
         };
-        pitch: () => {
-            0: string;
-            1: string;
-            2: string;
-            3: string;
-            4: string;
-            5: string;
-            6: string;
-            7: string;
-            8: string;
-            9: string;
-            10: string;
-            '-1': string;
-            '-2': string;
-            '-3': string;
-            '-4': string;
-            '-5': string;
-            '-6': string;
-            '-7': string;
-            '-8': string;
-            '-9': string;
-            '-10': string;
+        english: {
+            fetchData: (word: string) => Promise<import("..").LabelValue[]>;
         };
-        demoAvatar: () => string;
+        bgm: Required<{
+            menus?: import("..").LabelValue[] | undefined;
+            fetchScene: () => Promise<import("..").LabelValue[]>;
+            fetchStyle: () => Promise<import("..").LabelValue[]>;
+            fetchData: (filter: import("..").FilterBarSearch) => Promise<import("..").LabelValue[]>;
+        }>;
+        special: Required<{
+            menus?: import("..").LabelValue[] | undefined;
+            fetchScene: () => Promise<import("..").LabelValue[]>;
+            fetchStyle: () => Promise<import("..").LabelValue[]>;
+            fetchData: (filter: import("..").FilterBarSearch) => Promise<import("..").LabelValue[]>;
+        }>;
+        tryPlay: Required<{
+            gender?: import("..").LabelValue[] | undefined;
+            category?: import("..").LabelValue[] | undefined;
+            flags?: import("..").LabelValue[] | undefined;
+            fetchData: (filter: import("..").FilterSpeaker) => Promise<import("..").Speaker[]>;
+            featchTag: () => Promise<import("..").LabelValue[]>;
+            fetchFlag: (flag: string) => Promise<import("..").Speaker[]>;
+            fetchStar: (speaker: string, star: boolean) => Promise<boolean>;
+        }>;
     }>;
     setEditor: (editor: IDomEditor) => void;
     setGlobalEditConfig: (globalConfig?: GlobalEditorConfig) => void;
 }, "editor" | "globalEditConfig">, Pick<{
     editor: import("vue").ComputedRef<IDomEditor | undefined>;
     globalEditConfig: import("vue").ComputedRef<{
-        editorConfig: import("@wangeditor/editor").IEditorConfig;
+        editorConfig: import("@wangeditor/editor").IEditorConfig | {
+            maxLength: number;
+            placeholder: string;
+        };
         handleError: (error: string) => void;
-        fetchPinyin: (word: string) => Promise<import("..").LabelValue[]>;
-        fetchEnglish: (word: string) => Promise<import("..").LabelValue[]>;
-        fetchBgm: (filter: import("..").Filter) => Promise<import("..").LabelValue[]>;
-        fetchSpecial: (filter: import("..").Filter) => Promise<import("..").LabelValue[]>;
-        speed: () => {
-            0: string;
-            0.1: string;
-            0.2: string;
-            0.3: string;
-            0.4: string;
-            0.5: string;
-            0.6: string;
-            0.7: string;
-            0.8: string;
-            0.9: string;
-            1: string;
-            1.1: string;
-            1.2: string;
-            1.4: string;
-            1.5: string;
-            1.75: string;
-            2: string;
+        pinyin: {
+            fetchData: (word: string) => Promise<import("..").LabelValue[]>;
         };
-        pitch: () => {
-            0: string;
-            1: string;
-            2: string;
-            3: string;
-            4: string;
-            5: string;
-            6: string;
-            7: string;
-            8: string;
-            9: string;
-            10: string;
-            '-1': string;
-            '-2': string;
-            '-3': string;
-            '-4': string;
-            '-5': string;
-            '-6': string;
-            '-7': string;
-            '-8': string;
-            '-9': string;
-            '-10': string;
+        english: {
+            fetchData: (word: string) => Promise<import("..").LabelValue[]>;
         };
-        demoAvatar: () => string;
+        bgm: Required<{
+            menus?: import("..").LabelValue[] | undefined;
+            fetchScene: () => Promise<import("..").LabelValue[]>;
+            fetchStyle: () => Promise<import("..").LabelValue[]>;
+            fetchData: (filter: import("..").FilterBarSearch) => Promise<import("..").LabelValue[]>;
+        }>;
+        special: Required<{
+            menus?: import("..").LabelValue[] | undefined;
+            fetchScene: () => Promise<import("..").LabelValue[]>;
+            fetchStyle: () => Promise<import("..").LabelValue[]>;
+            fetchData: (filter: import("..").FilterBarSearch) => Promise<import("..").LabelValue[]>;
+        }>;
+        tryPlay: Required<{
+            gender?: import("..").LabelValue[] | undefined;
+            category?: import("..").LabelValue[] | undefined;
+            flags?: import("..").LabelValue[] | undefined;
+            fetchData: (filter: import("..").FilterSpeaker) => Promise<import("..").Speaker[]>;
+            featchTag: () => Promise<import("..").LabelValue[]>;
+            fetchFlag: (flag: string) => Promise<import("..").Speaker[]>;
+            fetchStar: (speaker: string, star: boolean) => Promise<boolean>;
+        }>;
     }>;
     setEditor: (editor: IDomEditor) => void;
     setGlobalEditConfig: (globalConfig?: GlobalEditorConfig) => void;

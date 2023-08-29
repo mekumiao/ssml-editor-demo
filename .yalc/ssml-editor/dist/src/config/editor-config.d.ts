@@ -1,65 +1,74 @@
-import type { Filter, LabelValue } from '../model';
+import type { FilterSpeaker, LabelValue } from '../model';
 import type { IEditorConfig } from '@wangeditor/editor';
+import type { FilterBarSearch } from '../components/bar-search';
+import type { Speaker } from '../model';
 type FetahFunction = (word: string) => Promise<LabelValue[]>;
-type FilterFetahFunction = (filter: Filter) => Promise<LabelValue[]>;
+type FilterFetahFunction = (filter: FilterBarSearch) => Promise<LabelValue[]>;
+type FilterSpeakerFetahFunction = (filter: FilterSpeaker) => Promise<Speaker[]>;
 export type GlobalEditorConfig = ReturnType<typeof createGlobalEditorConfig>;
 export interface SSMLEditorConfig {
     editorConfig?: IEditorConfig;
     handleError: (error: string) => void;
-    fetchPinyin: FetahFunction;
-    fetchEnglish: FetahFunction;
-    fetchBgm: FilterFetahFunction;
-    fetchSpecial: FilterFetahFunction;
+    pinyin: {
+        fetchData: FetahFunction;
+    };
+    english: {
+        fetchData: FetahFunction;
+    };
+    bgm: {
+        menus?: LabelValue[];
+        fetchScene: () => Promise<LabelValue[]>;
+        fetchStyle: () => Promise<LabelValue[]>;
+        fetchData: FilterFetahFunction;
+    };
+    special: {
+        menus?: LabelValue[];
+        fetchScene: () => Promise<LabelValue[]>;
+        fetchStyle: () => Promise<LabelValue[]>;
+        fetchData: FilterFetahFunction;
+    };
+    tryPlay: {
+        gender?: LabelValue[];
+        category?: LabelValue[];
+        flags?: LabelValue[];
+        fetchData: FilterSpeakerFetahFunction;
+        featchTag: () => Promise<LabelValue[]>;
+        fetchFlag: (flag: string) => Promise<Speaker[]>;
+        fetchStar: (speaker: string, star: boolean) => Promise<boolean>;
+    };
 }
 export declare function createGlobalEditorConfig(config?: SSMLEditorConfig): {
-    editorConfig: IEditorConfig;
+    editorConfig: IEditorConfig | {
+        maxLength: number;
+        placeholder: string;
+    };
     handleError: (error: string) => void;
-    fetchPinyin: FetahFunction;
-    fetchEnglish: FetahFunction;
-    fetchBgm: FilterFetahFunction;
-    fetchSpecial: FilterFetahFunction;
-    speed: () => {
-        0: string;
-        0.1: string;
-        0.2: string;
-        0.3: string;
-        0.4: string;
-        0.5: string;
-        0.6: string;
-        0.7: string;
-        0.8: string;
-        0.9: string;
-        1: string;
-        1.1: string;
-        1.2: string;
-        1.4: string;
-        1.5: string;
-        1.75: string;
-        2: string;
+    pinyin: {
+        fetchData: FetahFunction;
     };
-    pitch: () => {
-        0: string;
-        1: string;
-        2: string;
-        3: string;
-        4: string;
-        5: string;
-        6: string;
-        7: string;
-        8: string;
-        9: string;
-        10: string;
-        '-1': string;
-        '-2': string;
-        '-3': string;
-        '-4': string;
-        '-5': string;
-        '-6': string;
-        '-7': string;
-        '-8': string;
-        '-9': string;
-        '-10': string;
+    english: {
+        fetchData: FetahFunction;
     };
-    demoAvatar: () => string;
+    bgm: Required<{
+        menus?: LabelValue[] | undefined;
+        fetchScene: () => Promise<LabelValue[]>;
+        fetchStyle: () => Promise<LabelValue[]>;
+        fetchData: FilterFetahFunction;
+    }>;
+    special: Required<{
+        menus?: LabelValue[] | undefined;
+        fetchScene: () => Promise<LabelValue[]>;
+        fetchStyle: () => Promise<LabelValue[]>;
+        fetchData: FilterFetahFunction;
+    }>;
+    tryPlay: Required<{
+        gender?: LabelValue[] | undefined;
+        category?: LabelValue[] | undefined;
+        flags?: LabelValue[] | undefined;
+        fetchData: FilterSpeakerFetahFunction;
+        featchTag: () => Promise<LabelValue[]>;
+        fetchFlag: (flag: string) => Promise<Speaker[]>;
+        fetchStar: (speaker: string, star: boolean) => Promise<boolean>;
+    }>;
 };
 export {};

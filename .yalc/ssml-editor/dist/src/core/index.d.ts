@@ -1,5 +1,5 @@
 export * from './custom-types';
-export * from './serialize';
+export * from './helper';
 declare const _default: {
     install(): void;
 };

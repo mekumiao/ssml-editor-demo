@@ -7,4 +7,4 @@ import { BarWrapper, BarWrapperItem, BarWrapperGroup } from './bar-wrapper';
 import { DragBox, constrainDragBounds } from './drag-box';
 declare const _default: Plugin;
 export default _default;
-export { BarButton, BarInput, BarPopover, BarSearch, BarWrapper, BarWrapperItem, BarWrapperGroup, DragBox, constrainDragBounds };
+export { BarButton, BarInput, BarPopover, BarSearch, BarWrapper, BarWrapperItem, BarWrapperGroup, DragBox, constrainDragBounds, };

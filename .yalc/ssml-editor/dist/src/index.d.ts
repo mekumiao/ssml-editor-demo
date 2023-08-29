@@ -1,6 +1,10 @@
 import type { Plugin } from 'vue';
+import { EditorView } from './view';
+import type { FilterBarSearch } from './components/bar-search';
 export * from './constant';
 export * from './model';
 export * from './config';
 declare const _default: Plugin;
 export default _default;
+export { EditorView };
+export type { FilterBarSearch };

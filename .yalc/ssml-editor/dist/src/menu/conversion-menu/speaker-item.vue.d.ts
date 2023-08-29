@@ -4,7 +4,7 @@ declare const _sfc_main: import("vue").DefineComponent<{
         type: __PropType<string>;
         required: true;
     };
-    img: {
+    src: {
         type: __PropType<string | undefined>;
         required: false;
         default: string;
@@ -14,12 +14,12 @@ declare const _sfc_main: import("vue").DefineComponent<{
         type: __PropType<string>;
         required: true;
     };
-    img: {
+    src: {
         type: __PropType<string | undefined>;
         required: false;
         default: string;
     };
 }>>, {
-    img: string | undefined;
+    src: string | undefined;
 }, {}>;
 export default _sfc_main;

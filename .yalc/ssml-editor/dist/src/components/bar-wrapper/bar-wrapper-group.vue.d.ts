@@ -1,5 +1,5 @@
 import type { PropType as __PropType } from 'vue';
-type DividerColor = 'green' | 'cyan' | 'orange' | 'purple' | 'yellow';
+import type { DividerColor } from './data';
 declare const _sfc_main: import("vue").DefineComponent<{
     divider: {
         type: __PropType<DividerColor | undefined>;
