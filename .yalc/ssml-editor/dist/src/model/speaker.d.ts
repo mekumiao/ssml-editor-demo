@@ -1,5 +1,6 @@
 import type { LabelValue } from './label-value';
 export interface Speaker extends LabelValue {
+    id: string;
     avatar: string;
     isFree: boolean;
     isStar: boolean;

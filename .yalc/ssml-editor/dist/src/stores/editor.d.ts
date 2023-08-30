@@ -7,7 +7,7 @@ export declare const useEditorStore: import("pinia").StoreDefinition<"--editor-c
             maxLength: number;
             placeholder: string;
         };
-        handleError: (error: string) => void;
+        handleError: (error: string, detail?: any) => void;
         pinyin: {
             fetchData: (word: string) => Promise<import("..").LabelValue[]>;
         };
@@ -35,6 +35,26 @@ export declare const useEditorStore: import("pinia").StoreDefinition<"--editor-c
             fetchFlag: (flag: string) => Promise<import("..").Speaker[]>;
             fetchStar: (speaker: string, star: boolean) => Promise<boolean>;
         }>;
+        conversion: {
+            timeoutMilliseconds: number;
+            audioUpload: (file: File | Blob, token: import("..").CancellationToken) => Promise<import("..").AudioInfo>;
+            transfer: (opt: {
+                audioId: string;
+                speakerId: string;
+            }) => Promise<import("..").AudioInfo>;
+            fetchSpeaker: () => Promise<import("..").Speaker[]>;
+        } | {
+            timeoutMilliseconds: number;
+            audioUpload: () => {
+                id: string;
+                src: string;
+            };
+            transfer: () => {
+                id: string;
+                src: string;
+            };
+            fetchSpeaker: () => Promise<import("..").Speaker[]>;
+        };
     }>;
     setEditor: (editor: IDomEditor) => void;
     setGlobalEditConfig: (globalConfig?: GlobalEditorConfig) => void;
@@ -45,7 +65,7 @@ export declare const useEditorStore: import("pinia").StoreDefinition<"--editor-c
             maxLength: number;
             placeholder: string;
         };
-        handleError: (error: string) => void;
+        handleError: (error: string, detail?: any) => void;
         pinyin: {
             fetchData: (word: string) => Promise<import("..").LabelValue[]>;
         };
@@ -73,6 +93,26 @@ export declare const useEditorStore: import("pinia").StoreDefinition<"--editor-c
             fetchFlag: (flag: string) => Promise<import("..").Speaker[]>;
             fetchStar: (speaker: string, star: boolean) => Promise<boolean>;
         }>;
+        conversion: {
+            timeoutMilliseconds: number;
+            audioUpload: (file: File | Blob, token: import("..").CancellationToken) => Promise<import("..").AudioInfo>;
+            transfer: (opt: {
+                audioId: string;
+                speakerId: string;
+            }) => Promise<import("..").AudioInfo>;
+            fetchSpeaker: () => Promise<import("..").Speaker[]>;
+        } | {
+            timeoutMilliseconds: number;
+            audioUpload: () => {
+                id: string;
+                src: string;
+            };
+            transfer: () => {
+                id: string;
+                src: string;
+            };
+            fetchSpeaker: () => Promise<import("..").Speaker[]>;
+        };
     }>;
     setEditor: (editor: IDomEditor) => void;
     setGlobalEditConfig: (globalConfig?: GlobalEditorConfig) => void;
@@ -83,7 +123,7 @@ export declare const useEditorStore: import("pinia").StoreDefinition<"--editor-c
             maxLength: number;
             placeholder: string;
         };
-        handleError: (error: string) => void;
+        handleError: (error: string, detail?: any) => void;
         pinyin: {
             fetchData: (word: string) => Promise<import("..").LabelValue[]>;
         };
@@ -111,6 +151,26 @@ export declare const useEditorStore: import("pinia").StoreDefinition<"--editor-c
             fetchFlag: (flag: string) => Promise<import("..").Speaker[]>;
             fetchStar: (speaker: string, star: boolean) => Promise<boolean>;
         }>;
+        conversion: {
+            timeoutMilliseconds: number;
+            audioUpload: (file: File | Blob, token: import("..").CancellationToken) => Promise<import("..").AudioInfo>;
+            transfer: (opt: {
+                audioId: string;
+                speakerId: string;
+            }) => Promise<import("..").AudioInfo>;
+            fetchSpeaker: () => Promise<import("..").Speaker[]>;
+        } | {
+            timeoutMilliseconds: number;
+            audioUpload: () => {
+                id: string;
+                src: string;
+            };
+            transfer: () => {
+                id: string;
+                src: string;
+            };
+            fetchSpeaker: () => Promise<import("..").Speaker[]>;
+        };
     }>;
     setEditor: (editor: IDomEditor) => void;
     setGlobalEditConfig: (globalConfig?: GlobalEditorConfig) => void;

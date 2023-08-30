@@ -2,13 +2,15 @@ import type { FilterSpeaker, LabelValue } from '../model';
 import type { IEditorConfig } from '@wangeditor/editor';
 import type { FilterBarSearch } from '../components/bar-search';
 import type { Speaker } from '../model';
+import { type AudioInfo } from '../menu/conversion-menu/data';
+import type { CancellationToken } from '../utils';
 type FetahFunction = (word: string) => Promise<LabelValue[]>;
 type FilterFetahFunction = (filter: FilterBarSearch) => Promise<LabelValue[]>;
 type FilterSpeakerFetahFunction = (filter: FilterSpeaker) => Promise<Speaker[]>;
 export type GlobalEditorConfig = ReturnType<typeof createGlobalEditorConfig>;
 export interface SSMLEditorConfig {
     editorConfig?: IEditorConfig;
-    handleError: (error: string) => void;
+    handleError: (error: string, detail?: any) => void;
     pinyin: {
         fetchData: FetahFunction;
     };
@@ -36,13 +38,22 @@ export interface SSMLEditorConfig {
         fetchFlag: (flag: string) => Promise<Speaker[]>;
         fetchStar: (speaker: string, star: boolean) => Promise<boolean>;
     };
+    conversion: {
+        timeoutMilliseconds: number;
+        audioUpload: (file: File | Blob, token: CancellationToken) => Promise<AudioInfo>;
+        transfer: (opt: {
+            audioId: string;
+            speakerId: string;
+        }) => Promise<AudioInfo>;
+        fetchSpeaker: () => Promise<Speaker[]>;
+    };
 }
 export declare function createGlobalEditorConfig(config?: SSMLEditorConfig): {
     editorConfig: IEditorConfig | {
         maxLength: number;
         placeholder: string;
     };
-    handleError: (error: string) => void;
+    handleError: (error: string, detail?: any) => void;
     pinyin: {
         fetchData: FetahFunction;
     };
@@ -70,5 +81,25 @@ export declare function createGlobalEditorConfig(config?: SSMLEditorConfig): {
         fetchFlag: (flag: string) => Promise<Speaker[]>;
         fetchStar: (speaker: string, star: boolean) => Promise<boolean>;
     }>;
+    conversion: {
+        timeoutMilliseconds: number;
+        audioUpload: (file: File | Blob, token: CancellationToken) => Promise<AudioInfo>;
+        transfer: (opt: {
+            audioId: string;
+            speakerId: string;
+        }) => Promise<AudioInfo>;
+        fetchSpeaker: () => Promise<Speaker[]>;
+    } | {
+        timeoutMilliseconds: number;
+        audioUpload: () => {
+            id: string;
+            src: string;
+        };
+        transfer: () => {
+            id: string;
+            src: string;
+        };
+        fetchSpeaker: () => Promise<Speaker[]>;
+    };
 };
 export {};

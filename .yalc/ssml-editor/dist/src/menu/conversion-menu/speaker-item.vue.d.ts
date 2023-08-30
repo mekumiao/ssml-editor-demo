@@ -4,22 +4,36 @@ declare const _sfc_main: import("vue").DefineComponent<{
         type: __PropType<string>;
         required: true;
     };
-    src: {
+    value: {
         type: __PropType<string | undefined>;
         required: false;
-        default: string;
     };
-}, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+    avatar: {
+        type: __PropType<string | undefined>;
+        required: false;
+    };
+    activated: {
+        type: __PropType<boolean | undefined>;
+        required: false;
+    };
+}, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, "click"[], "click", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     name: {
         type: __PropType<string>;
         required: true;
     };
-    src: {
+    value: {
         type: __PropType<string | undefined>;
         required: false;
-        default: string;
     };
-}>>, {
-    src: string | undefined;
-}, {}>;
+    avatar: {
+        type: __PropType<string | undefined>;
+        required: false;
+    };
+    activated: {
+        type: __PropType<boolean | undefined>;
+        required: false;
+    };
+}>> & {
+    onClick?: ((...args: any[]) => any) | undefined;
+}, {}, {}>;
 export default _sfc_main;

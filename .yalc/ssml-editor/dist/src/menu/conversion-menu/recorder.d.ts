@@ -1,6 +1,7 @@
 export declare class Recorder {
     private mediaRecorder;
     constructor();
-    open(): Promise<Blob>;
+    get state(): RecordingState | undefined;
+    start(): Promise<Blob>;
     stop(): void;
 }
