@@ -13,6 +13,7 @@ import type { Sub } from './sub';
 import type { Voice } from './voice';
 import type { MsttsSilence } from './mstts-silence';
 import type { CustomManagement } from './custom-management';
+import type { MoyinW } from './moyin-w';
 type UnionTypesMap<T extends {
     type: string;
 }> = T extends any ? T['type'] : never;
@@ -31,4 +32,4 @@ export * from './mstts-backgroundaudio/custom-types';
 export * from './speak/custom-types';
 export * from './mstts-silence/custom-types';
 export * from './custom-management/custom-types';
-export type SSMLElementType = UnionTypesMap<Speak> | UnionTypesMap<MsttsExpressAs> | UnionTypesMap<MsttsBackgroundaudio> | UnionTypesMap<Break> | UnionTypesMap<Voice> | UnionTypesMap<Audio> | UnionTypesMap<Emphasis> | UnionTypesMap<Phoneme> | UnionTypesMap<Prosody> | UnionTypesMap<SayAs> | UnionTypesMap<Sub> | UnionTypesMap<P> | UnionTypesMap<S> | UnionTypesMap<MsttsSilence> | UnionTypesMap<CustomManagement> | 'paragraph';
+export type SSMLElementType = UnionTypesMap<Speak> | UnionTypesMap<MsttsExpressAs> | UnionTypesMap<MsttsBackgroundaudio> | UnionTypesMap<Break> | UnionTypesMap<Voice> | UnionTypesMap<Audio> | UnionTypesMap<Emphasis> | UnionTypesMap<Phoneme> | UnionTypesMap<Prosody> | UnionTypesMap<SayAs> | UnionTypesMap<Sub> | UnionTypesMap<P> | UnionTypesMap<S> | UnionTypesMap<MsttsSilence> | UnionTypesMap<CustomManagement> | UnionTypesMap<MoyinW> | 'paragraph';
