@@ -18,8 +18,6 @@ jobs:
       - name: Install dependencies
         run: |
           npm install -g pnpm
-          npm install -g yalc
-          yalc restore
           pnpm install
 
       - name: Build project
