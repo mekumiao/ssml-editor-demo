@@ -9,9 +9,13 @@ export declare const pitch: () => {
 }[];
 export declare function formatPitch(v: number): string;
 export declare function formatRate(v: number): string;
-export interface SubmitData extends LabelValue {
+export interface ContentData {
+    category: string;
+    name: string;
     role: string;
     style: string;
     speed: string;
     pitch: string;
 }
+export declare function defaultContentData(): ContentData;
+export type SubmitData = ContentData & LabelValue;

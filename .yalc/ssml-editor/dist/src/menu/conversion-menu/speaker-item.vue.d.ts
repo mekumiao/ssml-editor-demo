@@ -1,6 +1,6 @@
 import type { PropType as __PropType } from 'vue';
 declare const _sfc_main: import("vue").DefineComponent<{
-    name: {
+    label: {
         type: __PropType<string>;
         required: true;
     };
@@ -17,7 +17,7 @@ declare const _sfc_main: import("vue").DefineComponent<{
         required: false;
     };
 }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, "click"[], "click", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
-    name: {
+    label: {
         type: __PropType<string>;
         required: true;
     };

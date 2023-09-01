@@ -5,11 +5,11 @@
 ## 开始
 
 ```sh
-# 安装 pnpm
-npm install -g pnpm
+# 安装 yarn
+npm install -g yarn
 
 cd ssml-editor-demo
 
 # 运行
-pnpm i && pnpm dev
+yarn install && yarn dev
 ```

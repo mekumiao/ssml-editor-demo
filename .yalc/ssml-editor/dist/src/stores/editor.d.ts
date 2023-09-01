@@ -28,11 +28,10 @@ export declare const useEditorStore: import("pinia").StoreDefinition<"--editor-c
         }>;
         tryPlay: Required<{
             gender?: import("..").LabelValue[] | undefined;
+            topFlag?: import("..").LabelValue[] | undefined;
             category?: import("..").LabelValue[] | undefined;
-            flags?: import("..").LabelValue[] | undefined;
             fetchData: (filter: import("..").FilterSpeaker) => Promise<import("..").Speaker[]>;
             featchTag: () => Promise<import("..").LabelValue[]>;
-            fetchFlag: (flag: string) => Promise<import("..").Speaker[]>;
             fetchStar: (speaker: string, star: boolean) => Promise<boolean>;
         }>;
         conversion: {
@@ -86,11 +85,10 @@ export declare const useEditorStore: import("pinia").StoreDefinition<"--editor-c
         }>;
         tryPlay: Required<{
             gender?: import("..").LabelValue[] | undefined;
+            topFlag?: import("..").LabelValue[] | undefined;
             category?: import("..").LabelValue[] | undefined;
-            flags?: import("..").LabelValue[] | undefined;
             fetchData: (filter: import("..").FilterSpeaker) => Promise<import("..").Speaker[]>;
             featchTag: () => Promise<import("..").LabelValue[]>;
-            fetchFlag: (flag: string) => Promise<import("..").Speaker[]>;
             fetchStar: (speaker: string, star: boolean) => Promise<boolean>;
         }>;
         conversion: {
@@ -144,11 +142,10 @@ export declare const useEditorStore: import("pinia").StoreDefinition<"--editor-c
         }>;
         tryPlay: Required<{
             gender?: import("..").LabelValue[] | undefined;
+            topFlag?: import("..").LabelValue[] | undefined;
             category?: import("..").LabelValue[] | undefined;
-            flags?: import("..").LabelValue[] | undefined;
             fetchData: (filter: import("..").FilterSpeaker) => Promise<import("..").Speaker[]>;
             featchTag: () => Promise<import("..").LabelValue[]>;
-            fetchFlag: (flag: string) => Promise<import("..").Speaker[]>;
             fetchStar: (speaker: string, star: boolean) => Promise<boolean>;
         }>;
         conversion: {

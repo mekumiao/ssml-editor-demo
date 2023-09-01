@@ -31,11 +31,10 @@ export interface SSMLEditorConfig {
     };
     tryPlay: {
         gender?: LabelValue[];
+        topFlag?: LabelValue[];
         category?: LabelValue[];
-        flags?: LabelValue[];
         fetchData: FilterSpeakerFetahFunction;
         featchTag: () => Promise<LabelValue[]>;
-        fetchFlag: (flag: string) => Promise<Speaker[]>;
         fetchStar: (speaker: string, star: boolean) => Promise<boolean>;
     };
     conversion: {
@@ -74,11 +73,10 @@ export declare function createGlobalEditorConfig(config?: SSMLEditorConfig): {
     }>;
     tryPlay: Required<{
         gender?: LabelValue[] | undefined;
+        topFlag?: LabelValue[] | undefined;
         category?: LabelValue[] | undefined;
-        flags?: LabelValue[] | undefined;
         fetchData: FilterSpeakerFetahFunction;
         featchTag: () => Promise<LabelValue[]>;
-        fetchFlag: (flag: string) => Promise<Speaker[]>;
         fetchStar: (speaker: string, star: boolean) => Promise<boolean>;
     }>;
     conversion: {

@@ -6,4 +6,5 @@ export interface CustomManagement extends SSMLBaseElement {
     style: string;
     rate: string;
     pitch: string;
+    custom: Record<string, unknown>;
 }
