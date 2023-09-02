@@ -72,7 +72,7 @@ export default {
     },
     {
       label: 'creativeminds',
-      value: 'https://gcore.jsdelivr.net/gh/mekumiao/img-hosting/upload/creativeminds.mp3',
+      value: 'https://gcore.jsdelivr.net/gh/mekumiao/img-hosting/upload/creativeminds%20(mp3cut.net).mp3',
       scene: '',
       style: '',
       menu: '',
