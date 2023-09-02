@@ -10,4 +10,5 @@ export declare class CancellationTokenSource {
 }
 export interface CancellationToken {
     isCancellationRequested: () => boolean;
+    throwIfRequested(): void;
 }

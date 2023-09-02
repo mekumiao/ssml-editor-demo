@@ -1,6 +1,6 @@
 export declare class AudioPlayer {
     private audio;
-    isPlaying: import("vue").Ref<boolean>;
+    private readonly isPlaying;
     constructor();
     load(audioSource: string): void;
     play(): void;
