@@ -3794,9 +3794,9 @@ class xl extends _e {
     if (!t)
       return !0;
     if (de.isCollapsed(t))
-      return this.editor.emit(z.ERROR, "请选中一个中文字符"), !0;
+      return this.editor.emit(z.ERROR, "请框选一个中文字符"), !0;
     const n = this.getValue();
-    return n.length != 1 ? (this.editor.emit(z.ERROR, "请选中一个中文字符"), !0) : /^[\u4E00-\u9FA5]$/gi.test(n) ? !1 : (this.editor.emit(z.ERROR, "请选中一个中文字符"), !0);
+    return n.length != 1 ? (this.editor.emit(z.ERROR, "请框选一个中文字符"), !0) : /^[\u4E00-\u9FA5]$/gi.test(n) ? !1 : (this.editor.emit(z.ERROR, "请框选一个中文字符"), !0);
   }
   exec(t) {
     if (this.editor.restoreSelection(), this.isDisabled())
@@ -3874,7 +3874,7 @@ class El extends _e {
     if (super.isDisabled())
       return !0;
     const { selection: t } = this.editor;
-    return t ? de.isCollapsed(t) ? (this.editor.emit(z.ERROR, "请选择多个中文字符或英文单词"), !0) : Y.string(this.editor, t).length < 2 : !0;
+    return t ? de.isCollapsed(t) ? (this.editor.emit(z.ERROR, "请框选要连读的词或句子"), !0) : Y.string(this.editor, t).length < 2 : !0;
   }
   exec() {
     if (this.isDisabled())
@@ -3920,7 +3920,7 @@ class Sl extends _e {
     if (super.isDisabled())
       return !0;
     const { selection: t } = this.editor;
-    return !t || t == null ? !0 : de.isCollapsed(t) ? (this.editor.emit(z.ERROR, "请先选择文本"), !0) : !1;
+    return !t || t == null ? !0 : de.isCollapsed(t) ? (this.editor.emit(z.ERROR, "请框选词或句子"), !0) : !1;
   }
   exec(t) {
     if (this.editor.restoreSelection(), this.isDisabled())
@@ -3994,9 +3994,9 @@ class Cl extends _e {
     if (!t)
       return !0;
     if (de.isCollapsed(t))
-      return this.editor.emit(z.ERROR, "请选择纯数字"), !0;
+      return this.editor.emit(z.ERROR, "请框选纯数字"), !0;
     const n = Y.string(this.editor, t);
-    return n.length <= 0 ? !0 : Number.isNaN(Number(n)) ? (this.editor.emit(z.ERROR, "请选择纯数字"), !0) : !1;
+    return n.length <= 0 ? !0 : Number.isNaN(Number(n)) ? (this.editor.emit(z.ERROR, "请框选纯数字"), !0) : !1;
   }
   exec(t) {
     if (this.editor.restoreSelection(), this.isDisabled())
@@ -4070,7 +4070,7 @@ class Ol extends _e {
     if (super.isDisabled())
       return !0;
     const { selection: t } = this.editor;
-    return t == null ? !0 : de.isCollapsed(t) ? (this.editor.emit(z.ERROR, "选中一个中文字符，并且有不能在其他语句之内"), !0) : this.getValue().length <= 0;
+    return t == null ? !0 : de.isCollapsed(t) ? (this.editor.emit(z.ERROR, "请框选要设置别名的词或句子"), !0) : !1;
   }
   exec(t) {
     if (this.editor.restoreSelection(), this.isDisabled())
@@ -4140,9 +4140,9 @@ class Rl extends _e {
     if (!t)
       return !0;
     if (de.isCollapsed(t))
-      return this.editor.emit(z.ERROR, "请选择英文单词"), !0;
+      return this.editor.emit(z.ERROR, "请框选英文单词"), !0;
     const n = Y.string(this.editor, t);
-    return n.length <= 0 ? !0 : /^[A-Za-z]+$/gi.test(n) ? !1 : (this.editor.emit(z.ERROR, "请选择英文单词"), !0);
+    return n.length <= 0 ? !0 : /^[A-Za-z]+$/gi.test(n) ? !1 : (this.editor.emit(z.ERROR, "请框选英文单词"), !0);
   }
   exec(t) {
     if (this.editor.restoreSelection(), this.isDisabled())
@@ -4327,7 +4327,7 @@ class Nl extends _e {
     if (super.isDisabled())
       return !0;
     const { selection: t } = this.editor;
-    return t ? de.isExpanded(t) ? (this.editor.emit(z.ERROR, "不能选中文本"), !0) : !1 : !0;
+    return t ? de.isExpanded(t) ? (this.editor.emit(z.ERROR, "不能框选文本"), !0) : !1 : !0;
   }
   exec(t) {
     if (this.editor.restoreSelection(), this.isDisabled())
@@ -4467,7 +4467,7 @@ class Al extends _e {
     if (super.isDisabled())
       return !0;
     const { selection: t } = this.editor;
-    return t ? de.isExpanded(t) ? (this.editor.emit(z.ERROR, "不能选中文本"), !0) : !1 : !0;
+    return t ? de.isExpanded(t) ? (this.editor.emit(z.ERROR, "不能框选文本"), !0) : !1 : !0;
   }
   exec(t) {
     if (this.editor.restoreSelection(), this.isDisabled())
