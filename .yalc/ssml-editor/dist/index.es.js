@@ -2974,7 +2974,7 @@ const pe = (e, t) => {
   for (const [s, r] of t)
     n[s] = r;
   return n;
-}, se = /* @__PURE__ */ pe(ci, [["__scopeId", "data-v-81115d9e"]]);
+}, se = /* @__PURE__ */ pe(ci, [["__scopeId", "data-v-2da9a7ca"]]);
 const fn = /* @__PURE__ */ A({
   __name: "bar-input",
   props: {
@@ -3467,7 +3467,7 @@ function Di(e, t) {
     Se(e.$slots, "default", {}, void 0, !0)
   ]);
 }
-const Us = /* @__PURE__ */ pe(Oi, [["render", Di], ["__scopeId", "data-v-6f05a5d6"]]), Pi = {}, Ni = { class: "bar-wrapper-item" };
+const Us = /* @__PURE__ */ pe(Oi, [["render", Di], ["__scopeId", "data-v-7beae5b9"]]), Pi = {}, Ni = { class: "bar-wrapper-item" };
 function Ii(e, t) {
   return O(), N("div", Ni, [
     Se(e.$slots, "default")
@@ -3489,7 +3489,7 @@ const Vi = /* @__PURE__ */ pe(Pi, [["render", Ii]]), Ai = { class: "bar-wrapper-
     ]));
   }
 });
-const ze = /* @__PURE__ */ pe(Mi, [["__scopeId", "data-v-8ff624f3"]]);
+const ze = /* @__PURE__ */ pe(Mi, [["__scopeId", "data-v-be31f837"]]);
 function ji(e, t) {
   return `left:${e}px;top:${t}px`;
 }
@@ -4669,7 +4669,7 @@ const Ml = {
     ]));
   }
 });
-const Be = /* @__PURE__ */ pe(Hl, [["__scopeId", "data-v-4be6bd2f"]]), Ul = {
+const Be = /* @__PURE__ */ pe(Hl, [["__scopeId", "data-v-e0f0259e"]]), Ul = {
   style: { width: "600px", height: "360px" },
   class: "position-relative px-2 pb-2"
 }, Bl = { class: "position-relative" }, zl = { class: "position-absolute top-0 end-0" }, Wl = /* @__PURE__ */ h("li", null, [
@@ -5046,7 +5046,7 @@ const or = /* @__PURE__ */ A({
     ]));
   }
 });
-const ru = /* @__PURE__ */ pe(su, [["__scopeId", "data-v-acf28f7f"]]);
+const ru = /* @__PURE__ */ pe(su, [["__scopeId", "data-v-b043c1a6"]]);
 class ou {
   constructor() {
     q(this, "mediaRecorder", null);
@@ -5459,7 +5459,7 @@ const ar = /* @__PURE__ */ A({
     ]);
   }
 });
-const Ou = /* @__PURE__ */ pe(Tu, [["__scopeId", "data-v-3c6590c7"]]), Ru = {
+const Ou = /* @__PURE__ */ pe(Tu, [["__scopeId", "data-v-daadb844"]]), Ru = {
   key: 0,
   class: "position-absolute top-0 start-100 translate-middle text-bg-danger text-nowrap rounded px-1",
   style: { "font-size": "0.5rem" }
@@ -5491,7 +5491,7 @@ const Ou = /* @__PURE__ */ pe(Tu, [["__scopeId", "data-v-3c6590c7"]]), Ru = {
     };
   }
 });
-const ir = /* @__PURE__ */ pe(Nu, [["__scopeId", "data-v-702dc9b7"]]), Iu = {
+const ir = /* @__PURE__ */ pe(Nu, [["__scopeId", "data-v-845325c9"]]), Iu = {
   style: { height: "170px" },
   class: "w-100 d-flex flex-row flex-wrap justify-content-start overflow-x-hidden overflow-y-auto scrollbar-none"
 }, Vu = /* @__PURE__ */ A({
@@ -5646,14 +5646,14 @@ const Hu = ["src"], Uu = {
     };
   }
 });
-const zu = /* @__PURE__ */ pe(Bu, [["__scopeId", "data-v-f10ede21"]]);
+const zu = /* @__PURE__ */ pe(Bu, [["__scopeId", "data-v-71aedb65"]]);
 function Wu(e) {
   return `${(0.05 * e * 100).toFixed(0)}%`;
 }
 function Gu(e) {
   return `${((e - 1) * 100).toFixed(0)}%`;
 }
-const bn = (e) => (en("data-v-77b22f34"), e = e(), tn(), e), qu = {
+const bn = (e) => (en("data-v-0210af00"), e = e(), tn(), e), qu = {
   class: "slider-panle w-100 px-3 text-white",
   style: { "font-size": "0.5rem" }
 }, Yu = { class: "mt-2 d-flex text-center justify-content-between align-items-center" }, Xu = { class: "me-auto d-flex flex-row align-items-center" }, Ku = ["src"], Ju = {
@@ -5824,7 +5824,7 @@ const bn = (e) => (en("data-v-77b22f34"), e = e(), tn(), e), qu = {
     ]));
   }
 });
-const bc = /* @__PURE__ */ pe(gc, [["__scopeId", "data-v-77b22f34"]]), _c = (e) => (en("data-v-31c214b0"), e = e(), tn(), e), wc = { class: "box ms-2" }, xc = { class: "try-play-header text-center d-flex flex-row justify-content-between" }, Ec = { class: "try-play-body d-flex flex-row" }, kc = { class: "try-play-left w-50 border-right border-secondary" }, $c = { class: "pe-1" }, Sc = /* @__PURE__ */ _c(() => /* @__PURE__ */ h("div", { class: "py-1 border-top border-secondary" }, null, -1)), Cc = { class: "try-play-right w-50 border-start rounded border-top border-secondary overflow-x-hidden overflow-y-auto scrollbar-none" }, Tc = /* @__PURE__ */ A({
+const bc = /* @__PURE__ */ pe(gc, [["__scopeId", "data-v-0210af00"]]), _c = (e) => (en("data-v-f0208c5e"), e = e(), tn(), e), wc = { class: "box ms-2" }, xc = { class: "try-play-header text-center d-flex flex-row justify-content-between" }, Ec = { class: "try-play-body d-flex flex-row" }, kc = { class: "try-play-left w-50 border-right border-secondary" }, $c = { class: "pe-1" }, Sc = /* @__PURE__ */ _c(() => /* @__PURE__ */ h("div", { class: "py-1 border-top border-secondary" }, null, -1)), Cc = { class: "try-play-right w-50 border-start rounded border-top border-secondary overflow-x-hidden overflow-y-auto scrollbar-none" }, Tc = /* @__PURE__ */ A({
   __name: "try-play-panle",
   props: {
     visible: { type: Boolean }
@@ -5924,7 +5924,7 @@ const bc = /* @__PURE__ */ pe(gc, [["__scopeId", "data-v-77b22f34"]]), _c = (e) 
     ]);
   }
 });
-const Oc = /* @__PURE__ */ pe(Tc, [["__scopeId", "data-v-31c214b0"]]), lr = /* @__PURE__ */ A({
+const Oc = /* @__PURE__ */ pe(Tc, [["__scopeId", "data-v-f0208c5e"]]), lr = /* @__PURE__ */ A({
   __name: "try-play",
   setup(e) {
     const t = w(!0);
@@ -6473,7 +6473,7 @@ function ed() {
   const { rootSpeak: t, rootBackgroundaudio: n } = Fe(), s = { ...t, children: [] }, r = { ...n };
   return s.children.push(r, ...Zc(e)), ur(s);
 }
-const Je = (e) => (en("data-v-475a29b6"), e = e(), tn(), e), td = { class: "editor-title d-flex flex-row align-item-center justify-content-between" }, nd = { class: "title-wrapper d-flex flex-column justify-content-center ps-3" }, sd = /* @__PURE__ */ Je(() => /* @__PURE__ */ h("div", { class: "title-author pb-1" }, "SSML编辑器", -1)), rd = { class: "author d-flex flex-row align-items-center justify-content-start" }, od = /* @__PURE__ */ Je(() => /* @__PURE__ */ h("div", null, "未保存", -1)), ad = /* @__PURE__ */ Je(() => /* @__PURE__ */ h("span", { class: "iconfont icon-play font-size-12 p-1" }, null, -1)), id = /* @__PURE__ */ Je(() => /* @__PURE__ */ h("div", { class: "d-inline-block" }, null, -1)), ld = { class: "operation-wrapper d-flex flex-row justify-content-center align-items-center" }, ud = /* @__PURE__ */ Je(() => /* @__PURE__ */ h("div", { class: "menu-divider" }, null, -1)), cd = /* @__PURE__ */ Je(() => /* @__PURE__ */ h("div", { class: "px-1" }, null, -1)), dd = {
+const Je = (e) => (en("data-v-fb2870b0"), e = e(), tn(), e), td = { class: "editor-title d-flex flex-row align-item-center justify-content-between" }, nd = { class: "title-wrapper d-flex flex-column justify-content-center ps-3" }, sd = /* @__PURE__ */ Je(() => /* @__PURE__ */ h("div", { class: "title-author pb-1" }, "SSML编辑器", -1)), rd = { class: "author d-flex flex-row align-items-center justify-content-start" }, od = /* @__PURE__ */ Je(() => /* @__PURE__ */ h("div", null, "未保存", -1)), ad = /* @__PURE__ */ Je(() => /* @__PURE__ */ h("span", { class: "iconfont icon-play font-size-12 p-1" }, null, -1)), id = /* @__PURE__ */ Je(() => /* @__PURE__ */ h("div", { class: "d-inline-block" }, null, -1)), ld = { class: "operation-wrapper d-flex flex-row justify-content-center align-items-center" }, ud = /* @__PURE__ */ Je(() => /* @__PURE__ */ h("div", { class: "menu-divider" }, null, -1)), cd = /* @__PURE__ */ Je(() => /* @__PURE__ */ h("div", { class: "px-1" }, null, -1)), dd = {
   class: "ssml-code border border-secondary-subtle rounded-2 px-2",
   style: { "white-space": "pre-wrap", "max-height": "50vh" }
 }, fd = { class: "dialog-footer" }, pd = /* @__PURE__ */ A({
@@ -6622,7 +6622,7 @@ const Je = (e) => (en("data-v-475a29b6"), e = e(), tn(), e), td = { class: "edit
     ], 64));
   }
 });
-const md = /* @__PURE__ */ pe(pd, [["__scopeId", "data-v-475a29b6"]]), vd = /* @__PURE__ */ A({
+const md = /* @__PURE__ */ pe(pd, [["__scopeId", "data-v-fb2870b0"]]), vd = /* @__PURE__ */ A({
   __name: "editor-core",
   emits: ["created", "change"],
   setup(e, { emit: t }) {
@@ -6749,7 +6749,7 @@ const md = /* @__PURE__ */ pe(pd, [["__scopeId", "data-v-475a29b6"]]), vd = /* @
     ], 32));
   }
 });
-const wd = /* @__PURE__ */ pe(_d, [["__scopeId", "data-v-6ea301c5"]]), xd = {
+const wd = /* @__PURE__ */ pe(_d, [["__scopeId", "data-v-b5e6df8c"]]), xd = {
   install(e) {
     e.component("EditorView", wd);
   }
@@ -6786,5 +6786,6 @@ export {
   Zn as formatTime,
   Ad as genRandomStr,
   oo as pitch,
+  ed as serializeToSSML,
   ro as speed
 };

@@ -6,6 +6,7 @@ export * from './constant';
 export * from './model';
 export * from './config';
 export * from './utils';
+export * from './serialize';
 declare const _default: Plugin;
 export default _default;
 export { EditorView };

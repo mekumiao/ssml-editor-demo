@@ -1,1 +1,1 @@
-{"version":3,"file":"sensitive-menu.vue.d.ts","sourceRoot":"","sources":["../../../../src/menu/sensitive-menu/sensitive-menu.vue"],"names":[],"mappings":"AAAA,OAAO,SAAS,MAAM,4GAA4G,CAAC;AACnI,cAAc,4GAA4G,CAAC;AAC3H,eAAe,SAAS,CAAC"}
+{"version":3,"file":"sensitive-menu.vue.d.ts","sourceRoot":"","sources":["../../../../src/menu/sensitive-menu/sensitive-menu.vue"],"names":[],"mappings":"AAAA,OAAO,SAAS,MAAM,wHAAwH,CAAC;AAC/I,cAAc,wHAAwH,CAAC;AACvI,eAAe,SAAS,CAAC"}

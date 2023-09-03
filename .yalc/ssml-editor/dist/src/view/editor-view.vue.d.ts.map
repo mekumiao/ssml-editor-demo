@@ -1,1 +1,1 @@
-{"version":3,"file":"editor-view.vue.d.ts","sourceRoot":"","sources":["../../../src/view/editor-view.vue"],"names":[],"mappings":"AACA,cAAc,0FAA0F,CAAC;AACzG,OAAO,wGAAwG,CAAC;;AAEhH,wBAA0F"}
+{"version":3,"file":"editor-view.vue.d.ts","sourceRoot":"","sources":["../../../src/view/editor-view.vue"],"names":[],"mappings":"AACA,cAAc,sGAAsG,CAAC;AACrH,OAAO,oHAAoH,CAAC;;AAE5H,wBAA0F"}
