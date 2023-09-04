@@ -27,6 +27,7 @@ export declare const useEditorStore: import("pinia").StoreDefinition<"--editor-c
             fetchData: (filter: import("..").FilterBarSearch) => Promise<import("..").LabelValue[]>;
         }>;
         tryPlay: Required<{
+            play: (ssml: string) => Promise<import("..").AudioInfo>;
             gender?: import("..").LabelValue[] | undefined;
             topFlag?: import("..").LabelValue[] | undefined;
             category?: import("..").LabelValue[] | undefined;
@@ -84,6 +85,7 @@ export declare const useEditorStore: import("pinia").StoreDefinition<"--editor-c
             fetchData: (filter: import("..").FilterBarSearch) => Promise<import("..").LabelValue[]>;
         }>;
         tryPlay: Required<{
+            play: (ssml: string) => Promise<import("..").AudioInfo>;
             gender?: import("..").LabelValue[] | undefined;
             topFlag?: import("..").LabelValue[] | undefined;
             category?: import("..").LabelValue[] | undefined;
@@ -141,6 +143,7 @@ export declare const useEditorStore: import("pinia").StoreDefinition<"--editor-c
             fetchData: (filter: import("..").FilterBarSearch) => Promise<import("..").LabelValue[]>;
         }>;
         tryPlay: Required<{
+            play: (ssml: string) => Promise<import("..").AudioInfo>;
             gender?: import("..").LabelValue[] | undefined;
             topFlag?: import("..").LabelValue[] | undefined;
             category?: import("..").LabelValue[] | undefined;

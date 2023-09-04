@@ -30,6 +30,7 @@ export interface SSMLEditorConfig {
         fetchData: FilterFetahFunction;
     };
     tryPlay: {
+        play: (ssml: string) => Promise<AudioInfo>;
         gender?: LabelValue[];
         topFlag?: LabelValue[];
         category?: LabelValue[];
@@ -72,6 +73,7 @@ export declare function createGlobalEditorConfig(config?: SSMLEditorConfig): {
         fetchData: FilterFetahFunction;
     }>;
     tryPlay: Required<{
+        play: (ssml: string) => Promise<AudioInfo>;
         gender?: LabelValue[] | undefined;
         topFlag?: LabelValue[] | undefined;
         category?: LabelValue[] | undefined;

@@ -1,6 +1,6 @@
 import type { SSMLEditorConfig } from 'ssml-editor'
 import { pinyin, english, bgm, special, scene, style, tag, speaker, star } from './api'
-import { upload, transfer, conversionSpeaker } from './api'
+import { upload, transfer, conversionSpeaker, play } from './api'
 import { ElMessage } from 'element-plus'
 
 export default <SSMLEditorConfig>{
@@ -15,7 +15,7 @@ export default <SSMLEditorConfig>{
   // 音效菜单 搜索,切换选项卡时请求数据用
   special: { fetchData: special, fetchScene: scene, fetchStyle: style },
   // 试听面板 数据结构和其他配置(支持自定义配音师类别,性别,等数据)
-  tryPlay: { featchTag: tag, fetchData: speaker, fetchStar: star },
+  tryPlay: { featchTag: tag, fetchData: speaker, fetchStar: star, play: play },
   // 局部变音
   conversion: {
     // 文件上传超时时间
