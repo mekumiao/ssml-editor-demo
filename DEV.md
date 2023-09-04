@@ -73,3 +73,5 @@ api一共有3种返回类型: LabelValue, Speaker, AudioInfo. 可在 `src/api/in
 ## config.ts 配置文件介绍
 
 我在`src/config.ts`中加了注释,详请见注释
+
+![](https://gcore.jsdelivr.net/gh/mekumiao/img-hosting/upload/20230904142425.png)
