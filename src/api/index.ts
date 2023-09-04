@@ -2,7 +2,7 @@ import axios from 'axios'
 import '../mock'
 import type { FilterBarSearch } from 'ssml-editor'
 import type { FilterSpeaker, LabelValue, Speaker } from 'ssml-editor'
-import type { CancellationToken, AudioInfo } from 'ssml-editor'
+import type { CancellationToken, AudioInfo, RecentUsageSpeaker } from 'ssml-editor'
 
 export async function pinyin(word: string): Promise<LabelValue[]> {
   const resp = await axios.get('/pinyin', { params: { word } })
@@ -77,5 +77,20 @@ export async function conversionSpeaker(): Promise<Speaker[]> {
 
 export async function play(ssml: string): Promise<AudioInfo> {
   const resp = await axios.post('/play', { ssml })
+  return resp.data
+}
+
+export async function recordRecentUsage(item: RecentUsageSpeaker): Promise<RecentUsageSpeaker> {
+  const resp = await axios.post('/recentUsage', item)
+  return resp.data
+}
+
+export async function fetchRecentUsage(): Promise<RecentUsageSpeaker[]> {
+  const resp = await axios.get('/recentUsage')
+  return resp.data
+}
+
+export async function deleteRecentUsage(id?: string): Promise<void> {
+  const resp = await axios.delete('/recentUsage', { params: { id } })
   return resp.data
 }

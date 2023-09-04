@@ -37,10 +37,13 @@
 | transfer          | 用于在局部变音中将upload接口上传的音频转换为指定配音师的音色效果                                       |
 | conversionSpeaker | 在局部变音功能中获取配音师列表(这里没有复用上面的speaker接口,因为考虑到仅有部分配音师支持transfer接口) |
 | play              | 播放音频. 传入ssml,返回一个音频链接                                                                    |
+| recordRecentUsage | 多人配乐菜单 保存使用记录                                                                              |
+| fetchRecentUsage  | 多人配乐菜单 获取使用记录                                                                              |
+| deleteRecentUsage | 多人配乐菜单 删除使用记录                                                                              |
 
 ## API数据MODEL
 
-api一共有3种返回类型: LabelValue, Speaker, AudioInfo. 可在 `src/api/index.ts` 中将鼠标放在模型上,`ctrl+鼠标右键` 即可查看实体属性
+api一共有4种返回类型: LabelValue, Speaker, AudioInfo, RecentUsageSpeaker. 可在 `src/api/index.ts` 中将鼠标放在模型上,`ctrl+鼠标右键` 即可查看实体属性
 
 1.`LabelValue`. 用于 拼音, 音标, 背景音乐, 音效等地方
 
@@ -51,16 +54,16 @@ api一共有3种返回类型: LabelValue, Speaker, AudioInfo. 可在 `src/api/in
 
 2.`Speaker`. 配音师实体模型
 
-| 字段        | 类型                           | 描述                                                         |
-| ----------- | ------------------------------ | ------------------------------------------------------------ |
-| id          | string                         | 配音师ID (唯一标识,会在star,transfer API 中作为参数传递过来) |
-| name        | string                         | 配音师真实名称(SSML中voice的name属性值)                      |
-| displayName | string                         | 显示名                                                       |
-| category    | string                         | 分类(常用,已购,等.可在`config.ts`中自定义)                   |
-| avatar      | string                         | 头像链接                                                     |
-| isFree      | boolean                        | 是否免费                                                     |
-| isStar      | boolean                        | 是否收藏                                                     |
-| isSupper24K | boolean                        | 是否支持24K音质                                              |
+| 字段        | 类型                                         | 描述                                                         |
+| ----------- | -------------------------------------------- | ------------------------------------------------------------ |
+| id          | string                                       | 配音师ID (唯一标识,会在star,transfer API 中作为参数传递过来) |
+| name        | string                                       | 配音师真实名称(SSML中voice的name属性值)                      |
+| displayName | string                                       | 显示名                                                       |
+| category    | string                                       | 分类(常用,已购,等.可在`config.ts`中自定义)                   |
+| avatar      | string                                       | 头像链接                                                     |
+| isFree      | boolean                                      | 是否免费                                                     |
+| isStar      | boolean                                      | 是否收藏                                                     |
+| isSupper24K | boolean                                      | 是否支持24K音质                                              |
 | roles       | Array&lt;LabelValue & { avatar: string }&gt; | 角色Array                                                    |
 | styles      | Array&lt;LabelValue & { avatar: string }&gt; | 风格Array                                                    |
 
@@ -70,6 +73,19 @@ api一共有3种返回类型: LabelValue, Speaker, AudioInfo. 可在 `src/api/in
 | ---- | ------ | -------------------------------------- |
 | id   | string | 音频ID (将作为 transfer API的参数传入) |
 | src  | string | 音频url                                |
+
+4.`RecentUsageSpeaker`. 用于多人配乐承载最近使用的`speaker`
+
+| 字段     | 类型   | 描述                                             |
+| -------- | ------ | ------------------------------------------------ |
+| id       | string | 唯一标识(将在 deleteRecentUsage API中作为id传入) |
+| label    | string | 显示值                                           |
+| category | string | 分类(常用,已购,等.可在`config.ts`中自定义)       |
+| name     | string | 名称(SSML的voice标签name属性值)                  |
+| role     | string | 角色                                             |
+| style    | string | 风格                                             |
+| speed    | string | 语速                                             |
+| pitch    | string | 语调                                             |
 
 ## config.ts 配置文件介绍
 

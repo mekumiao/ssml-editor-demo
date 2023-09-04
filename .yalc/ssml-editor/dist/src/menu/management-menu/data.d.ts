@@ -19,3 +19,8 @@ export interface ContentData {
 }
 export declare function defaultContentData(): ContentData;
 export type SubmitData = ContentData & LabelValue;
+export interface RecentUsageSpeaker extends ContentData {
+    id: string;
+    label: string;
+}
+export declare function defaultRecentUsageSpeaker(): RecentUsageSpeaker;

@@ -4,6 +4,7 @@ import type { FilterBarSearch } from '../components/bar-search';
 import type { Speaker } from '../model';
 import { type AudioInfo } from '../menu/conversion-menu/data';
 import type { CancellationToken } from '../utils';
+import { type RecentUsageSpeaker } from '../menu/management-menu/data';
 type FetahFunction = (word: string) => Promise<LabelValue[]>;
 type FilterFetahFunction = (filter: FilterBarSearch) => Promise<LabelValue[]>;
 type FilterSpeakerFetahFunction = (filter: FilterSpeaker) => Promise<Speaker[]>;
@@ -47,6 +48,11 @@ export interface SSMLEditorConfig {
         }) => Promise<AudioInfo>;
         fetchSpeaker: () => Promise<Speaker[]>;
     };
+    management: {
+        recordRecentUsage: (recentUsage: RecentUsageSpeaker) => Promise<RecentUsageSpeaker>;
+        fetchRecentUsage: () => Promise<RecentUsageSpeaker[]>;
+        deleteRecentUsage: (id?: string) => Promise<void>;
+    };
 }
 export declare function createGlobalEditorConfig(config?: SSMLEditorConfig): {
     editorConfig: IEditorConfig | {
@@ -89,17 +95,11 @@ export declare function createGlobalEditorConfig(config?: SSMLEditorConfig): {
             speakerId: string;
         }) => Promise<AudioInfo>;
         fetchSpeaker: () => Promise<Speaker[]>;
-    } | {
-        timeoutMilliseconds: number;
-        audioUpload: () => {
-            id: string;
-            src: string;
-        };
-        transfer: () => {
-            id: string;
-            src: string;
-        };
-        fetchSpeaker: () => Promise<Speaker[]>;
+    };
+    management: {
+        recordRecentUsage: (recentUsage: RecentUsageSpeaker) => Promise<RecentUsageSpeaker>;
+        fetchRecentUsage: () => Promise<RecentUsageSpeaker[]>;
+        deleteRecentUsage: (id?: string | undefined) => Promise<void>;
     };
 };
 export {};

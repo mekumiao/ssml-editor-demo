@@ -43,17 +43,11 @@ export declare const useEditorStore: import("pinia").StoreDefinition<"--editor-c
                 speakerId: string;
             }) => Promise<import("..").AudioInfo>;
             fetchSpeaker: () => Promise<import("..").Speaker[]>;
-        } | {
-            timeoutMilliseconds: number;
-            audioUpload: () => {
-                id: string;
-                src: string;
-            };
-            transfer: () => {
-                id: string;
-                src: string;
-            };
-            fetchSpeaker: () => Promise<import("..").Speaker[]>;
+        };
+        management: {
+            recordRecentUsage: (recentUsage: import("..").RecentUsageSpeaker) => Promise<import("..").RecentUsageSpeaker>;
+            fetchRecentUsage: () => Promise<import("..").RecentUsageSpeaker[]>;
+            deleteRecentUsage: (id?: string | undefined) => Promise<void>;
         };
     }>;
     setEditor: (editor: IDomEditor) => void;
@@ -101,17 +95,11 @@ export declare const useEditorStore: import("pinia").StoreDefinition<"--editor-c
                 speakerId: string;
             }) => Promise<import("..").AudioInfo>;
             fetchSpeaker: () => Promise<import("..").Speaker[]>;
-        } | {
-            timeoutMilliseconds: number;
-            audioUpload: () => {
-                id: string;
-                src: string;
-            };
-            transfer: () => {
-                id: string;
-                src: string;
-            };
-            fetchSpeaker: () => Promise<import("..").Speaker[]>;
+        };
+        management: {
+            recordRecentUsage: (recentUsage: import("..").RecentUsageSpeaker) => Promise<import("..").RecentUsageSpeaker>;
+            fetchRecentUsage: () => Promise<import("..").RecentUsageSpeaker[]>;
+            deleteRecentUsage: (id?: string | undefined) => Promise<void>;
         };
     }>;
     setEditor: (editor: IDomEditor) => void;
@@ -159,17 +147,11 @@ export declare const useEditorStore: import("pinia").StoreDefinition<"--editor-c
                 speakerId: string;
             }) => Promise<import("..").AudioInfo>;
             fetchSpeaker: () => Promise<import("..").Speaker[]>;
-        } | {
-            timeoutMilliseconds: number;
-            audioUpload: () => {
-                id: string;
-                src: string;
-            };
-            transfer: () => {
-                id: string;
-                src: string;
-            };
-            fetchSpeaker: () => Promise<import("..").Speaker[]>;
+        };
+        management: {
+            recordRecentUsage: (recentUsage: import("..").RecentUsageSpeaker) => Promise<import("..").RecentUsageSpeaker>;
+            fetchRecentUsage: () => Promise<import("..").RecentUsageSpeaker[]>;
+            deleteRecentUsage: (id?: string | undefined) => Promise<void>;
         };
     }>;
     setEditor: (editor: IDomEditor) => void;

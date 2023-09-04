@@ -7,7 +7,7 @@ import 'cnchar-poly'
 import type { FilterSpeaker, LabelValue, Speaker } from 'ssml-editor'
 import voices from './voices'
 import { getStyleDes, getRoleDes } from './emoji-config'
-import type { AudioInfo } from 'ssml-editor'
+import type { AudioInfo, RecentUsageSpeaker } from 'ssml-editor'
 
 const mock = new MockAdapter(axios)
 
@@ -155,4 +155,56 @@ mock.onGet('/conversionSpeaker').reply(() => {
 mock.onPost('/play').reply(() => {
   const audio = DataSource.audio.find((v) => v.label === 'creativeminds') || DataSource.audio[0]
   return [200, <AudioInfo>{ id: 'id', src: audio.value }]
+})
+
+mock.onPost('/recentUsage').reply((config) => {
+  const recent = JSON.parse(config.data) as RecentUsageSpeaker
+  const data = { ...recent, id: '123' }
+  return [200, data]
+})
+
+mock.onGet('/recentUsage').reply(() => {
+  const data = <RecentUsageSpeaker[]>[
+    {
+      category: '',
+      label: '晓萱|年轻成年女性|冷静|1.0x',
+      name: 'zh-CN-XiaoxuanNeural',
+      pitch: '0',
+      role: 'YoungAdultFemale',
+      speed: '1.0',
+      style: 'calm',
+    },
+    {
+      category: '',
+      label: '晓萱|年轻成年女性|冷静|1.0x',
+      name: 'zh-CN-XiaoxuanNeural',
+      pitch: '0',
+      role: 'YoungAdultFemale',
+      speed: '1.0',
+      style: 'calm',
+    },
+    {
+      category: '',
+      label: '晓萱|年轻成年女性|冷静|1.0x',
+      name: 'zh-CN-XiaoxuanNeural',
+      pitch: '0',
+      role: 'YoungAdultFemale',
+      speed: '1.0',
+      style: 'calm',
+    },
+    {
+      category: '',
+      label: '晓萱|年轻成年女性|冷静|1.0x',
+      name: 'zh-CN-XiaoxuanNeural',
+      pitch: '0',
+      role: 'YoungAdultFemale',
+      speed: '1.0',
+      style: 'calm',
+    },
+  ]
+  return [200, data]
+})
+
+mock.onDelete('/recentUsage').reply(() => {
+  return [200]
 })

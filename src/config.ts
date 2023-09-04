@@ -1,6 +1,7 @@
 import type { SSMLEditorConfig } from 'ssml-editor'
 import { pinyin, english, bgm, special, scene, style, tag, speaker, star } from './api'
 import { upload, transfer, conversionSpeaker, play } from './api'
+import { fetchRecentUsage, deleteRecentUsage, recordRecentUsage } from './api'
 import { ElMessage } from 'element-plus'
 
 export default <SSMLEditorConfig>{
@@ -26,5 +27,14 @@ export default <SSMLEditorConfig>{
     transfer: transfer,
     // 请求支持 transfer 接口的配音师列表数据
     fetchSpeaker: conversionSpeaker,
+  },
+  // 多人配乐
+  management: {
+    // 获取最近使用接口
+    fetchRecentUsage: fetchRecentUsage,
+    // 删除或清空最近使用接口
+    deleteRecentUsage: deleteRecentUsage,
+    // 记录最近使用接口
+    recordRecentUsage: recordRecentUsage,
   },
 }
