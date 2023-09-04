@@ -1,4 +1,5 @@
 import { type Speaker } from '../model';
+import AudioPlayer from '../menu/conversion-menu/audio-player';
 export declare const useTryPlayStore: import("pinia").StoreDefinition<"--editor-try-play", import("pinia")._UnwrapAll<Pick<{
     speaker: import("vue").ComputedRef<{
         id: string;
@@ -23,6 +24,7 @@ export declare const useTryPlayStore: import("pinia").StoreDefinition<"--editor-
         }[];
     }>;
     setSpeaker: (value: Speaker) => void;
+    audioPlayer: import("vue").ComputedRef<AudioPlayer>;
 }, never>>, Pick<{
     speaker: import("vue").ComputedRef<{
         id: string;
@@ -47,7 +49,8 @@ export declare const useTryPlayStore: import("pinia").StoreDefinition<"--editor-
         }[];
     }>;
     setSpeaker: (value: Speaker) => void;
-}, "speaker">, Pick<{
+    audioPlayer: import("vue").ComputedRef<AudioPlayer>;
+}, "speaker" | "audioPlayer">, Pick<{
     speaker: import("vue").ComputedRef<{
         id: string;
         name: string;
@@ -71,4 +74,5 @@ export declare const useTryPlayStore: import("pinia").StoreDefinition<"--editor-
         }[];
     }>;
     setSpeaker: (value: Speaker) => void;
+    audioPlayer: import("vue").ComputedRef<AudioPlayer>;
 }, "setSpeaker">>;
