@@ -1,15 +1,5 @@
-import type { PropType as __PropType } from 'vue';
-declare const _sfc_main: import("vue").DefineComponent<{
-    visible: {
-        type: __PropType<boolean>;
-        required: true;
-    };
-}, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, "update:visible"[], "update:visible", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
-    visible: {
-        type: __PropType<boolean>;
-        required: true;
-    };
-}>> & {
-    "onUpdate:visible"?: ((...args: any[]) => any) | undefined;
-}, {}, {}>;
-export default _sfc_main;
+export * from "C:/Users/Final/workspace/vue/ssml-editor/src/menu/try-play/try-play-circle.vue?vue&type=script&setup=true&lang.ts";
+import "C:/Users/Final/workspace/vue/ssml-editor/src/menu/try-play/try-play-circle.vue?vue&type=style&index=0&scoped=0f55dd94&lang.scss";
+declare const _default: any;
+export default _default;
+//# sourceMappingURL=try-play-circle.vue.d.ts.map

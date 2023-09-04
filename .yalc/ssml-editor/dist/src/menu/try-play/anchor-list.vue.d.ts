@@ -1,14 +1,4 @@
-import type { PropType as __PropType } from 'vue';
-import type { FilterSpeaker } from '../../model';
-declare const _sfc_main: import("vue").DefineComponent<{
-    filter: {
-        type: __PropType<FilterSpeaker>;
-        required: true;
-    };
-}, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
-    filter: {
-        type: __PropType<FilterSpeaker>;
-        required: true;
-    };
-}>>, {}, {}>;
+import _sfc_main from "C:/Users/Final/workspace/vue/ssml-editor/src/menu/try-play/anchor-list.vue?vue&type=script&setup=true&lang.ts";
+export * from "C:/Users/Final/workspace/vue/ssml-editor/src/menu/try-play/anchor-list.vue?vue&type=script&setup=true&lang.ts";
 export default _sfc_main;
+//# sourceMappingURL=anchor-list.vue.d.ts.map

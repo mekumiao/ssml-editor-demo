@@ -1,25 +1,4 @@
-import type { PropType as __PropType } from 'vue';
-import { type Position } from '@vueuse/core';
-declare const _sfc_main: import("vue").DefineComponent<{
-    visible: {
-        type: __PropType<boolean>;
-        required: true;
-    };
-    initialValue: {
-        type: __PropType<Position | undefined>;
-        required: false;
-    };
-}, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("update:visible" | "close")[], "update:visible" | "close", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
-    visible: {
-        type: __PropType<boolean>;
-        required: true;
-    };
-    initialValue: {
-        type: __PropType<Position | undefined>;
-        required: false;
-    };
-}>> & {
-    "onUpdate:visible"?: ((...args: any[]) => any) | undefined;
-    onClose?: ((...args: any[]) => any) | undefined;
-}, {}, {}>;
+import _sfc_main from "C:/Users/Final/workspace/vue/ssml-editor/src/components/drag-box/drag-box.vue?vue&type=script&setup=true&lang.ts";
+export * from "C:/Users/Final/workspace/vue/ssml-editor/src/components/drag-box/drag-box.vue?vue&type=script&setup=true&lang.ts";
 export default _sfc_main;
+//# sourceMappingURL=drag-box.vue.d.ts.map

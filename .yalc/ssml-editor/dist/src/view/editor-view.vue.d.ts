@@ -1,5 +1,5 @@
-declare const _sfc_main: import("vue").DefineComponent<{}, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("created" | "change")[], "created" | "change", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>> & {
-    onCreated?: ((...args: any[]) => any) | undefined;
-    onChange?: ((...args: any[]) => any) | undefined;
-}, {}, {}>;
-export default _sfc_main;
+export * from "C:/Users/Final/workspace/vue/ssml-editor/src/view/editor-view.vue?vue&type=script&setup=true&lang.ts";
+import "C:/Users/Final/workspace/vue/ssml-editor/src/view/editor-view.vue?vue&type=style&index=0&scoped=b5e6df8c&lang.scss";
+declare const _default: any;
+export default _default;
+//# sourceMappingURL=editor-view.vue.d.ts.map

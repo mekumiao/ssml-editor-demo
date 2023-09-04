@@ -1,2 +1,4 @@
-declare const _default: import("vue").DefineComponent<{}, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}, {}>;
+import "C:/Users/Final/workspace/vue/ssml-editor/src/components/bar-wrapper/bar-wrapper.vue?vue&type=style&index=0&scoped=7beae5b9&lang.scss";
+declare const _default: any;
 export default _default;
+//# sourceMappingURL=bar-wrapper.vue.d.ts.map

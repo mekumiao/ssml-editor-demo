@@ -1,24 +1,5 @@
-import type { PropType as __PropType } from 'vue';
-import type { LabelValue } from '../../model';
-declare const _sfc_main: import("vue").DefineComponent<{
-    modelValue: {
-        type: __PropType<string>;
-        required: true;
-    };
-    dataList: {
-        type: __PropType<LabelValue[]>;
-        required: true;
-    };
-}, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, "update:modelValue"[], "update:modelValue", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
-    modelValue: {
-        type: __PropType<string>;
-        required: true;
-    };
-    dataList: {
-        type: __PropType<LabelValue[]>;
-        required: true;
-    };
-}>> & {
-    "onUpdate:modelValue"?: ((...args: any[]) => any) | undefined;
-}, {}, {}>;
-export default _sfc_main;
+export * from "C:/Users/Final/workspace/vue/ssml-editor/src/menu/management-menu/select-list.vue?vue&type=script&setup=true&lang.ts";
+import "C:/Users/Final/workspace/vue/ssml-editor/src/menu/management-menu/select-list.vue?vue&type=style&index=0&scoped=e0f0259e&lang.scss";
+declare const _default: any;
+export default _default;
+//# sourceMappingURL=select-list.vue.d.ts.map

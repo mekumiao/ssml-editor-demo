@@ -1,14 +1,5 @@
-import type { PropType as __PropType } from 'vue';
-import type { DividerColor } from './data';
-declare const _sfc_main: import("vue").DefineComponent<{
-    divider: {
-        type: __PropType<DividerColor | undefined>;
-        required: false;
-    };
-}, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
-    divider: {
-        type: __PropType<DividerColor | undefined>;
-        required: false;
-    };
-}>>, {}, {}>;
-export default _sfc_main;
+export * from "C:/Users/Final/workspace/vue/ssml-editor/src/components/bar-wrapper/bar-wrapper-group.vue?vue&type=script&setup=true&lang.ts";
+import "C:/Users/Final/workspace/vue/ssml-editor/src/components/bar-wrapper/bar-wrapper-group.vue?vue&type=style&index=0&scoped=be31f837&lang.scss";
+declare const _default: any;
+export default _default;
+//# sourceMappingURL=bar-wrapper-group.vue.d.ts.map
