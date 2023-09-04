@@ -6,7 +6,7 @@ import { ElMessage } from 'element-plus'
 export default <SSMLEditorConfig>{
   // 错误处理
   handleError: (error) => ElMessage.warning({ message: error, grouping: true }),
-  // 多音字菜单请求字拼音用
+  // 多音字菜单请求拼音用
   pinyin: { fetchData: pinyin },
   // 音标菜单请求音标用
   english: { fetchData: english },
