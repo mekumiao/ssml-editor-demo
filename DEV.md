@@ -61,8 +61,8 @@ api一共有3种返回类型: LabelValue, Speaker, AudioInfo. 可在 `src/api/in
 | isFree      | boolean                        | 是否免费                                                     |
 | isStar      | boolean                        | 是否收藏                                                     |
 | isSupper24K | boolean                        | 是否支持24K音质                                              |
-| roles       | Array&lt;LabelValue & 头像&gt; | 角色Array                                                    |
-| styles      | Array&lt;LabelValue & 头像&gt; | 风格Array                                                    |
+| roles       | Array&lt;LabelValue & { avatar: string }&gt; | 角色Array                                                    |
+| styles      | Array&lt;LabelValue & { avatar: string }&gt; | 风格Array                                                    |
 
 3.`AudioInfo`. 用于局部变音返回音频信息
 
