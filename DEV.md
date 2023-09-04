@@ -51,18 +51,18 @@ api一共有3种返回类型: LabelValue, Speaker, AudioInfo. 可在 `src/api/in
 
 2.`Speaker`. 配音师实体模型
 
-| 字段        | 类型                     | 描述                                                         |
-| ----------- | ------------------------ | ------------------------------------------------------------ |
-| id          | string                   | 配音师ID (唯一标识,会在star,transfer API 中作为参数传递过来) |
-| name        | string                   | 配音师真实名称(SSML中voice的name属性值)                      |
-| displayName | string                   | 显示名                                                       |
-| category    | string                   | 分类(常用,已购,等.可在`config.ts`中自定义)                   |
-| avatar      | string                   | 头像链接                                                     |
-| isFree      | boolean                  | 是否免费                                                     |
-| isStar      | boolean                  | 是否收藏                                                     |
-| isSupper24K | boolean                  | 是否支持24K音质                                              |
-| roles       | Array<LabelValue & 头像> | 角色Array                                                    |
-| styles      | Array<LabelValue & 头像> | 风格Array                                                    |
+| 字段        | 类型                           | 描述                                                         |
+| ----------- | ------------------------------ | ------------------------------------------------------------ |
+| id          | string                         | 配音师ID (唯一标识,会在star,transfer API 中作为参数传递过来) |
+| name        | string                         | 配音师真实名称(SSML中voice的name属性值)                      |
+| displayName | string                         | 显示名                                                       |
+| category    | string                         | 分类(常用,已购,等.可在`config.ts`中自定义)                   |
+| avatar      | string                         | 头像链接                                                     |
+| isFree      | boolean                        | 是否免费                                                     |
+| isStar      | boolean                        | 是否收藏                                                     |
+| isSupper24K | boolean                        | 是否支持24K音质                                              |
+| roles       | Array&lt;LabelValue & 头像&gt; | 角色Array                                                    |
+| styles      | Array&lt;LabelValue & 头像&gt; | 风格Array                                                    |
 
 3.`AudioInfo`. 用于局部变音返回音频信息
 
