@@ -38,10 +38,11 @@
     "bootstrap": "^5.3.1",
     "dom7": "^3.0.0",
     "element-plus": "^2.3.9",
+    "lodash": "^4.17.21",
     "pinia": "^2.1.6",
     "snabbdom": "^3.5.1",
     "vue": "^3.3.4",
     "xml2js": "^0.6.2"
   },
-  "yalcSig": "cdbc2cf1a077019ea9e51128c0257d7f"
+  "yalcSig": "1e3409c1b9c3951a9b89f7f1d3493394"
 }
