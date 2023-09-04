@@ -28,7 +28,7 @@ export default <SSMLEditorConfig>{
     // 请求支持 transfer 接口的配音师列表数据
     fetchSpeaker: conversionSpeaker,
   },
-  // 多人配乐
+  // 多人配音
   management: {
     // 获取最近使用接口
     fetchRecentUsage: fetchRecentUsage,

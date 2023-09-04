@@ -37,9 +37,9 @@
 | transfer          | 用于在局部变音中将upload接口上传的音频转换为指定配音师的音色效果                                       |
 | conversionSpeaker | 在局部变音功能中获取配音师列表(这里没有复用上面的speaker接口,因为考虑到仅有部分配音师支持transfer接口) |
 | play              | 播放音频. 传入ssml,返回一个音频链接                                                                    |
-| recordRecentUsage | 多人配乐菜单 保存使用记录                                                                              |
-| fetchRecentUsage  | 多人配乐菜单 获取使用记录                                                                              |
-| deleteRecentUsage | 多人配乐菜单 删除使用记录                                                                              |
+| recordRecentUsage | 多人配音菜单 保存使用记录                                                                              |
+| fetchRecentUsage  | 多人配音菜单 获取使用记录                                                                              |
+| deleteRecentUsage | 多人配音菜单 删除使用记录                                                                              |
 
 ## API数据MODEL
 
