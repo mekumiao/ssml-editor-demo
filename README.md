@@ -1,6 +1,6 @@
 # SSML-Editor-Demo
 
-[在线体验](https://ssml.sdaxia.top/)
+[在线体验](https://ssml.sdaxia.top/) | [开发文档](./DEV.md)
 
 ## 开始
 
