@@ -74,7 +74,7 @@ api一共有4种返回类型: LabelValue, Speaker, AudioInfo, RecentUsageSpeaker
 | id   | string | 音频ID (将作为 transfer API的参数传入) |
 | src  | string | 音频url                                |
 
-4.`RecentUsageSpeaker`. 用于多人配乐承载最近使用的`speaker`
+4.`RecentUsageSpeaker`. 用于多人配音承载最近使用的`speaker`
 
 | 字段     | 类型   | 描述                                             |
 | -------- | ------ | ------------------------------------------------ |
