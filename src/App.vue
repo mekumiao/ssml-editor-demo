@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { EditorView } from 'ssml-editor'
+import { EditorView } from '@mekumiao/ssml-editor'
 import type { IDomEditor } from '@wangeditor/editor'
 
 const html = ``

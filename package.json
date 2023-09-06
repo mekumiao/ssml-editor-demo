@@ -13,10 +13,10 @@
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.1.0",
+    "@mekumiao/ssml-editor": "^1.0.6",
     "@wangeditor/editor": "^5.1.23",
     "axios": "^1.4.0",
     "element-plus": "^2.3.9",
-    "ssml-editor": "file:.yalc/ssml-editor",
     "vue": "^3.3.4"
   },
   "devDependencies": {
