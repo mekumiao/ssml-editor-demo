@@ -1,13 +1,13 @@
 import axios from 'axios'
 import MockAdapter from 'axios-mock-adapter'
 import DataSource from './data'
-import type { FilterBarSearch } from 'ssml-editor'
+import type { FilterBarSearch } from '@mekumiao/ssml-editor'
 import cnchar from 'cnchar'
 import 'cnchar-poly'
-import type { FilterSpeaker, LabelValue, Speaker } from 'ssml-editor'
+import type { FilterSpeaker, LabelValue, Speaker } from '@mekumiao/ssml-editor'
 import voices from './voices'
 import { getStyleDes, getRoleDes } from './emoji-config'
-import type { AudioInfo, RecentUsageSpeaker } from 'ssml-editor'
+import type { AudioInfo, RecentUsageSpeaker } from '@mekumiao/ssml-editor'
 
 const mock = new MockAdapter(axios)
 

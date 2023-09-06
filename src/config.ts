@@ -1,4 +1,4 @@
-import type { SSMLEditorConfig } from 'ssml-editor'
+import type { SSMLEditorConfig } from '@mekumiao/ssml-editor'
 import { pinyin, english, bgm, special, scene, style, tag, speaker, star } from './api'
 import { upload, transfer, conversionSpeaker, play } from './api'
 import { fetchRecentUsage, deleteRecentUsage, recordRecentUsage } from './api'

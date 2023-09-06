@@ -1,8 +1,8 @@
 import axios from 'axios'
 import '../mock'
-import type { FilterBarSearch } from 'ssml-editor'
-import type { FilterSpeaker, LabelValue, Speaker } from 'ssml-editor'
-import type { CancellationToken, AudioInfo, RecentUsageSpeaker } from 'ssml-editor'
+import type { FilterBarSearch } from '@mekumiao/ssml-editor'
+import type { FilterSpeaker, LabelValue, Speaker } from '@mekumiao/ssml-editor'
+import type { CancellationToken, AudioInfo, RecentUsageSpeaker } from '@mekumiao/ssml-editor'
 
 export async function pinyin(word: string): Promise<LabelValue[]> {
   const resp = await axios.get('/pinyin', { params: { word } })
