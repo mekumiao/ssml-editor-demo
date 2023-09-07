@@ -216,9 +216,9 @@
   integrity sha512-eF2rxCRulEKXHTRiDrDy6erMYWqNw4LPdQ8UQA4huuxaQsVeRPFl2oM8oDGxMFhJUWZf9McpLtJasDDZb/Bpeg==
 
 "@mekumiao/ssml-editor@^1.0.6":
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/@mekumiao/ssml-editor/-/ssml-editor-1.0.6.tgz#17bd609cc871ae83f3b4f5217e5c3a1a48888f77"
-  integrity sha512-3Qa8rwcc4uU5VzskNaap3UMgrZZibWvxEKTFoIsidvLqFUeA9E0wZaoqSnvnuudSdz8llDDjFot5A4Vf4/Xwtg==
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/@mekumiao/ssml-editor/-/ssml-editor-1.0.7.tgz#efafe5fcdda0ac644600c092431e9c620210811c"
+  integrity sha512-jndwkKNAVMwpqNklnpASLpGW6XnQVm9RUGV95v5+YxFWz5b6wRtgK8TcAHnPxQub/QIy3thFylwFwnxrwdVNFg==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
