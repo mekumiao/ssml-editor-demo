@@ -4,7 +4,7 @@ import { upload, transfer, conversionSpeaker, play } from './api'
 import { fetchRecentUsage, deleteRecentUsage, recordRecentUsage } from './api'
 import { ElMessage } from 'element-plus'
 
-export default <SSMLEditorConfig>{
+export default <Partial<SSMLEditorConfig>>{
   // 错误处理
   handleError: (error) => ElMessage.warning({ message: error, grouping: true }),
   // 多音字菜单请求拼音用

@@ -216,9 +216,24 @@
   integrity sha512-eF2rxCRulEKXHTRiDrDy6erMYWqNw4LPdQ8UQA4huuxaQsVeRPFl2oM8oDGxMFhJUWZf9McpLtJasDDZb/Bpeg==
 
 "@mekumiao/ssml-editor@^1.0.6":
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/@mekumiao/ssml-editor/-/ssml-editor-1.0.7.tgz#efafe5fcdda0ac644600c092431e9c620210811c"
-  integrity sha512-jndwkKNAVMwpqNklnpASLpGW6XnQVm9RUGV95v5+YxFWz5b6wRtgK8TcAHnPxQub/QIy3thFylwFwnxrwdVNFg==
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/@mekumiao/ssml-editor/-/ssml-editor-1.0.8.tgz#0ec61503190927aec852ef83e57f459b2316dfeb"
+  integrity sha512-J1RWlRHRDFPsbWGdrdDiMYAMwl0oCIsUDXj8l8Wy2nwA3WFRzsVMi1BN0MWqkcNv6iSK3GZP6/qnLH++kPMJLQ==
+  dependencies:
+    "@element-plus/icons-vue" "^2.1.0"
+    "@types/lodash.sorteduniqby" "^4.7.7"
+    "@types/lodash.throttle" "^4.1.7"
+    "@vueuse/core" "^10.4.1"
+    "@wangeditor/editor" "^5.1.23"
+    element-plus "^2.3.12"
+    event-emitter "^0.3.5"
+    lodash.sorteduniqby "^4.7.0"
+    lodash.throttle "^4.1.1"
+    pinia "^2.1.6"
+    snabbdom "^3.5.1"
+    vue "^3.3.4"
+    xml-formatter "^3.5.0"
+    xml2js "^0.6.2"
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -298,6 +313,20 @@
   dependencies:
     "@types/lodash" "*"
 
+"@types/lodash.sorteduniqby@^4.7.7":
+  version "4.7.7"
+  resolved "https://registry.yarnpkg.com/@types/lodash.sorteduniqby/-/lodash.sorteduniqby-4.7.7.tgz#9b10baf45a4e92f848371817a9f40f5cb969329e"
+  integrity sha512-YuettsNk+aZjypKPwuZpVEzYvbWhWF/DntnevOaEsNV2PIZw/984czKScHXzem0WLyV8Vh//5CScxw/OH8rdqQ==
+  dependencies:
+    "@types/lodash" "*"
+
+"@types/lodash.throttle@^4.1.7":
+  version "4.1.7"
+  resolved "https://registry.yarnpkg.com/@types/lodash.throttle/-/lodash.throttle-4.1.7.tgz#4ef379eb4f778068022310ef166625f420b6ba58"
+  integrity sha512-znwGDpjCHQ4FpLLx19w4OXDqq8+OvREa05H89obtSyXyOFKL3dDjCslsmfBz0T2FU8dmf5Wx1QvogbINiGIu9g==
+  dependencies:
+    "@types/lodash" "*"
+
 "@types/lodash@*", "@types/lodash@^4.14.182":
   version "4.14.197"
   resolved "https://registry.npmmirror.com/@types/lodash/-/lodash-4.14.197.tgz#e95c5ddcc814ec3e84c891910a01e0c8a378c54b"
@@ -312,6 +341,11 @@
   version "0.0.16"
   resolved "https://registry.npmmirror.com/@types/web-bluetooth/-/web-bluetooth-0.0.16.tgz#1d12873a8e49567371f2a75fe3e7f7edca6662d8"
   integrity sha512-oh8q2Zc32S6gd/j50GowEjKLoOVOwHP/bWVjKJInBwQqdOYMdPrf1oVlelTlyfFK3CKxL1uahMDAr+vy8T7yMQ==
+
+"@types/web-bluetooth@^0.0.17":
+  version "0.0.17"
+  resolved "https://registry.yarnpkg.com/@types/web-bluetooth/-/web-bluetooth-0.0.17.tgz#5c9f3c617f64a9735d7b72a7cc671e166d900c40"
+  integrity sha512-4p9vcSmxAayx72yn70joFoL44c9MO/0+iVEBIQXe3v2h2SiAsEIo/G5v6ObFWvNKRFjbrVadNf9LqEEZeQPzdA==
 
 "@typescript-eslint/eslint-plugin@^5.59.1":
   version "5.62.0"
@@ -508,6 +542,11 @@
     "@vue/compiler-dom" "3.3.4"
     "@vue/shared" "3.3.4"
 
+"@vue/devtools-api@^6.5.0":
+  version "6.5.0"
+  resolved "https://registry.yarnpkg.com/@vue/devtools-api/-/devtools-api-6.5.0.tgz#98b99425edee70b4c992692628fa1ea2c1e57d07"
+  integrity sha512-o9KfBeaBmCKl10usN4crU53fYtC1r7jJwdGKjPT24t348rHxgfpZ0xL3Xm/gLUYnc0oTp8LAmrxOeLyu6tbk2Q==
+
 "@vue/eslint-config-prettier@^8.0.0":
   version "8.0.0"
   resolved "https://registry.npmmirror.com/@vue/eslint-config-prettier/-/eslint-config-prettier-8.0.0.tgz#de5cb77ed483b43683d17a788808a0fa4e7bd07e"
@@ -595,6 +634,16 @@
     "@volar/typescript" "~1.10.0"
     "@vue/language-core" "1.8.8"
 
+"@vueuse/core@^10.4.1":
+  version "10.4.1"
+  resolved "https://registry.yarnpkg.com/@vueuse/core/-/core-10.4.1.tgz#fc2c8a83a571c207aaedbe393b22daa6d35123f2"
+  integrity sha512-DkHIfMIoSIBjMgRRvdIvxsyboRZQmImofLyOHADqiVbQVilP8VVHDhBX2ZqoItOgu7dWa8oXiNnScOdPLhdEXg==
+  dependencies:
+    "@types/web-bluetooth" "^0.0.17"
+    "@vueuse/metadata" "10.4.1"
+    "@vueuse/shared" "10.4.1"
+    vue-demi ">=0.14.5"
+
 "@vueuse/core@^9.1.0":
   version "9.13.0"
   resolved "https://registry.npmmirror.com/@vueuse/core/-/core-9.13.0.tgz#2f69e66d1905c1e4eebc249a01759cf88ea00cf4"
@@ -605,10 +654,22 @@
     "@vueuse/shared" "9.13.0"
     vue-demi "*"
 
+"@vueuse/metadata@10.4.1":
+  version "10.4.1"
+  resolved "https://registry.yarnpkg.com/@vueuse/metadata/-/metadata-10.4.1.tgz#9d2ff5c67abf17a8c07865c2413fbd0e92f7b7d7"
+  integrity sha512-2Sc8X+iVzeuMGHr6O2j4gv/zxvQGGOYETYXEc41h0iZXIRnRbJZGmY/QP8dvzqUelf8vg0p/yEA5VpCEu+WpZg==
+
 "@vueuse/metadata@9.13.0":
   version "9.13.0"
   resolved "https://registry.npmmirror.com/@vueuse/metadata/-/metadata-9.13.0.tgz#bc25a6cdad1b1a93c36ce30191124da6520539ff"
   integrity sha512-gdU7TKNAUVlXXLbaF+ZCfte8BjRJQWPCa2J55+7/h+yDtzw3vOoGQDRXzI6pyKyo6bXFT5/QoPE4hAknExjRLQ==
+
+"@vueuse/shared@10.4.1":
+  version "10.4.1"
+  resolved "https://registry.yarnpkg.com/@vueuse/shared/-/shared-10.4.1.tgz#d5ce33033c156efb60664b5d6034d6cd4e2f530c"
+  integrity sha512-vz5hbAM4qA0lDKmcr2y3pPdU+2EVw/yzfRsBdu+6+USGa4PxqSQRYIUC9/NcT06y+ZgaTsyURw2I9qOFaaXHAg==
+  dependencies:
+    vue-demi ">=0.14.5"
 
 "@vueuse/shared@9.13.0":
   version "9.13.0"
@@ -969,9 +1030,9 @@ dom7@^3.0.0:
   dependencies:
     ssr-window "^3.0.0-alpha.1"
 
-element-plus@^2.3.9:
+element-plus@^2.3.12, element-plus@^2.3.9:
   version "2.3.12"
-  resolved "https://registry.npmmirror.com/element-plus/-/element-plus-2.3.12.tgz#d3c91d0c701b2b3e67d06a351cb0c42dcc46460e"
+  resolved "https://registry.yarnpkg.com/element-plus/-/element-plus-2.3.12.tgz#d3c91d0c701b2b3e67d06a351cb0c42dcc46460e"
   integrity sha512-fAWpbKCyt+l1dsqSNPOs/F/dBN4Wp5CGAyxbiS5zqDwI4q3QPM+LxLU2h3GUHMIBtMGCvmsG98j5HPMkTKkvcA==
   dependencies:
     "@ctrl/tinycolor" "^3.4.1"
@@ -1625,6 +1686,11 @@ lodash.merge@^4.6.2:
   resolved "https://registry.npmmirror.com/lodash.merge/-/lodash.merge-4.6.2.tgz#558aa53b43b661e1925a0afdfa36a9a1085fe57a"
   integrity sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==
 
+lodash.sorteduniqby@^4.7.0:
+  version "4.7.0"
+  resolved "https://registry.yarnpkg.com/lodash.sorteduniqby/-/lodash.sorteduniqby-4.7.0.tgz#6793fd3f51bc66ba5c1811492f9e5931887b300f"
+  integrity sha512-JVsxGHGkzXR+HFdp6J8ZT7dpVnyPurMLC+k3yfBehd7L1QdsnQj8PmC2hxz+/9Me35fqI4vphbs1f3vW1Tp7iQ==
+
 lodash.throttle@^4.1.1:
   version "4.1.1"
   resolved "https://registry.npmmirror.com/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
@@ -1887,6 +1953,14 @@ picomatch@^2.2.2, picomatch@^2.3.1:
   resolved "https://registry.npmmirror.com/picomatch/-/picomatch-2.3.1.tgz#3ba3833733646d9d3e4995946c1365a67fb07a42"
   integrity sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==
 
+pinia@^2.1.6:
+  version "2.1.6"
+  resolved "https://registry.yarnpkg.com/pinia/-/pinia-2.1.6.tgz#e88959f14b61c4debd9c42d0c9944e2875cbe0fa"
+  integrity sha512-bIU6QuE5qZviMmct5XwCesXelb5VavdOWKWaB17ggk++NUwQWWbP5YnsONTk3b752QkW9sACiR81rorpeOMSvQ==
+  dependencies:
+    "@vue/devtools-api" "^6.5.0"
+    vue-demi ">=0.14.5"
+
 postcss-selector-parser@^6.0.13:
   version "6.0.13"
   resolved "https://registry.npmmirror.com/postcss-selector-parser/-/postcss-selector-parser-6.0.13.tgz#d05d8d76b1e8e173257ef9d60b706a8e5e99bf1b"
@@ -1999,6 +2073,11 @@ run-parallel@^1.1.9:
   dependencies:
     queue-microtask "^1.2.2"
 
+sax@>=0.6.0:
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
+  integrity sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==
+
 scroll-into-view-if-needed@^2.2.28:
   version "2.2.31"
   resolved "https://registry.npmmirror.com/scroll-into-view-if-needed/-/scroll-into-view-if-needed-2.2.31.tgz#d3c482959dc483e37962d1521254e3295d0d1587"
@@ -2051,7 +2130,7 @@ slate@^0.72.0:
     is-plain-object "^5.0.0"
     tiny-warning "^1.0.3"
 
-snabbdom@^3.1.0:
+snabbdom@^3.1.0, snabbdom@^3.5.1:
   version "3.5.1"
   resolved "https://registry.npmmirror.com/snabbdom/-/snabbdom-3.5.1.tgz#25f80ef15b194baea703d9d5441892e369de18e1"
   integrity sha512-wHMNIOjkm/YNE5EM3RCbr/+DVgPg6AqQAX1eOxO46zYNvCXjKP5Y865tqQj3EXnaMBjkxmQA5jFuDpDK/dbfiA==
@@ -2209,7 +2288,7 @@ vite@^4.4.5:
   optionalDependencies:
     fsevents "~2.3.2"
 
-vue-demi@*:
+vue-demi@*, vue-demi@>=0.14.5:
   version "0.14.6"
   resolved "https://registry.npmmirror.com/vue-demi/-/vue-demi-0.14.6.tgz#dc706582851dc1cdc17a0054f4fec2eb6df74c92"
   integrity sha512-8QA7wrYSHKaYgUxDA5ZC24w+eHm3sYCbp0EzcDwKqN3p6HqtTCGR/GVsPyZW92unff4UlcSh++lmqDWN3ZIq4w==
@@ -2272,10 +2351,35 @@ wrappy@1:
   resolved "https://registry.npmmirror.com/wrappy/-/wrappy-1.0.2.tgz#b5243d8f3ec1aa35f1364605bc0d1036e30ab69f"
   integrity sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==
 
+xml-formatter@^3.5.0:
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/xml-formatter/-/xml-formatter-3.5.0.tgz#3be010082f58dea17f9dc860f1f5e6e92e81c2ec"
+  integrity sha512-9ij/f2PLIPv+YDywtdztq7U82kYMDa5yPYwpn0TnXnqJRH6Su8RC/oaw91erHe3aSEbfgBaA1hDzReDFb1SVXw==
+  dependencies:
+    xml-parser-xo "^4.1.0"
+
 xml-name-validator@^4.0.0:
   version "4.0.0"
   resolved "https://registry.npmmirror.com/xml-name-validator/-/xml-name-validator-4.0.0.tgz#79a006e2e63149a8600f15430f0a4725d1524835"
   integrity sha512-ICP2e+jsHvAj2E2lIHxa5tjXRlKDJo4IdvPvCXbXQGdzSfmSpNVyIKMvoZHjDY9DP0zV17iI85o90vRFXNccRw==
+
+xml-parser-xo@^4.1.0:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/xml-parser-xo/-/xml-parser-xo-4.1.1.tgz#7434d990f442e06ed96286c813c02e921f14fc50"
+  integrity sha512-Ggf2y90+Y6e9IK5hoPuembVHJ03PhDSdhldEmgzbihzu9k0XBo0sfcFxaSi4W1PlUSSI1ok+MJ0JCXUn+U4Ilw==
+
+xml2js@^0.6.2:
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/xml2js/-/xml2js-0.6.2.tgz#dd0b630083aa09c161e25a4d0901e2b2a929b499"
+  integrity sha512-T4rieHaC1EXcES0Kxxj4JWgaUQHDk+qwHcYOCFHfiwKz7tOVPLq7Hjq9dM1WCMhylqMEfP7hMcOIChvotiZegA==
+  dependencies:
+    sax ">=0.6.0"
+    xmlbuilder "~11.0.0"
+
+xmlbuilder@~11.0.0:
+  version "11.0.1"
+  resolved "https://registry.yarnpkg.com/xmlbuilder/-/xmlbuilder-11.0.1.tgz#be9bae1c8a046e76b31127726347d0ad7002beb3"
+  integrity sha512-fDlsI/kFEx7gLvbecc0/ohLG50fugQp8ryHzMTuW9vSa1GJ0XYWKnhsUx7oie3G98+r56aTQIUB4kht42R3JvA==
 
 yallist@^4.0.0:
   version "4.0.0"
