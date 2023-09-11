@@ -13,10 +13,12 @@
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.1.0",
-    "@mekumiao/ssml-editor": "^1.0.9",
+    "@mekumiao/ssml-editor": "^1.0.13",
     "@wangeditor/editor": "^5.1.23",
     "axios": "^1.4.0",
     "element-plus": "^2.3.9",
+    "pinyin-pro": "^3.16.4",
+    "pinyinize": "^3.3.1",
     "vue": "^3.3.4"
   },
   "devDependencies": {
@@ -25,8 +27,6 @@
     "@vue/eslint-config-prettier": "^8.0.0",
     "@vue/eslint-config-typescript": "^11.0.3",
     "axios-mock-adapter": "^1.21.5",
-    "cnchar": "^3.2.4",
-    "cnchar-poly": "^3.2.4",
     "eslint": "^8.48.0",
     "eslint-plugin-vue": "^9.17.0",
     "prettier": "^3.0.3",

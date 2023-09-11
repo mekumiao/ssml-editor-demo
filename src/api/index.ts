@@ -3,10 +3,11 @@ import '../mock'
 import type { FilterBarSearch } from '@mekumiao/ssml-editor'
 import type { FilterSpeaker, LabelValue, Speaker } from '@mekumiao/ssml-editor'
 import type { CancellationToken, AudioInfo, RecentUsageSpeaker } from '@mekumiao/ssml-editor'
+import { getPolyphoneData, polyphoneDataToLabelValue } from '../utils'
 
 export async function pinyin(word: string): Promise<LabelValue[]> {
-  const resp = await axios.get('/pinyin', { params: { word } })
-  return resp.data
+  const polyphoneData = getPolyphoneData(word)
+  return polyphoneDataToLabelValue(polyphoneData)
 }
 
 export async function english(word: string): Promise<LabelValue[]> {

@@ -179,17 +179,17 @@
     "@floating-ui/utils" "^0.1.1"
 
 "@floating-ui/dom@^1.0.1":
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/@floating-ui/dom/-/dom-1.5.1.tgz#88b70defd002fe851f17b4a25efb2d3c04d7a8d7"
-  integrity sha512-KwvVcPSXg6mQygvA1TjbN/gh///36kKtllIF8SUm0qpFj8+rvYrpvlYdL1JoA71SHpDqgSSdGOSoQ0Mp3uY5aw==
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/@floating-ui/dom/-/dom-1.5.2.tgz#6812e89d1d4d4ea32f10d15c3b81feb7f9836d89"
+  integrity sha512-6ArmenS6qJEWmwzczWyhvrXRdI/rI78poBcW0h/456+onlabit+2G+QxHx5xTOX60NBJQXjsCLFbW2CmsXpUog==
   dependencies:
     "@floating-ui/core" "^1.4.1"
     "@floating-ui/utils" "^0.1.1"
 
 "@floating-ui/utils@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@floating-ui/utils/-/utils-0.1.1.tgz#1a5b1959a528e374e8037c4396c3e825d6cf4a83"
-  integrity sha512-m0G6wlnhm/AX0H12IOWtK8gASEMffnX08RtKkCgTdHb9JpHKGloI7icFfLg9ZmQeavcvR0PKmzxClyuFPSjKWw==
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@floating-ui/utils/-/utils-0.1.2.tgz#b7e9309ccce5a0a40ac482cb894f120dba2b357f"
+  integrity sha512-ou3elfqG/hZsbmF4bxeJhPHIf3G2pm0ujc39hYEZrfVqt7Vk/Zji6CXc3W0pmYM8BW1g40U+akTl9DKZhFhInQ==
 
 "@humanwhocodes/config-array@^0.11.11":
   version "0.11.11"
@@ -215,13 +215,14 @@
   resolved "https://registry.yarnpkg.com/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.4.15.tgz#d7c6e6755c78567a951e04ab52ef0fd26de59f32"
   integrity sha512-eF2rxCRulEKXHTRiDrDy6erMYWqNw4LPdQ8UQA4huuxaQsVeRPFl2oM8oDGxMFhJUWZf9McpLtJasDDZb/Bpeg==
 
-"@mekumiao/ssml-editor@^1.0.9":
-  version "1.0.12"
-  resolved "https://registry.yarnpkg.com/@mekumiao/ssml-editor/-/ssml-editor-1.0.12.tgz#cfb0bbc4f3e796923c7012b108345afc1533b653"
-  integrity sha512-ohg7ltvTm++SUQW0GUoXg9sa5nZsku7BEbqN9Rt4vXbHHN2v9Bvj8MhwkPqdrT8nqmmwQzIwQH/E6FPk1cSjbQ==
+"@mekumiao/ssml-editor@^1.0.13":
+  version "1.0.13"
+  resolved "https://registry.yarnpkg.com/@mekumiao/ssml-editor/-/ssml-editor-1.0.13.tgz#e4ed48ed84b2a57adc25332812f4f4cabf68da21"
+  integrity sha512-E7mfwFWpCNzp+jZCT5gaaJtPRQeArZc7gY89wz0ov9C2LtPo+E2HZn+Ka7192pXDR1/+xcYA7/qP5REGHqf3Ig==
   dependencies:
     "@element-plus/icons-vue" "^2.1.0"
     "@popperjs/core" "^2.11.8"
+    "@types/lodash.merge" "^4.6.7"
     "@types/lodash.sorteduniqby" "^4.7.7"
     "@types/lodash.throttle" "^4.1.7"
     "@types/lodash.uniqby" "^4.7.7"
@@ -230,6 +231,7 @@
     bootstrap "github:twbs/bootstrap#39030/head"
     element-plus "^2.3.12"
     event-emitter "^0.3.5"
+    lodash.merge "^4.6.2"
     lodash.sorteduniqby "^4.7.0"
     lodash.throttle "^4.1.1"
     lodash.uniqby "^4.7.0"
@@ -319,6 +321,13 @@
   version "4.17.9"
   resolved "https://registry.yarnpkg.com/@types/lodash-es/-/lodash-es-4.17.9.tgz#49dbe5112e23c54f2b387d860b7d03028ce170c2"
   integrity sha512-ZTcmhiI3NNU7dEvWLZJkzG6ao49zOIjEgIE0RgV7wbPxU0f2xT3VSAHw2gmst8swH6V0YkLRGp4qPlX/6I90MQ==
+  dependencies:
+    "@types/lodash" "*"
+
+"@types/lodash.merge@^4.6.7":
+  version "4.6.7"
+  resolved "https://registry.yarnpkg.com/@types/lodash.merge/-/lodash.merge-4.6.7.tgz#0af6555dd8bc6568ef73e5e0d820a027362946b1"
+  integrity sha512-OwxUJ9E50gw3LnAefSHJPHaBLGEKmQBQ7CZe/xflHkyy/wH2zVyEIAKReHvVrrn7zKdF58p16We9kMfh7v0RRQ==
   dependencies:
     "@types/lodash" "*"
 
@@ -903,25 +912,6 @@ chalk@^4.0.0:
   dependencies:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
-
-cnchar-poly@^3.2.4:
-  version "3.2.4"
-  resolved "https://registry.yarnpkg.com/cnchar-poly/-/cnchar-poly-3.2.4.tgz#9c6c8bc95fac816da02dccdb615087fbdb95e3b3"
-  integrity sha512-kobq9xj0Mfu4n3MFf7uldluIxXkoaV5y00qyF3b/bcb9rI8s7rvlRu53RF/fNOS46MWkTGgXDnUl2QF7V7RjEg==
-  dependencies:
-    cnchar-types "^3.2.4"
-
-cnchar-types@^3.2.4:
-  version "3.2.4"
-  resolved "https://registry.yarnpkg.com/cnchar-types/-/cnchar-types-3.2.4.tgz#0719d89e598a1830928bfd16b343744a36d2216b"
-  integrity sha512-px3V2FQ7M6iS0OJsu/XxNGQcCf4jfHV9xHmLte9UgQv04DK7Ss9x719FQwIVfT8uy+iyfIth77B/D4ufDGDAIA==
-
-cnchar@^3.2.4:
-  version "3.2.4"
-  resolved "https://registry.yarnpkg.com/cnchar/-/cnchar-3.2.4.tgz#aeac6216f6393748b32a8c4052409a8576afa561"
-  integrity sha512-Gpz66OIcBp2WGStVZFt4I9NcKZYEwf7k3CjZ6eDb9LZa7QXwTO2QKer2Ko7HEPPKosRiwxAshdR3BaQ5mR+qqA==
-  dependencies:
-    cnchar-types "^3.2.4"
 
 color-convert@^2.0.1:
   version "2.0.1"
@@ -1726,6 +1716,11 @@ lodash.uniqby@^4.7.0:
   resolved "https://registry.yarnpkg.com/lodash.uniqby/-/lodash.uniqby-4.7.0.tgz#d99c07a669e9e6d24e1362dfe266c67616af1302"
   integrity sha512-e/zcLx6CSbmaEgFHCA7BnoQKyCtKMxnuWrJygbwPs/AIn+IMKl66L8/s+wBUn5LRw2pZx3bUHibiV1b6aTWIww==
 
+lodash@^3.10.1:
+  version "3.10.1"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
+  integrity sha512-9mDDwqVIma6OZX79ZlDACZl8sBm0TEnkf99zV3iMA4GzkIT/9hiqP5mY0HoT1iNLCrKc/R1HByV+yJfRWVJryQ==
+
 lodash@^4.17.21:
   version "4.17.21"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
@@ -1985,6 +1980,18 @@ pinia@^2.1.6:
   dependencies:
     "@vue/devtools-api" "^6.5.0"
     vue-demi ">=0.14.5"
+
+pinyin-pro@^3.16.4:
+  version "3.16.4"
+  resolved "https://registry.yarnpkg.com/pinyin-pro/-/pinyin-pro-3.16.4.tgz#7b75dbf6125af5715a588a1411ab8e1c6eb04470"
+  integrity sha512-NP1x+Z9OajEIjJzIs5gzp3DHiUln8SLIytoYspPFQ8Xd6NMBO2HHZuki1XgYzGS7qat4oRZlwnZ+hvCZwuldbg==
+
+pinyinize@^3.3.1:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/pinyinize/-/pinyinize-3.3.1.tgz#f537e6b5c65aeaf52a05bfebd84c8545db1fe595"
+  integrity sha512-xxea97zhQBMWGtlUWNhtZGQce8FeBLasD0wzVsVn1+idQuPrYvb+E+yYkW8s1iIYb1ZYd6RVHCp0DFBS5DYEMw==
+  dependencies:
+    lodash "^3.10.1"
 
 postcss-selector-parser@^6.0.13:
   version "6.0.13"

@@ -2,24 +2,12 @@ import axios from 'axios'
 import MockAdapter from 'axios-mock-adapter'
 import DataSource from './data'
 import type { FilterBarSearch } from '@mekumiao/ssml-editor'
-import cnchar from 'cnchar'
-import 'cnchar-poly'
 import type { FilterSpeaker, LabelValue, Speaker } from '@mekumiao/ssml-editor'
 import voices from './voices'
 import { getStyleDes, getRoleDes } from './emoji-config'
 import type { AudioInfo, RecentUsageSpeaker } from '@mekumiao/ssml-editor'
 
 const mock = new MockAdapter(axios)
-
-mock.onGet('/pinyin').reply((config) => {
-  const word = config.params.word as string
-  const poly = cnchar.spell(word, 'poly', 'low') as string
-  const polyList = poly.replaceAll(/[()]/g, '').split('|')
-  const genTone = (p: string) => Array.from({ length: 5 }).map((_, i) => (i == 0 ? p : `${p} ${i}`))
-  const dataList = polyList.map((v) => genTone(v))
-  const data = ([] as string[]).concat(...dataList).map((v) => ({ value: v, label: v }))
-  return [200, data]
-})
 
 mock.onGet('/english').reply((config) => {
   const word = config.params.word as string

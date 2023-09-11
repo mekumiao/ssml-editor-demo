@@ -1,10 +1,11 @@
-import type { SSMLEditorConfig } from '@mekumiao/ssml-editor'
+import type { PartialSSMLEditorConfig } from '@mekumiao/ssml-editor'
 import { pinyin, english, bgm, special, scene, style, tag, speaker, star } from './api'
 import { upload, transfer, conversionSpeaker, play } from './api'
 import { fetchRecentUsage, deleteRecentUsage, recordRecentUsage } from './api'
 import { ElMessage } from 'element-plus'
 
-export default <Partial<SSMLEditorConfig>>{
+export default <PartialSSMLEditorConfig>{
+  effects: { grayscale: false, zoom: true },
   // 错误处理
   handleError: (error) => ElMessage.warning({ message: error, grouping: true }),
   // 多音字菜单请求拼音用
