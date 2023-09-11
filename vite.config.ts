@@ -29,6 +29,11 @@ export default defineConfig({
           var: 'ElementPlusIconsVue',
           path: 'https://cdn.staticfile.org/element-plus-icons-vue/2.1.0/global.iife.min.js',
         },
+        {
+          name: 'pinyin-pro',
+          var: 'pinyinPro',
+          path: 'https://cdn.staticfile.org/pinyin-pro/3.16.4/index.min.js',
+        },
       ],
     }),
   ],
