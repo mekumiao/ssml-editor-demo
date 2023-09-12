@@ -2,21 +2,30 @@
 import { EditorView } from '@mekumiao/ssml-editor'
 import type { IDomEditor } from '@wangeditor/editor'
 
-const html = ``
-
-function handleCreate(editor: IDomEditor) {
-  // 这里公开editor是为了方便测试
-  window.editor = editor
-  editor.setHtml(html)
-  // 异步设置焦点(editor渲染需要时间)
+function handleCreated(editor: IDomEditor) {
+  const html = readHtml()
+  html && editor.setHtml(html)
   setTimeout(() => {
     editor.focus(true)
   }, 500)
 }
+
+function handleChange(editor: IDomEditor) {
+  const html = editor.getHtml()
+  saveHtml(html)
+}
+
+function saveHtml(html: string) {
+  window.localStorage.setItem('html', html)
+}
+
+function readHtml() {
+  return window.localStorage.getItem('html')
+}
 </script>
 
 <template>
-  <EditorView @created="handleCreate"></EditorView>
+  <EditorView @created="handleCreated" @change="handleChange"></EditorView>
 </template>
 
 <style scoped></style>

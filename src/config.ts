@@ -1,5 +1,5 @@
 import type { PartialSSMLEditorConfig } from '@mekumiao/ssml-editor'
-import { pinyin, english, bgm, special, scene, style, tag, speaker, star } from './api'
+import { english, bgm, special, scene, style, tag, speaker, star } from './api'
 import { upload, transfer, conversionSpeaker, play } from './api'
 import { fetchRecentUsage, deleteRecentUsage, recordRecentUsage } from './api'
 import { ElMessage } from 'element-plus'
@@ -8,8 +8,6 @@ export default <PartialSSMLEditorConfig>{
   effects: { grayscale: false, zoom: true },
   // 错误处理
   handleError: (error) => ElMessage.warning({ message: error, grouping: true }),
-  // 多音字菜单请求拼音用
-  pinyin: { fetchData: pinyin },
   // 音标菜单请求音标用
   english: { fetchData: english },
   // 配乐菜单 搜索,切换选项卡时请求数据用

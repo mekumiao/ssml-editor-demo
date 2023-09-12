@@ -13,12 +13,10 @@
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.1.0",
-    "@mekumiao/ssml-editor": "^1.0.13",
+    "@mekumiao/ssml-editor": "^1.0.14",
     "@wangeditor/editor": "^5.1.23",
     "axios": "^1.4.0",
     "element-plus": "^2.3.9",
-    "pinyin-pro": "^3.16.4",
-    "pinyinize": "^3.3.1",
     "vue": "^3.3.4"
   },
   "devDependencies": {

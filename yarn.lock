@@ -215,10 +215,10 @@
   resolved "https://registry.yarnpkg.com/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.4.15.tgz#d7c6e6755c78567a951e04ab52ef0fd26de59f32"
   integrity sha512-eF2rxCRulEKXHTRiDrDy6erMYWqNw4LPdQ8UQA4huuxaQsVeRPFl2oM8oDGxMFhJUWZf9McpLtJasDDZb/Bpeg==
 
-"@mekumiao/ssml-editor@^1.0.13":
-  version "1.0.13"
-  resolved "https://registry.yarnpkg.com/@mekumiao/ssml-editor/-/ssml-editor-1.0.13.tgz#e4ed48ed84b2a57adc25332812f4f4cabf68da21"
-  integrity sha512-E7mfwFWpCNzp+jZCT5gaaJtPRQeArZc7gY89wz0ov9C2LtPo+E2HZn+Ka7192pXDR1/+xcYA7/qP5REGHqf3Ig==
+"@mekumiao/ssml-editor@^1.0.14":
+  version "1.0.14"
+  resolved "https://registry.npmjs.org/@mekumiao/ssml-editor/-/ssml-editor-1.0.14.tgz#5df0f5d325ec2b0476d1394e1e7bd0059822741f"
+  integrity sha512-FbQf7u5fS//21K56raml53QmX6MrWJJrnZiX+nhGtNaBEn/lKXnKJ4UYiTESGBuFBEV2HNfPZMaHedo6NJHTlw==
   dependencies:
     "@element-plus/icons-vue" "^2.1.0"
     "@popperjs/core" "^2.11.8"
@@ -236,6 +236,8 @@
     lodash.throttle "^4.1.1"
     lodash.uniqby "^4.7.0"
     pinia "^2.1.6"
+    pinyin-pro "^3.16.4"
+    pinyinize "^3.3.1"
     snabbdom "^3.5.1"
     vue "^3.3.4"
     xml-formatter "^3.5.0"
