@@ -78,6 +78,13 @@ export default {
       menu: '',
     },
     {
+      label: '苏绣姑娘',
+      value: 'https://img.sdaxia.top/upload/%E8%8B%8F%E7%BB%A3%E5%A7%91%E5%A8%98.flac',
+      scene: '',
+      style: '',
+      menu: '',
+    },
+    {
       label: '打鼓背景音',
       value: 'https://gcore.jsdelivr.net/gh/mekumiao/img-hosting/upload/1415_dhol-drums-01.wav',
       scene: '',
