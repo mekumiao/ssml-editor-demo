@@ -215,10 +215,10 @@
   resolved "https://registry.yarnpkg.com/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.4.15.tgz#d7c6e6755c78567a951e04ab52ef0fd26de59f32"
   integrity sha512-eF2rxCRulEKXHTRiDrDy6erMYWqNw4LPdQ8UQA4huuxaQsVeRPFl2oM8oDGxMFhJUWZf9McpLtJasDDZb/Bpeg==
 
-"@mekumiao/ssml-editor@^1.0.15":
-  version "1.0.15"
-  resolved "https://registry.npmjs.org/@mekumiao/ssml-editor/-/ssml-editor-1.0.15.tgz#cc19bb8ec98307de19c29019e538a7f3d4232bca"
-  integrity sha512-Hs4fRcXcStB2am4kxIVtDFI7TTNJH+gRoif+OHwfZo/8AYcsGIy/wUpmP/sj5bjk+FHnzwAmP2rdssMrcahzeA==
+"@mekumiao/ssml-editor@^1.0.16":
+  version "1.0.16"
+  resolved "https://registry.npmjs.org/@mekumiao/ssml-editor/-/ssml-editor-1.0.16.tgz#52cb3cfd634c7d2495233122fcfe29603af46348"
+  integrity sha512-1fa+w7dXTWwOaPZg1wEuKITfOL7JKrciEfmSWK7mV8s0IPkozFcdzdFmQoW7LNOQ6C/dpOozjjrzZ1kPUZuQZw==
   dependencies:
     "@element-plus/icons-vue" "^2.1.0"
     "@popperjs/core" "^2.11.8"
