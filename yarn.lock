@@ -215,14 +215,16 @@
   resolved "https://registry.yarnpkg.com/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.4.15.tgz#d7c6e6755c78567a951e04ab52ef0fd26de59f32"
   integrity sha512-eF2rxCRulEKXHTRiDrDy6erMYWqNw4LPdQ8UQA4huuxaQsVeRPFl2oM8oDGxMFhJUWZf9McpLtJasDDZb/Bpeg==
 
-"@mekumiao/ssml-editor@^1.0.16":
-  version "1.0.16"
-  resolved "https://registry.npmjs.org/@mekumiao/ssml-editor/-/ssml-editor-1.0.16.tgz#52cb3cfd634c7d2495233122fcfe29603af46348"
-  integrity sha512-1fa+w7dXTWwOaPZg1wEuKITfOL7JKrciEfmSWK7mV8s0IPkozFcdzdFmQoW7LNOQ6C/dpOozjjrzZ1kPUZuQZw==
+"@mekumiao/ssml-editor@^1.0.17":
+  version "1.0.17"
+  resolved "https://registry.npmjs.org/@mekumiao/ssml-editor/-/ssml-editor-1.0.17.tgz#33337a02538272ca643de12d033e36fff9b62a65"
+  integrity sha512-pqzZ6U9wJgtyPg9jh3Gk/cMXo7Qcafkj5xaYBeMSc5YyhlheVWKXy4bzZz5vYeGJYKUX5h5SEfoEvGI4gtwiAg==
   dependencies:
     "@element-plus/icons-vue" "^2.1.0"
     "@popperjs/core" "^2.11.8"
+    "@types/lodash.isarray" "^4.0.7"
     "@types/lodash.merge" "^4.6.7"
+    "@types/lodash.mergewith" "^4.6.7"
     "@types/lodash.sorteduniqby" "^4.7.7"
     "@types/lodash.throttle" "^4.1.7"
     "@types/lodash.uniqby" "^4.7.7"
@@ -231,7 +233,9 @@
     bootstrap "github:twbs/bootstrap#39030/head"
     element-plus "^2.3.12"
     event-emitter "^0.3.5"
+    lodash.isarray "^4.0.0"
     lodash.merge "^4.6.2"
+    lodash.mergewith "^4.6.2"
     lodash.sorteduniqby "^4.7.0"
     lodash.throttle "^4.1.1"
     lodash.uniqby "^4.7.0"
@@ -326,10 +330,24 @@
   dependencies:
     "@types/lodash" "*"
 
+"@types/lodash.isarray@^4.0.7":
+  version "4.0.7"
+  resolved "https://registry.npmjs.org/@types/lodash.isarray/-/lodash.isarray-4.0.7.tgz#14cc4718fdd5bde829e6ddd7d925d110a98fe821"
+  integrity sha512-j4LGkaWRU3siKODqnY9xffwoJgnpp4TYsfCxDhRSZwIbX4qD+TkH483r6+mqGkgqlnP08NhjQYhDXPLWgA2uxQ==
+  dependencies:
+    "@types/lodash" "*"
+
 "@types/lodash.merge@^4.6.7":
   version "4.6.7"
   resolved "https://registry.yarnpkg.com/@types/lodash.merge/-/lodash.merge-4.6.7.tgz#0af6555dd8bc6568ef73e5e0d820a027362946b1"
   integrity sha512-OwxUJ9E50gw3LnAefSHJPHaBLGEKmQBQ7CZe/xflHkyy/wH2zVyEIAKReHvVrrn7zKdF58p16We9kMfh7v0RRQ==
+  dependencies:
+    "@types/lodash" "*"
+
+"@types/lodash.mergewith@^4.6.7":
+  version "4.6.7"
+  resolved "https://registry.npmjs.org/@types/lodash.mergewith/-/lodash.mergewith-4.6.7.tgz#eaa65aa5872abdd282f271eae447b115b2757212"
+  integrity sha512-3m+lkO5CLRRYU0fhGRp7zbsGi6+BZj0uTVSwvcKU+nSlhjA9/QRNfuSGnD2mX6hQA7ZbmcCkzk5h4ZYGOtk14A==
   dependencies:
     "@types/lodash" "*"
 
@@ -1688,6 +1706,11 @@ lodash.foreach@^4.5.0:
   resolved "https://registry.yarnpkg.com/lodash.foreach/-/lodash.foreach-4.5.0.tgz#1a6a35eace401280c7f06dddec35165ab27e3e53"
   integrity sha512-aEXTF4d+m05rVOAUG3z4vZZ4xVexLKZGF0lIxuHZ1Hplpk/3B6Z1+/ICICYRLm7c41Z2xiejbkCkJoTlypoXhQ==
 
+lodash.isarray@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.npmjs.org/lodash.isarray/-/lodash.isarray-4.0.0.tgz#2aca496b28c4ca6d726715313590c02e6ea34403"
+  integrity sha512-V8ViWvoNlXpCrB6Ewaj3ScRXUpmCvqp4tJUxa3dlovuJj/8lp3SND5Kw4v5OeuHgoyw4qJN+gl36qZqp6WYQ6g==
+
 lodash.isequal@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.isequal/-/lodash.isequal-4.5.0.tgz#415c4478f2bcc30120c22ce10ed3226f7d3e18e0"
@@ -1697,6 +1720,11 @@ lodash.merge@^4.6.2:
   version "4.6.2"
   resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.2.tgz#558aa53b43b661e1925a0afdfa36a9a1085fe57a"
   integrity sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==
+
+lodash.mergewith@^4.6.2:
+  version "4.6.2"
+  resolved "https://registry.npmjs.org/lodash.mergewith/-/lodash.mergewith-4.6.2.tgz#617121f89ac55f59047c7aec1ccd6654c6590f55"
+  integrity sha512-GK3g5RPZWTRSeLSpgP8Xhra+pnjBC56q9FZYe1d5RN3TJ35dbkGy3YqBSMbyCrlbi+CM9Z3Jk5yTL7RCsqboyQ==
 
 lodash.sorteduniqby@^4.7.0:
   version "4.7.0"

@@ -11,7 +11,7 @@ const mock = new MockAdapter(axios)
 
 mock.onGet('/english').reply((config) => {
   const word = config.params.word as string
-  const data = (DataSource.english as Record<string, LabelValue[]>)[word] ?? []
+  const data = (DataSource.english as Record<string, LabelValue[]>)[word] || []
   return [200, data]
 })
 
@@ -22,6 +22,7 @@ mock.onGet('/bgm').reply((config) => {
     .filter((v) => v.menu.includes(filter.menu))
     .filter((v) => v.scene.includes(filter.scene))
     .filter((v) => v.style.includes(filter.style))
+    .map<LabelValue>((v) => ({ label: v.label, value: v.value }))
   return [200, data]
 })
 
@@ -32,6 +33,7 @@ mock.onGet('/special').reply((config) => {
     .filter((v) => v.menu.includes(filter.menu))
     .filter((v) => v.scene.includes(filter.scene))
     .filter((v) => v.style.includes(filter.style))
+    .map<LabelValue>((v) => ({ label: v.label, value: v.value }))
   return [200, data]
 })
 
@@ -65,6 +67,7 @@ mock.onGet('/speaker').reply((config) => {
     .map(
       (v) =>
         <Speaker>{
+          id: v.name,
           displayName: v.LocalName,
           name: v.name,
           isFree: false,
@@ -73,11 +76,11 @@ mock.onGet('/speaker').reply((config) => {
           avatar: '',
           roles: v.VoiceRoleNames.split(',').map((n) => {
             const des = getRoleDes(n)
-            return { label: des?.word ?? n, value: n, emoji: des?.emoji }
+            return { label: des?.word || n, value: n, emoji: des?.emoji }
           }),
           styles: v.VoiceStyleNames.split(',').map((n) => {
             const des = getStyleDes(n)
-            return { label: des?.word ?? n, value: n, emoji: des?.emoji }
+            return { label: des?.word || n, value: n, emoji: des?.emoji }
           }),
         },
     )
@@ -121,6 +124,7 @@ mock.onGet('/conversionSpeaker').reply(() => {
   const data = voices.map(
     (v) =>
       <Speaker>{
+        id: v.name,
         displayName: v.LocalName,
         name: v.name,
         isFree: false,
@@ -129,11 +133,11 @@ mock.onGet('/conversionSpeaker').reply(() => {
         avatar: '',
         roles: v.VoiceRoleNames.split(',').map((n) => {
           const des = getRoleDes(n)
-          return { label: des?.word ?? n, value: n, emoji: des?.emoji }
+          return { label: des?.word || n, value: n, emoji: des?.emoji }
         }),
         styles: v.VoiceStyleNames.split(',').map((n) => {
           const des = getStyleDes(n)
-          return { label: des?.word ?? n, value: n, emoji: des?.emoji }
+          return { label: des?.word || n, value: n, emoji: des?.emoji }
         }),
       },
   )
@@ -154,6 +158,7 @@ mock.onPost('/recentUsage').reply((config) => {
 mock.onGet('/recentUsage').reply(() => {
   const data = <RecentUsageSpeaker[]>[
     {
+      id: '1',
       category: '',
       label: '晓萱|年轻成年女性|冷静|1.0x',
       name: 'zh-CN-XiaoxuanNeural',
@@ -163,6 +168,7 @@ mock.onGet('/recentUsage').reply(() => {
       style: 'calm',
     },
     {
+      id: '2',
       category: '',
       label: '晓萱|年轻成年女性|冷静|1.0x',
       name: 'zh-CN-XiaoxuanNeural',
@@ -172,6 +178,7 @@ mock.onGet('/recentUsage').reply(() => {
       style: 'calm',
     },
     {
+      id: '3',
       category: '',
       label: '晓萱|年轻成年女性|冷静|1.0x',
       name: 'zh-CN-XiaoxuanNeural',
@@ -181,6 +188,7 @@ mock.onGet('/recentUsage').reply(() => {
       style: 'calm',
     },
     {
+      id: '4',
       category: '',
       label: '晓萱|年轻成年女性|冷静|1.0x',
       name: 'zh-CN-XiaoxuanNeural',
