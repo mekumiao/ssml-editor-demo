@@ -1,8 +1,21 @@
-import type { PartialSSMLEditorConfig } from '@mekumiao/ssml-editor'
+import type { PartialSSMLEditorConfig, Speaker } from '@mekumiao/ssml-editor'
 import { english, bgm, special, scene, style, tag, speaker, star } from './api'
 import { upload, transfer, conversionSpeaker, play } from './api'
 import { fetchRecentUsage, deleteRecentUsage, recordRecentUsage } from './api'
 import { ElMessage } from 'element-plus'
+
+/**
+ * 覆盖试听面板的speaker选中方法
+ * @param speaker 将选中的speaker
+ * @param setter 设置选中的speaker
+ */
+async function selectSpeaker(speaker: Speaker, setter: (speaker: Speaker) => void) {
+  if (!speaker.isFree) {
+    ElMessage.warning({ message: '会员独享', grouping: true })
+  } else {
+    setter(speaker)
+  }
+}
 
 export default <PartialSSMLEditorConfig>{
   effects: { grayscale: false, zoom: true },
@@ -15,7 +28,13 @@ export default <PartialSSMLEditorConfig>{
   // 音效菜单 搜索,切换选项卡时请求数据用
   special: { fetchData: special, fetchScene: scene, fetchStyle: style },
   // 试听面板 数据结构和其他配置(支持自定义配音师类别,性别,等数据)
-  tryPlay: { featchTag: tag, fetchData: speaker, fetchStar: star, play: play },
+  tryPlay: {
+    featchTag: tag,
+    fetchData: speaker,
+    fetchStar: star,
+    play: play,
+    selectSpeaker: selectSpeaker,
+  },
   // 局部变音
   conversion: {
     // 文件上传超时时间

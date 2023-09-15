@@ -215,10 +215,10 @@
   resolved "https://registry.yarnpkg.com/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.4.15.tgz#d7c6e6755c78567a951e04ab52ef0fd26de59f32"
   integrity sha512-eF2rxCRulEKXHTRiDrDy6erMYWqNw4LPdQ8UQA4huuxaQsVeRPFl2oM8oDGxMFhJUWZf9McpLtJasDDZb/Bpeg==
 
-"@mekumiao/ssml-editor@^1.0.18":
-  version "1.0.18"
-  resolved "https://registry.npmjs.org/@mekumiao/ssml-editor/-/ssml-editor-1.0.18.tgz#61b2145ef16bbfea7139d8779be422a8bcc2129e"
-  integrity sha512-7QcXnO8XPjvwQ0nUkigK03yVHSoaetZMLVIEFXPVb6qY1+u1ZLciNnNirmLuAZrXmtW7baS00/EYGRKh2/rkdQ==
+"@mekumiao/ssml-editor@^1.0.19":
+  version "1.0.19"
+  resolved "https://registry.npmjs.org/@mekumiao/ssml-editor/-/ssml-editor-1.0.19.tgz#42ed44c13db79ed559cb6559e8affdbd41f84259"
+  integrity sha512-+71v+2G9E23BCP0RlsKixWkdiZ+Yzy60dqtW8QPt2W99FegvmJ92IdUD3OGv0Nn6Fu7fNWHrdBjmXmsTO2DDvA==
   dependencies:
     "@element-plus/icons-vue" "^2.1.0"
     "@popperjs/core" "^2.11.8"
@@ -230,7 +230,7 @@
     "@types/lodash.uniqby" "^4.7.7"
     "@vueuse/core" "^10.4.1"
     "@wangeditor/editor" "^5.1.23"
-    bootstrap "github:twbs/bootstrap#39030/head"
+    bootstrap "^5.3.2"
     element-plus "^2.3.12"
     event-emitter "^0.3.5"
     lodash.isarray "^4.0.0"
@@ -880,9 +880,10 @@ boolbase@^1.0.0:
   resolved "https://registry.yarnpkg.com/boolbase/-/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
   integrity sha512-JZOSA7Mo9sNGB8+UjSgzdLtokWAky1zbztM3WRLCbZ70/3cTANmQmOdR7y2g+J0e2WXywy1yS468tY+IruqEww==
 
-"bootstrap@github:twbs/bootstrap#39030/head":
-  version "5.3.1"
-  resolved "https://codeload.github.com/twbs/bootstrap/tar.gz/f03567c66b7e9010bb90de29d04f34760bc1528d"
+bootstrap@^5.3.2:
+  version "5.3.2"
+  resolved "https://registry.npmjs.org/bootstrap/-/bootstrap-5.3.2.tgz#97226583f27aae93b2b28ab23f4c114757ff16ae"
+  integrity sha512-D32nmNWiQHo94BKHLmOrdjlL05q1c8oxbtBphQFb9Z5to6eGRDCm0QgeaZ4zFBHzfg2++rqa2JkqCcxDy0sH0g==
 
 bplist-parser@^0.2.0:
   version "0.2.0"
