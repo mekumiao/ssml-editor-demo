@@ -2,6 +2,7 @@ import type { PartialSSMLEditorConfig, Speaker } from '@mekumiao/ssml-editor'
 import { english, bgm, special, scene, style, tag, speaker, star } from './api'
 import { upload, transfer, conversionSpeaker, play } from './api'
 import { fetchRecentUsage, deleteRecentUsage, recordRecentUsage } from './api'
+import { sleep } from '@mekumiao/ssml-editor'
 import { ElMessage } from 'element-plus'
 
 /**
@@ -17,8 +18,19 @@ async function selectSpeaker(speaker: Speaker, setter: (speaker: Speaker) => voi
   }
 }
 
+async function saveHtml(getter: () => string) {
+  await sleep(1000)
+  window.localStorage.setItem('editor-html', getter())
+  return Promise.resolve(true)
+}
+
+async function readHtml() {
+  return window.localStorage.getItem('editor-html')
+}
+
 export default <PartialSSMLEditorConfig>{
   effects: { grayscale: false, zoom: true },
+  editorConfig: { saveHtml: saveHtml, readHtml: readHtml },
   // 错误处理
   handleError: (error) => ElMessage.warning({ message: error, grouping: true }),
   // 音标菜单请求音标用
