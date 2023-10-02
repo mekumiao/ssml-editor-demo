@@ -1,6 +1,6 @@
 import axios from 'axios'
 import '../mock'
-import type { FilterBarSearch } from '@mekumiao/ssml-editor'
+import { sleep, type FilterBarSearch } from '@mekumiao/ssml-editor'
 import type { FilterSpeaker, LabelValue, Speaker } from '@mekumiao/ssml-editor'
 import type { CancellationToken, AudioInfo, RecentUsageSpeaker } from '@mekumiao/ssml-editor'
 
@@ -89,4 +89,14 @@ export async function fetchRecentUsage(): Promise<RecentUsageSpeaker[]> {
 export async function deleteRecentUsage(id?: string): Promise<void> {
   const resp = await axios.delete('/recentUsage', { params: { id } })
   return resp.data
+}
+
+export async function saveHtml(getter: () => string) {
+  await sleep(200)
+  window.localStorage.setItem('editor-html', getter())
+  return true
+}
+
+export async function readHtml() {
+  return window.localStorage.getItem('editor-html')
 }

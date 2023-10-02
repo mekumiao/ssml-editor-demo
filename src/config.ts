@@ -1,15 +1,9 @@
 import type { PartialSSMLEditorConfig, Speaker } from '@mekumiao/ssml-editor'
 import { english, bgm, special, scene, style, tag, speaker, star } from './api'
-import { upload, transfer, conversionSpeaker, play } from './api'
+import { upload, transfer, conversionSpeaker, play, readHtml, saveHtml } from './api'
 import { fetchRecentUsage, deleteRecentUsage, recordRecentUsage } from './api'
-import { sleep } from '@mekumiao/ssml-editor'
 import { ElMessage } from 'element-plus'
 
-/**
- * 覆盖试听面板的speaker选中方法
- * @param speaker 将选中的speaker
- * @param setter 设置选中的speaker
- */
 async function selectSpeaker(speaker: Speaker, setter: (speaker: Speaker) => void) {
   if (!speaker.isFree) {
     ElMessage.warning({ message: '会员独享', grouping: true })
@@ -18,21 +12,22 @@ async function selectSpeaker(speaker: Speaker, setter: (speaker: Speaker) => voi
   }
 }
 
-async function saveHtml(getter: () => string) {
-  await sleep(1000)
-  window.localStorage.setItem('editor-html', getter())
-  return Promise.resolve(true)
-}
-
-async function readHtml() {
-  return window.localStorage.getItem('editor-html')
-}
-
 export default <PartialSSMLEditorConfig>{
   effects: { grayscale: false, zoom: true },
   editorConfig: { saveHtml: saveHtml, readHtml: readHtml },
+  handleWarn: (message) => {
+    ElMessage.warning({ message: message, grouping: true })
+  },
   // 错误处理
-  handleError: (error) => ElMessage.warning({ message: error, grouping: true }),
+  handleError: (error) => {
+    if (typeof error === 'string') {
+      ElMessage.error({ message: error, grouping: true })
+    } else if (error instanceof Error) {
+      ElMessage.error({ message: error.message, grouping: true })
+    } else {
+      console.error(error)
+    }
+  },
   // 音标菜单请求音标用
   english: { fetchData: english },
   // 配乐菜单 搜索,切换选项卡时请求数据用
