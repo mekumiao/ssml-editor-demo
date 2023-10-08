@@ -1,5 +1,6 @@
 import axios from 'axios'
 import '../mock'
+import { html } from '../mock/ssml'
 import { sleep, type FilterBarSearch } from '@mekumiao/ssml-editor'
 import type { FilterSpeaker, LabelValue, Speaker } from '@mekumiao/ssml-editor'
 import type { CancellationToken, AudioInfo, RecentUsageSpeaker } from '@mekumiao/ssml-editor'
@@ -98,5 +99,5 @@ export async function saveHtml(getter: () => string) {
 }
 
 export async function readHtml() {
-  return window.localStorage.getItem('editor-html')
+  return window.localStorage.getItem('editor-html') || html
 }
