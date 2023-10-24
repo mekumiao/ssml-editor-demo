@@ -103,7 +103,7 @@ export async function play(ssmlGetter: () => string): Promise<AudioInfo> {
           ),
           '按钮获取生成的内容,再使用',
           h('a', { target: '_blank', href: 'https://github.com/LokerL/tts-vue' }, 'tts-vue'),
-          '工具合成语言',
+          '工具合成语音',
         ]),
       ]),
     ]),
