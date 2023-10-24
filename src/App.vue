@@ -6,4 +6,9 @@ import { EditorView } from '@mekumiao/ssml-editor'
   <EditorView></EditorView>
 </template>
 
-<style scoped></style>
+<style>
+body {
+  padding: 0px;
+  margin: 0px;
+}
+</style>

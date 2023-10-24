@@ -1,6 +1,8 @@
 import axios from 'axios'
 import '../mock'
+import { h } from 'vue'
 import { html } from '../mock/ssml'
+import { ElNotification } from 'element-plus'
 import { sleep, type FilterBarSearch } from '@mekumiao/ssml-editor'
 import type { FilterSpeaker, LabelValue, Speaker } from '@mekumiao/ssml-editor'
 import type { CancellationToken, AudioInfo, RecentUsageSpeaker } from '@mekumiao/ssml-editor'
@@ -73,6 +75,38 @@ export async function conversionSpeaker(): Promise<Speaker[]> {
 
 export async function play(ssmlGetter: () => string): Promise<AudioInfo> {
   const ssml = ssmlGetter()
+  const notification = ElNotification.success({
+    title: '提示',
+    duration: 0,
+    message: h('div', [
+      h('h4', '此项目仅支持生成SSML'),
+      h('div', [
+        h('div', [
+          '请点击顶部的',
+          h('b', { style: { color: 'blue' } }, '查看SSML'),
+          '或者',
+          h(
+            'b',
+            {
+              style: {
+                padding: '0px',
+                margin: '0px',
+                color: 'blue',
+                cursor: 'pointer',
+                'text-decoration': 'underline',
+              },
+              onclick: () => {
+                navigator.clipboard.writeText(ssml)
+                notification.close()
+              },
+            },
+            '复制',
+          ),
+          '按钮获取生成的内容,再使用tts-vue工具合成语言',
+        ]),
+      ]),
+    ]),
+  })
   const resp = await axios.post('/play', { ssml })
   return resp.data
 }
