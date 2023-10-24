@@ -13,7 +13,7 @@ async function selectSpeaker(speaker: Speaker, setter: (speaker: Speaker) => voi
 }
 
 export default <PartialSSMLEditorConfig>{
-  effects: { grayscale: false, zoom: true },
+  animation: { grayscale: false, zoom: true },
   editorConfig: { saveHtml: saveHtml, readHtml: readHtml },
   handleWarn: (message) => {
     ElMessage.warning({ message: message, grouping: true })
