@@ -6,7 +6,8 @@ import { ElMessage } from 'element-plus'
 
 async function selectSpeaker(speaker: Speaker, setter: (speaker: Speaker) => void) {
   if (!speaker.isFree) {
-    ElMessage.warning({ message: '会员独享', grouping: true })
+    ElMessage.warning({ message: '模拟会员独享功能', grouping: true })
+    setter(speaker)
   } else {
     setter(speaker)
   }
