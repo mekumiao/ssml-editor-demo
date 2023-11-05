@@ -220,10 +220,10 @@
   resolved "https://registry.npmjs.org/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.4.15.tgz#d7c6e6755c78567a951e04ab52ef0fd26de59f32"
   integrity sha512-eF2rxCRulEKXHTRiDrDy6erMYWqNw4LPdQ8UQA4huuxaQsVeRPFl2oM8oDGxMFhJUWZf9McpLtJasDDZb/Bpeg==
 
-"@mekumiao/ssml-editor@^2.0.6":
-  version "2.0.6"
-  resolved "https://registry.npmjs.org/@mekumiao/ssml-editor/-/ssml-editor-2.0.6.tgz#ee90bc241541474dbc8e61bd7e9ec471cdd72b72"
-  integrity sha512-Y1wGI0SNlJo9EV6lfxUpSO8VYHNrZ/ZkHDGEgKnIhVuOpULTO3Fu4uGvPWMPRgTrFMZcU7rYeALowgw1VqMp8g==
+"@mekumiao/ssml-editor@^2.0.7":
+  version "2.0.7"
+  resolved "https://registry.npmjs.org/@mekumiao/ssml-editor/-/ssml-editor-2.0.7.tgz#55e73b1556506a1aecfb81ff9aa219ad5bfdb464"
+  integrity sha512-q4aD0sfXjPKIx3qG6vtwEwg7M05BjUUFERs2KChq4lUi17lOf9IwDstYaldy1ZW8rC+J17x01rUpF3nuBJWy4w==
   dependencies:
     "@element-plus/icons-vue" "^2.1.0"
     "@highlightjs/vue-plugin" "^2.1.0"
