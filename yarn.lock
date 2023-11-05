@@ -220,10 +220,10 @@
   resolved "https://registry.npmjs.org/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.4.15.tgz#d7c6e6755c78567a951e04ab52ef0fd26de59f32"
   integrity sha512-eF2rxCRulEKXHTRiDrDy6erMYWqNw4LPdQ8UQA4huuxaQsVeRPFl2oM8oDGxMFhJUWZf9McpLtJasDDZb/Bpeg==
 
-"@mekumiao/ssml-editor@^2.0.1":
-  version "2.0.2"
-  resolved "https://registry.npmjs.org/@mekumiao/ssml-editor/-/ssml-editor-2.0.2.tgz#7ba09a85768987b8204e026302e507f1d08ef16e"
-  integrity sha512-xbpme8ZdG/4vHTN4INPiNSzEJNDqcKighopOo06EvIrIgFgVl7OGSWJLXKf6ox+nKMOdzhkOOBb8fx/CKVzgBQ==
+"@mekumiao/ssml-editor@^2.0.4":
+  version "2.0.4"
+  resolved "https://registry.npmjs.org/@mekumiao/ssml-editor/-/ssml-editor-2.0.4.tgz#b453f8427f9ed533d2034f2a087a3e57029ec2b6"
+  integrity sha512-b+R/NIdmEPUeSNgqIoF6drGFzXVpqXQf++bjyn6A38UiO8r44VLoiqoJLWD2s2MoECy23f5I7Ll6mU/66fxDpg==
   dependencies:
     "@element-plus/icons-vue" "^2.1.0"
     "@highlightjs/vue-plugin" "^2.1.0"
@@ -237,6 +237,7 @@
     "@vueuse/core" "^10.4.1"
     "@wangeditor/editor" "^5.1.23"
     bootstrap "^5.3.2"
+    dayjs "^1.11.10"
     element-plus "^2.3.12"
     event-emitter "^0.3.5"
     highlight.js "^11.9.0"
@@ -1000,7 +1001,7 @@ d@1, d@^1.0.1:
     es5-ext "^0.10.50"
     type "^1.0.1"
 
-dayjs@^1.11.3:
+dayjs@^1.11.10, dayjs@^1.11.3:
   version "1.11.10"
   resolved "https://registry.npmjs.org/dayjs/-/dayjs-1.11.10.tgz#68acea85317a6e164457d6d6947564029a6a16a0"
   integrity sha512-vjAczensTgRcqDERK0SR2XMwsF/tSvnvlv6VcF2GIhg6Sx4yOIt/irsr1RDJsKiIyBzJDpCoXiWWq28MqH2cnQ==
