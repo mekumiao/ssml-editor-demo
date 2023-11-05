@@ -1,9 +1,15 @@
 <script setup lang="ts">
 import { EditorView } from '@mekumiao/ssml-editor'
+import config from './config'
+import type { IDomEditor } from '@wangeditor/editor'
+
+function handleCreated(editor: IDomEditor) {
+  window.editor = editor
+}
 </script>
 
 <template>
-  <EditorView></EditorView>
+  <EditorView @created="handleCreated" :config="config"></EditorView>
 </template>
 
 <style>
