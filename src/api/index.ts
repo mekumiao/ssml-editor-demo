@@ -134,5 +134,5 @@ export async function saveHtml(getter: () => string) {
 }
 
 export async function readHtml() {
-  return window.localStorage.getItem('editor-html') || html
+  return window.html || window.localStorage.getItem('editor-html') || html
 }
