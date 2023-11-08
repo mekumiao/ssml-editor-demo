@@ -2,7 +2,20 @@ import type { PartialSSMLEditorConfig, Speaker } from '@mekumiao/ssml-editor'
 import { english, bgm, special, scene, style, tag, speaker, star } from './api'
 import { upload, transfer, conversionSpeaker, play, readHtml, saveHtml } from './api'
 import { fetchRecentUsage, deleteRecentUsage, recordRecentUsage } from './api'
-import { ElMessage } from 'element-plus'
+import { ElMessage, ElNotification } from 'element-plus'
+import { emitter, defaultAvatar } from '@mekumiao/ssml-editor'
+import { h } from 'vue'
+
+emitter.on('tryplay-speaker-detail-show', (speaker) => {
+  ElNotification.info({
+    title: '配音师详情',
+    message: h('div', [
+      h('img', { src: speaker.avatar || defaultAvatar(), height: 60, width: 60 }),
+      h('h4', [h('span', 'ID: '), h('span', speaker.name)]),
+      h('h4', [h('span', '名称: '), h('span', speaker.displayName)]),
+    ]),
+  })
+})
 
 async function selectSpeaker(speaker: Speaker, setter: (speaker: Speaker) => void) {
   if (!speaker.isFree) {
