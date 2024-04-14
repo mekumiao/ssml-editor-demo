@@ -1,8 +1,7 @@
 import axios from 'axios'
 import '../mock'
-import { h } from 'vue'
 import { html } from '../mock/ssml'
-import { ElNotification } from 'element-plus'
+import { ElNotification, ElButton } from 'element-plus'
 import { sleep, type FilterBarSearch } from '@mekumiao/ssml-editor'
 import type { FilterSpeaker, LabelValue, Speaker } from '@mekumiao/ssml-editor'
 import type { CancellationToken, AudioInfo, RecentUsageSpeaker } from '@mekumiao/ssml-editor'
@@ -77,36 +76,33 @@ export async function play(ssmlGetter: () => string): Promise<AudioInfo> {
   const ssml = ssmlGetter()
   const notification = ElNotification.success({
     title: '提示',
-    message: h('div', [
-      h('h4', '此项目仅支持生成SSML'),
-      h('div', [
-        h('div', [
-          '请点击顶部的',
-          h('b', { style: { color: 'blue' } }, '查看SSML'),
-          '或者',
-          h(
-            'b',
-            {
-              style: {
-                padding: '0px',
-                margin: '0px',
-                color: 'blue',
-                cursor: 'pointer',
-                'text-decoration': 'underline',
-              },
-              onclick: () => {
-                navigator.clipboard.writeText(ssml)
-                notification.close()
-              },
-            },
-            '复制',
-          ),
-          '按钮获取生成的内容,再使用',
-          h('a', { target: '_blank', href: 'https://github.com/LokerL/tts-vue' }, 'tts-vue'),
-          '工具合成语音',
-        ]),
-      ]),
-    ]),
+    message: (
+      <div>
+        <h4>此项目仅支持生成SSML</h4>
+        <div>
+          <span>请点击顶部的</span>
+          <ElButton type="warning" size="small">
+            显示SSML
+          </ElButton>
+          <span>或者</span>
+          <ElButton
+            type="warning"
+            size="small"
+            onClick={() => {
+              navigator.clipboard.writeText(ssml)
+              notification.close()
+            }}
+          >
+            复制SSML
+          </ElButton>
+          <span>按钮获取生成的内容,再使用</span>
+          <a target="_blank" href="https://github.com/LokerL/tts-vue">
+            tts-vue
+          </a>
+          <span>工具合成语音</span>
+        </div>
+      </div>
+    ),
   })
   const resp = await axios.post('/play', { ssml })
   return resp.data

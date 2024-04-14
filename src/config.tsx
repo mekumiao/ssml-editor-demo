@@ -4,16 +4,23 @@ import { upload, transfer, conversionSpeaker, play, readHtml, saveHtml } from '.
 import { fetchRecentUsage, deleteRecentUsage, recordRecentUsage } from './api'
 import { ElMessage, ElNotification } from 'element-plus'
 import { emitter, defaultAvatar } from '@mekumiao/ssml-editor'
-import { h } from 'vue'
 
 emitter.on('tryplay-speaker-detail-show', (speaker) => {
   ElNotification.info({
     title: '配音师详情',
-    message: h('div', [
-      h('img', { src: speaker.avatar || defaultAvatar(), height: 60, width: 60 }),
-      h('h4', [h('span', 'ID: '), h('span', speaker.name)]),
-      h('h4', [h('span', '名称: '), h('span', speaker.displayName)]),
-    ]),
+    message: (
+      <div>
+        <img src={speaker.avatar || defaultAvatar()} height={60} width={60} />
+        <h4>
+          <span>ID:</span>
+          <span>{speaker.name}</span>
+        </h4>
+        <h4>
+          <span>名称:</span>
+          <span>{speaker.displayName}</span>
+        </h4>
+      </div>
+    ),
   })
 })
 
@@ -26,11 +33,12 @@ async function selectSpeaker(speaker: Speaker, setter: (speaker: Speaker) => voi
   }
 }
 
-export default <PartialSSMLEditorConfig>{
+export default {
   animation: { grayscale: false, zoom: true },
   editorConfig: { saveHtml: saveHtml, readHtml: readHtml },
   handleWarn: (message) => {
     ElMessage.warning({ message: message, grouping: true })
+    console.warn(message)
   },
   // 错误处理
   handleError: (error) => {
@@ -38,9 +46,8 @@ export default <PartialSSMLEditorConfig>{
       ElMessage.error({ message: error, grouping: true })
     } else if (error instanceof Error) {
       ElMessage.error({ message: error.message, grouping: true })
-    } else {
-      console.error(error)
     }
+    console.error(error)
   },
   // 音标菜单请求音标用
   english: { fetchData: english },
@@ -76,4 +83,4 @@ export default <PartialSSMLEditorConfig>{
     // 记录最近使用接口
     recordRecentUsage: recordRecentUsage,
   },
-}
+} as PartialSSMLEditorConfig
